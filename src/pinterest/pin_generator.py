@@ -114,47 +114,60 @@ def generate_pin_for_recipe(recipe, config, output_path):
             draw.text(((width - h_w) / 2, y_text), line, fill="#4A5568", font=head_font)
             y_text += 34
 
-    # 6. Central Visual Hero Card Area (Framed Showcase)
-    center_y = max(y_text + 30, 480)
-    card_margin = 60
+    # 6. Central Visual Hero Card Area (Photo Showcase)
+    center_y = max(y_text + 25, 470)
+    card_w = width - 120
     card_h = 580
-    card_rect = [(card_margin, center_y), (width - card_margin, center_y + card_h)]
+    card_x = 60
 
-    # Draw gradient-tinted background card for food visual
-    draw.rounded_rectangle(card_rect, radius=18, fill="#F3EFE6", outline="#DDD5C7", width=2)
+    # Load real recipe photo if available
+    recipe_img_path = os.path.join(BASE_DIR, "public", "assets", "images", "recipes", f"{recipe.get('id')}.jpg")
+    if os.path.exists(recipe_img_path):
+        try:
+            food_im = Image.open(recipe_img_path).convert("RGB")
+            # Calculate aspect fill crop for card_w x card_h
+            im_w, im_h = food_im.size
+            target_ratio = card_w / card_h
+            current_ratio = im_w / im_h
 
-    # Decorative inner shadow effect / culinary vignette
-    inner_margin = card_margin + 16
-    inner_h = card_h - 32
-    draw.rounded_rectangle(
-        [(inner_margin, center_y + 16), (width - inner_margin, center_y + 16 + inner_h)],
-        radius=14,
-        fill="#EBE4D5"
-    )
+            if current_ratio > target_ratio:
+                new_w = int(im_h * target_ratio)
+                left = (im_w - new_w) // 2
+                food_im = food_im.crop((left, 0, left + new_w, im_h))
+            else:
+                new_h = int(im_w / target_ratio)
+                top = (im_h - new_h) // 2
+                food_im = food_im.crop((0, top, im_w, top + new_h))
 
-    # Central Culinary Icon / Badge
-    center_box_w = 420
-    center_box_h = 180
-    cb_x = (width - center_box_w) / 2
-    cb_y = center_y + (card_h - center_box_h) / 2 - 40
+            food_im = food_im.resize((card_w, card_h), Image.Resampling.LANCZOS)
 
-    draw.rounded_rectangle(
-        [(cb_x, cb_y), (cb_x + center_box_w, cb_y + center_box_h)],
-        radius=16,
-        fill="#FFFFFF",
-        outline=accent,
-        width=3
-    )
+            # Create rounded mask
+            mask = Image.new("L", (card_w, card_h), 0)
+            mask_draw = ImageDraw.Draw(mask)
+            mask_draw.rounded_rectangle([(0, 0), (card_w, card_h)], radius=20, fill=255)
 
-    chef_badge_font = get_font(SANS_BOLD, 18)
-    draw.text((cb_x + 30, cb_y + 24), "★ CHEF TESTED & NUTRITIONIST APPROVED", fill=accent, font=chef_badge_font)
+            # Paste cropped food photo onto canvas using mask
+            img.paste(food_im, (card_x, center_y), mask)
 
-    time_callout = f"{recipe.get('total_time', 20)} MINUTE DINNER"
-    time_font = get_font(SERIF_BOLD, 36)
-    draw.text((cb_x + 30, cb_y + 58), time_callout, fill="#1A202C", font=time_font)
+            # Draw outer border around photo
+            draw.rounded_rectangle([(card_x, center_y), (card_x + card_w, center_y + card_h)], radius=20, outline="#D5CEC0", width=2)
 
-    easy_font = get_font(SANS_REG, 20)
-    draw.text((cb_x + 30, cb_y + 115), "Low Prep  •  Easy Cleanup  •  Amazon Staples", fill="#555555", font=easy_font)
+            # Overlay floating badge on top right of photo
+            badge_text = f"★ {recipe.get('total_time', 20)} MIN RECIPE"
+            b_font = get_font(SANS_BOLD, 18)
+            b_bbox = draw.textbbox((0, 0), badge_text, font=b_font)
+            bw = b_bbox[2] - b_bbox[0] + 28
+            bh = 38
+            bx = card_x + card_w - bw - 18
+            by = center_y + 18
+            draw.rounded_rectangle([(bx, by), (bx + bw, by + bh)], radius=19, fill="#1A202CE6")
+            draw.text((bx + 14, by + 9), badge_text, fill="#FFFFFF", font=b_font)
+
+        except Exception as e:
+            # Fallback to plain card if image loading fails
+            draw.rounded_rectangle([(card_x, center_y), (card_x + card_w, center_y + card_h)], radius=20, fill="#F3EFE6", outline="#DDD5C7", width=2)
+    else:
+        draw.rounded_rectangle([(card_x, center_y), (card_x + card_w, center_y + card_h)], radius=20, fill="#F3EFE6", outline="#DDD5C7", width=2)
 
     # 7. High-Converting Macro & Benefit Badges (Horizontal Row of 4 Pills)
     badges_y = center_y + card_h - 120
