@@ -752,9 +752,9 @@ def build_recipe_page(recipe, config, all_recipes):
     related_html = ""
     for r in related:
         related_html += f"""
-        <a href="/recipes/{r['id']}.html" class="recipe-card">
+        <a href="{r['id']}.html" class="recipe-card">
           <div class="card-media">
-            <img src="/assets/pins/pin-{r['id']}.png" alt="{r['title']}" loading="lazy">
+            <img src="../assets/pins/pin-{r['id']}.png" alt="{r['title']}" loading="lazy">
             <span class="card-badge-top">{r['category']}</span>
             <span class="card-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -800,12 +800,12 @@ def build_recipe_page(recipe, config, all_recipes):
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="brand">Pure<span>Plated</span></a>
+      <a href="../" class="brand">Pure<span>Plated</span></a>
       <nav class="nav-links">
-        <a href="/">Recipes</a>
-        <a href="/#tools">Kitchen Tools</a>
-        <a href="/#about">About</a>
-        <a href="/" class="nav-cta">Daily Meal Plan</a>
+        <a href="../#recipes">Recipes</a>
+        <a href="../#tools">Kitchen Tools</a>
+        <a href="../#about">About</a>
+        <a href="../meal-planner.html" class="nav-cta">Weekly Meal Plan</a>
       </nav>
     </div>
   </header>
@@ -813,7 +813,7 @@ def build_recipe_page(recipe, config, all_recipes):
   <main class="container recipe-page">
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-      <a href="/">Home</a> &gt; <span>{recipe.get('category', 'Recipes')}</span> &gt; <span>{recipe['title']}</span>
+      <a href="../">Home</a> &gt; <span>{recipe.get('category', 'Recipes')}</span> &gt; <span>{recipe['title']}</span>
     </div>
 
     <!-- Recipe Header -->
@@ -862,7 +862,7 @@ def build_recipe_page(recipe, config, all_recipes):
         </div>
       </div>
       <div class="pin-preview-box">
-        <img src="/assets/pins/pin-{slug}.png" alt="Pinterest Pin for {recipe['title']}" width="300" height="450">
+        <img src="../assets/pins/pin-{slug}.png" alt="Pinterest Pin for {recipe['title']}" width="300" height="450">
         <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="pin-share-btn">
           📌 Save Pin to Pinterest
         </a>
@@ -948,8 +948,8 @@ def build_recipe_page(recipe, config, all_recipes):
       <div class="footer-bottom">
         <div>© 2026 {config['site_name']} • All Rights Reserved. Clean & Easy Daily Meals.</div>
         <div>
-          <a href="/feed/pinterest.xml" style="color:var(--gold);">Pinterest Media Feed</a> • 
-          <a href="/sitemap.xml">Sitemap</a>
+          <a href="../feed/pinterest.xml" style="color:var(--gold);">Pinterest Media Feed</a> • 
+          <a href="../sitemap.xml">Sitemap</a>
         </div>
       </div>
     </div>
@@ -995,9 +995,9 @@ def build_homepage(recipes, config):
     cards_html = ""
     for r in recipes:
         cards_html += f"""
-        <a href="/recipes/{r['id']}.html" class="recipe-card" data-category="{r.get('category', '')}">
+        <a href="recipes/{r['id']}.html" class="recipe-card" data-category="{r.get('category', '')}">
           <div class="card-media">
-            <img src="/assets/pins/pin-{r['id']}.png" alt="{r['title']}" loading="lazy">
+            <img src="assets/pins/pin-{r['id']}.png" alt="{r['title']}" loading="lazy">
             <span class="card-badge-top">{r['category']}</span>
             <span class="card-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -1048,12 +1048,12 @@ def build_homepage(recipes, config):
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="brand">Pure<span>Plated</span></a>
+      <a href="./" class="brand">Pure<span>Plated</span></a>
       <nav class="nav-links">
         <a href="#recipes">Recipes</a>
         <a href="#tools">Essential Tools</a>
         <a href="#about">About</a>
-        <a href="#recipes" class="nav-cta">Browse 20-Min Meals</a>
+        <a href="meal-planner.html" class="nav-cta">Weekly Meal Plan</a>
       </nav>
     </div>
   </header>
@@ -1118,8 +1118,8 @@ def build_homepage(recipes, config):
       <div class="footer-bottom">
         <div>© 2026 {config['site_name']} • Clean & Healthy Meals for Real Life.</div>
         <div>
-          <a href="/feed/pinterest.xml" style="color:var(--gold);">Pinterest Media Feed</a> • 
-          <a href="/sitemap.xml">Sitemap</a>
+          <a href="feed/pinterest.xml" style="color:var(--gold);">Pinterest Media Feed</a> • 
+          <a href="sitemap.xml">Sitemap</a>
         </div>
       </div>
     </div>
