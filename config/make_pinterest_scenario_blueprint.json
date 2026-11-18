@@ -289,7 +289,7 @@
         }
       },
       "parameters": {
-        "url": "https://pureplated.com/feed/pinterest.xml",
+        "url": "https://hamzazahid8.github.io/cleanplated/feed/pinterest.xml",
         "gzip": true,
         "include": [],
         "password": "",
