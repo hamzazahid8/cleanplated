@@ -18,6 +18,9 @@ import json
 import re
 from datetime import datetime
 from xml.sax.saxutils import escape
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from site_js import RECIPE_PAGE_JS, HOMEPAGE_JS
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RECIPES_JSON = os.path.join(BASE_DIR, "src", "data", "recipes.json")
@@ -1222,6 +1225,528 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
   .floating-btn { padding: 5px 8px; font-size: 0.78rem; }
   .floating-pin-btn { padding: 5px 10px; font-size: 0.78rem; }
 }
+
+/* ========================================================
+   REVERSE-ENGINEERED ELITE CULINARY BLOG FEATURES (PINCH OF YUM + MINIMALIST BAKER)
+   ======================================================== */
+
+/* Cook Mode Toggle (Wake Lock API) */
+.cook-mode-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cook-mode-wrap:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.cook-mode-badge {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #A0AEC0;
+  transition: all 0.3s ease;
+}
+.cook-mode-wrap.cook-mode-active {
+  background: #ECFDF5;
+  border-color: #10B981;
+  color: #065F46;
+}
+.cook-mode-wrap.cook-mode-active .cook-mode-badge {
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: pulseDot 1.4s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+/* Secondary Hero Actions (Print, Share, Meal Plan) */
+.btn-print, .btn-share, .btn-plan {
+  background: #FFF;
+  color: var(--ink) !important;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn-print:hover, .btn-share:hover, .btn-plan:hover {
+  background: var(--surface-alt);
+  border-color: var(--ink-muted);
+  transform: translateY(-1px);
+}
+.btn-plan {
+  background: var(--primary-light);
+  border-color: rgba(28, 63, 47, 0.2);
+  color: var(--primary) !important;
+}
+.btn-plan:hover {
+  background: var(--primary);
+  color: #FFF !important;
+}
+
+/* Recipe Card Controls Toolbar */
+.recipe-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 28px;
+}
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.toolbar-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+}
+.unit-toggle-pill {
+  display: inline-flex;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+}
+.unit-btn {
+  border: none;
+  background: transparent;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.unit-btn.active {
+  background: var(--primary);
+  color: #FFF;
+  box-shadow: 0 2px 6px rgba(28, 63, 47, 0.2);
+}
+
+/* Step Progress Tracker */
+.progress-tracker {
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.progress-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary) 0%, #10B981 100%);
+  border-radius: 4px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.instruction-step {
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  user-select: none;
+}
+.instruction-step:hover {
+  background: rgba(235, 243, 238, 0.5);
+  transform: translateX(4px);
+}
+.instruction-step.step-completed {
+  opacity: 0.55;
+}
+.instruction-step.step-completed .step-number {
+  background: #10B981;
+}
+.instruction-step.step-completed .step-content h4 {
+  text-decoration: line-through;
+  color: var(--ink-muted);
+}
+
+/* Chef's Pro Tips 3-Box Grid */
+.chef-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.chef-tip-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chef-tip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+  background: #FFF;
+}
+.tip-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.tip-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.tip-text {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+/* Nutrition Facts Label & Macro Split */
+.nutrition-facts-panel {
+  background: #FFF;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 40px;
+}
+.nf-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 8px solid var(--ink);
+  padding-bottom: 4px;
+  line-height: 1;
+}
+.nf-sub {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+.nf-calories-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 4px solid var(--ink);
+  padding: 8px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.nf-cal-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.macro-ratio-wrap {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.macro-ratio-bar {
+  display: flex;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.ratio-segment {
+  height: 100%;
+}
+.ratio-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  flex-wrap: wrap;
+}
+.legend-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.nf-table {
+  margin-top: 6px;
+}
+.nf-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.nf-row.bold {
+  font-weight: 800;
+}
+.nf-row.indent {
+  padding-left: 18px;
+  color: var(--ink-secondary);
+}
+
+/* Minimalist Baker Instant Search & Filter UI (Homepage) */
+.search-filter-box {
+  background: #FFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 36px;
+}
+.search-input-wrap {
+  position: relative;
+  margin-bottom: 18px;
+}
+.search-input-wrap input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  outline: none;
+  background: var(--bg);
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+.search-input-wrap input:focus {
+  background: #FFF;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(28, 63, 47, 0.12);
+}
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+}
+.filter-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-chip:hover {
+  background: var(--surface-alt);
+  color: var(--ink);
+  border-color: var(--ink-muted);
+}
+.filter-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #FFF;
+  box-shadow: 0 2px 8px rgba(28, 63, 47, 0.2);
+}
+.filter-count-badge {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.toast-msg {
+  background: #161F1A;
+  color: #FFF;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUpToast 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+@keyframes slideUpToast {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Print Only Section */
+.print-watermark {
+  display: none;
+}
+
+/* ========================================================
+   DEDICATED ZERO-WASTE CLEAN PRINT ENGINE (@media print)
+   ======================================================== */
+@media print {
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+  .top-bar, .site-header, .breadcrumbs, .recipe-quick-actions, 
+  .floating-recipe-bar, .pin-save-section, .recipe-tools-box, 
+  .site-footer, .nav-cta, .toast-container, .serv-btn, .unit-btn,
+  .cook-mode-wrap, .btn-print, .btn-share, .btn-plan, .amazon-btn,
+  .recipe-toolbar, .progress-tracker, .recipe-quick-actions,
+  .card-cta-row, .hero-actions, .filter-section, .search-filter-box,
+  .tools-section, .author-section {
+    display: none !important;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .recipe-hero-split {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 20px !important;
+  }
+  .recipe-hero-visual {
+    width: 200px !important;
+    min-width: 200px !important;
+    box-shadow: none !important;
+    border: 1px solid #CCC !important;
+    border-radius: 8px !important;
+  }
+  .recipe-hero-visual img {
+    aspect-ratio: auto !important;
+    height: 140px !important;
+    object-fit: cover !important;
+  }
+  .recipe-photo-caption { display: none !important; }
+  .recipe-card-box {
+    box-shadow: none !important;
+    border: 1px solid #DDD !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+  .recipe-core-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 1.3fr !important;
+    gap: 24px !important;
+  }
+  .step-number {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #EEE !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    font-size: 0.85rem !important;
+  }
+  .nutrition-dashboard {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+  .nutri-box {
+    padding: 6px !important;
+    border: 1px solid #CCC !important;
+  }
+  .nutri-val { font-size: 1rem !important; color: #000 !important; }
+  .nutri-label { font-size: 0.65rem !important; }
+  .chef-tips-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+  .chef-tip-card {
+    border: 1px solid #CCC !important;
+    padding: 10px !important;
+  }
+  .print-watermark {
+    display: block !important;
+    margin-top: 24px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #888 !important;
+    font-size: 8pt !important;
+    color: #555 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .chef-tips-grid { grid-template-columns: 1fr; }
+  .recipe-toolbar { flex-direction: column; align-items: flex-start; }
+  .search-filter-box { padding: 18px 20px; }
+  .filter-chips-row { flex-direction: column; align-items: flex-start; }
+}
+
 """
 
 def generate_recipe_schema(recipe, config):
@@ -1290,7 +1815,7 @@ def build_recipe_page(recipe, config, all_recipes):
     pin_url = f"{domain}/assets/pins/pin-{slug}.png"
     schema_json = generate_recipe_schema(recipe, config)
 
-    # Ingredients HTML
+    # Ingredients HTML with unit data attributes
     ings_html = ""
     for idx, ing in enumerate(recipe.get("ingredients", [])):
         amt = ing.get("amount", "")
@@ -1305,20 +1830,21 @@ def build_recipe_page(recipe, config, all_recipes):
 
         ings_html += f"""
         <li class="ing-item">
-          <input type="checkbox" id="ing-{idx}" onchange="toggleIng(this)">
-          <label for="ing-{idx}">
+          <input type="checkbox" id="ing-{idx}" class="ing-checkbox" onchange="toggleIng(this)">
+          <label for="ing-{idx}" class="ing-label">
             <span class="ing-amt" data-base="{amt}">{amt}</span> 
-            <span class="ing-unit">{unit}</span> 
+            <span class="ing-unit" data-base-unit="{unit}">{unit}</span> 
             {link_tag}{notes}
           </label>
         </li>
         """
 
-    # Instructions HTML
+    # Instructions HTML with interactive click-to-complete
+    steps = recipe.get("instructions", [])
     steps_html = ""
-    for s in recipe.get("instructions", []):
+    for s in steps:
         steps_html += f"""
-        <li class="instruction-step">
+        <li class="instruction-step" onclick="toggleStep(this)">
           <div class="step-number">{s.get('step', 1)}</div>
           <div class="step-content">
             <h4>{s.get('title', '')}</h4>
@@ -1369,6 +1895,21 @@ def build_recipe_page(recipe, config, all_recipes):
         </a>
         """
 
+    # Macro percentages calculation
+    p = recipe.get("protein", 35)
+    c = recipe.get("carbs", 20)
+    f = recipe.get("fat", 15)
+    total_cal_est = (p * 4) + (c * 4) + (f * 9)
+    if total_cal_est > 0:
+        p_pct = round((p * 4 / total_cal_est) * 100)
+        c_pct = round((c * 4 / total_cal_est) * 100)
+        f_pct = max(0, 100 - p_pct - c_pct)
+    else:
+        p_pct, c_pct, f_pct = 40, 30, 30
+
+    escaped_title = recipe['title'].replace("'", "\\'")
+    pin_desc = recipe.get('pin_copy', {}).get('description', '')
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1398,7 +1939,7 @@ def build_recipe_page(recipe, config, all_recipes):
 </head>
 <body>
 
-  <!-- Top Bar -->
+  <!-- Top Announcement Bar -->
   <div class="top-bar">
     <span>🥗 CleanPlated Kitchen</span> Tested high-protein everyday meals in under 25 minutes with minimal cleanup.
   </div>
@@ -1442,9 +1983,13 @@ def build_recipe_page(recipe, config, all_recipes):
           </div>
         </div>
 
+        <!-- Quick Action Bar (Pinch of Yum / WP Tasty Signature) -->
         <div class="recipe-quick-actions">
           <a href="#recipe" class="btn-jump">Jump to Recipe ↓</a>
-          <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="btn-pin-action">📌 Pin to Pinterest</a>
+          <button onclick="window.print()" class="btn-print">🖨️ Print Recipe</button>
+          <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={pin_desc}" target="_blank" rel="noopener" class="btn-pin-action">📌 Pin</a>
+          <button onclick="shareRecipe('{escaped_title}', '{recipe_url}')" class="btn-share">🔗 Share</button>
+          <button onclick="addToMealPlan('{slug}', '{escaped_title}')" class="btn-plan">➕ Add to Meal Plan</button>
         </div>
         <div style="font-size:0.76rem; color:var(--ink-secondary); margin-top:14px; line-height:1.4;">
           🌱 <em>CleanPlated is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you.</em>
@@ -1466,7 +2011,7 @@ def build_recipe_page(recipe, config, all_recipes):
         <h2>{recipe['title']}</h2>
         <p style="color:var(--ink-secondary);">{recipe.get('description', '')}</p>
 
-        <!-- Nutrition Dashboard -->
+        <!-- Nutrition Highlights Dashboard -->
         <div class="nutrition-dashboard">
           <div class="nutri-box">
             <div class="nutri-val">{recipe.get('calories', 400)}</div>
@@ -1491,16 +2036,39 @@ def build_recipe_page(recipe, config, all_recipes):
         </div>
       </div>
 
+      <!-- Controls Toolbar (Scalers, Unit Converter & Cook Mode) -->
+      <div class="recipe-toolbar">
+        <div class="toolbar-group">
+          <span class="toolbar-label">Servings:</span>
+          <div class="serving-btns">
+            <button class="serv-btn active" onclick="setServingMultiplier(1, this)">1x (Base)</button>
+            <button class="serv-btn" onclick="setServingMultiplier(2, this)">2x</button>
+            <button class="serv-btn" onclick="setServingMultiplier(3, this)">3x</button>
+          </div>
+        </div>
+
+        <div class="toolbar-group">
+          <span class="toolbar-label">Units:</span>
+          <div class="unit-toggle-pill">
+            <button class="unit-btn active" onclick="setUnitSystem('us', this)">US Customary</button>
+            <button class="unit-btn" onclick="setUnitSystem('metric', this)">Metric (g/ml)</button>
+          </div>
+        </div>
+
+        <div class="toolbar-group">
+          <label class="cook-mode-wrap">
+            <input type="checkbox" id="cookModeCheck" onchange="toggleCookMode(this)">
+            <span class="cook-mode-badge"></span>
+            <span class="cook-mode-label">🍳 Cook Mode (Keep Screen Awake)</span>
+          </label>
+        </div>
+      </div>
+
       <div class="recipe-core-layout">
         <!-- Ingredients Column with Scaler -->
         <div>
           <div class="serving-scaler-wrap">
             <h3>Ingredients</h3>
-            <div class="serving-btns">
-              <button class="serv-btn active" onclick="scaleServings(2, this)">2 Serv</button>
-              <button class="serv-btn" onclick="scaleServings(4, this)">4 Serv</button>
-              <button class="serv-btn" onclick="scaleServings(6, this)">6 Serv</button>
-            </div>
           </div>
 
           <p style="font-size:0.82rem; color:var(--ink-muted); margin-bottom:14px;">Tap items to check off while cooking or shopping:</p>
@@ -1517,17 +2085,78 @@ def build_recipe_page(recipe, config, all_recipes):
           </div>
         </div>
 
-        <!-- Step-by-Step Instructions Column -->
+        <!-- Step-by-Step Instructions Column with Progress Bar -->
         <div>
-          <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--ink); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border);">Step-by-Step Instructions</h3>
+          <div class="progress-tracker">
+            <div class="progress-header">
+              <span>🍳 Cooking Progress</span>
+              <span id="progressText">0 of {len(steps)} steps (0%)</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--ink); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border);">Step-by-Step Instructions</h3>
+          <p style="font-size:0.82rem; color:var(--ink-muted); margin-bottom:16px;">Tap any step as you finish it to keep your place:</p>
           <ol class="instructions-list">
             {steps_html}
           </ol>
 
-          <!-- Chef Tips -->
-          <div style="background:var(--primary-light); border-left:4px solid var(--primary); padding:20px; border-radius:8px; margin-top:24px;">
-            <h4 style="color:var(--primary); font-weight:700; margin-bottom:6px;">Chef's Meal Prep & Storage Pro-Tip:</h4>
-            <p style="font-size:0.92rem; color:var(--ink-secondary); line-height:1.6;">Store in airtight glass meal prep containers in the refrigerator for up to 4 days. Reheat in the air fryer at 350°F for 3 minutes to restore that restaurant-crisp texture!</p>
+          <!-- Chef Tips 3-Box Grid (Skinnytaste / Well Plated Standard) -->
+          <div class="chef-tips-grid">
+            <div class="chef-tip-card">
+              <div class="tip-icon">❄️</div>
+              <div class="tip-title">Storage & Meal Prep</div>
+              <div class="tip-text">Refrigerate in airtight glass containers for up to 4 days. Freeze portions individually for up to 2 months.</div>
+            </div>
+            <div class="chef-tip-card">
+              <div class="tip-icon">♨️</div>
+              <div class="tip-title">Crisp Reheating</div>
+              <div class="tip-text">Air fry at 350°F (175°C) for 3–4 minutes to revive crunch, or warm in a dry skillet over medium heat.</div>
+            </div>
+            <div class="chef-tip-card">
+              <div class="tip-icon">🔄</div>
+              <div class="tip-title">Dietary Swaps</div>
+              <div class="tip-text">Easily adapt to dairy-free with olive oil or coconut milk; swap tamari for soy sauce for 100% gluten-free.</div>
+            </div>
+          </div>
+
+          <!-- FDA-Style Nutrition Facts Panel (Skinnytaste Signature) -->
+          <div class="nutrition-facts-panel">
+            <div class="nf-title">Nutrition Facts</div>
+            <div class="nf-sub">Amount per serving ({recipe.get('servings', 2)} servings per batch)</div>
+            
+            <div class="nf-calories-row">
+              <span>Calories</span>
+              <span class="nf-cal-num">{recipe.get('calories', 400)}</span>
+            </div>
+
+            <div class="macro-ratio-wrap">
+              <div class="macro-ratio-bar">
+                <div class="ratio-segment" style="width:{p_pct}%; background:#1C3F2F;" title="Protein: {p_pct}%"></div>
+                <div class="ratio-segment" style="width:{c_pct}%; background:#D2812A;" title="Carbs: {c_pct}%"></div>
+                <div class="ratio-segment" style="width:{f_pct}%; background:#C55836;" title="Fat: {f_pct}%"></div>
+              </div>
+              <div class="ratio-legend">
+                <span><span class="legend-dot" style="background:#1C3F2F;"></span> {p_pct}% Protein ({recipe.get('protein', 30)}g)</span>
+                <span><span class="legend-dot" style="background:#D2812A;"></span> {c_pct}% Carbs ({recipe.get('carbs', 20)}g)</span>
+                <span><span class="legend-dot" style="background:#C55836;"></span> {f_pct}% Fat ({recipe.get('fat', 15)}g)</span>
+              </div>
+            </div>
+
+            <div class="nf-table">
+              <div class="nf-row bold"><span>Total Fat</span> <span>{recipe.get('fat', 15)}g</span></div>
+              <div class="nf-row indent"><span>Saturated Fat</span> <span>{round(recipe.get('fat', 15) * 0.28, 1)}g</span></div>
+              <div class="nf-row bold"><span>Total Carbohydrates</span> <span>{recipe.get('carbs', 20)}g</span></div>
+              <div class="nf-row indent"><span>Dietary Fiber</span> <span>{recipe.get('fiber', 4)}g</span></div>
+              <div class="nf-row indent"><span>Net Carbs</span> <span>{max(0, recipe.get('carbs', 20) - recipe.get('fiber', 4))}g</span></div>
+              <div class="nf-row bold"><span>Protein</span> <span>{recipe.get('protein', 30)}g</span></div>
+            </div>
+          </div>
+
+          <div class="print-watermark">
+            Printed from <b>CleanPlated</b> (cleanplatedmeals.com) • Healthy, High-Protein Everyday Dinners.
           </div>
         </div>
       </div>
@@ -1540,7 +2169,7 @@ def build_recipe_page(recipe, config, all_recipes):
         <div>
           <h4 style="font-family:var(--font-serif); font-size:1.25rem; color:var(--ink); margin-bottom:6px;">Love this recipe? Save it to Pinterest!</h4>
           <p style="font-size:0.92rem; color:var(--ink-secondary); margin-bottom:14px;">Save this high-protein 20-minute dinner to your healthy dinner board so you never wonder what to make on busy weeknights.</p>
-          <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="btn-pin-action" style="display:inline-block;">
+          <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={pin_desc}" target="_blank" rel="noopener" class="btn-pin-action" style="display:inline-block;">
             📌 Save Pin to Pinterest
           </a>
         </div>
@@ -1577,65 +2206,22 @@ def build_recipe_page(recipe, config, all_recipes):
     <div class="floating-bar-inner">
       <div class="floating-recipe-title">
         <span>🥗</span>
-        <span>{recipe['title'][:32]}...</span>
+        <span>{recipe['title'][:28]}...</span>
       </div>
       <div class="floating-recipe-actions">
         <a href="#recipe" class="floating-btn">📋 Ingredients</a>
         <a href="#instructions" class="floating-btn">🍳 Steps</a>
-        <a href="#equipment" class="floating-btn">🔪 Gear</a>
-        <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="floating-pin-btn">📌 Pin Recipe</a>
+        <button onclick="window.print()" class="floating-btn">🖨️ Print</button>
+        <button onclick="addToMealPlan('{slug}', '{escaped_title}')" class="floating-btn">➕ Plan</button>
+        <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={pin_desc}" target="_blank" rel="noopener" class="floating-pin-btn">📌 Pin</a>
       </div>
     </div>
   </div>
 
-  <script>
-    // Floating Quick-Action Bar Visibility
-    const floatingBar = document.getElementById('floatingBar');
-    window.addEventListener('scroll', () => {{
-      if (window.scrollY > 380) {{
-        floatingBar.classList.add('visible');
-      }} else {{
-        floatingBar.classList.remove('visible');
-      }}
-    }}, {{ passive: true }});
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
 
-    function toggleIng(checkbox) {{
-      const label = checkbox.nextElementSibling;
-      if (checkbox.checked) {{
-        label.classList.add('ing-checked');
-      }} else {{
-        label.classList.remove('ing-checked');
-      }}
-    }}
-
-    function scaleServings(targetServings, btn) {{
-      document.querySelectorAll('.serv-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const baseServings = 2; // Default base
-      const factor = targetServings / baseServings;
-      
-      document.querySelectorAll('.ing-amt').forEach(el => {{
-        el.classList.add('bump');
-        const base = parseFloat(el.getAttribute('data-base'));
-        if (!isNaN(base)) {{
-          const newVal = (base * factor);
-          el.innerText = newVal % 1 === 0 ? newVal.toFixed(0) : newVal.toFixed(1);
-        }}
-        setTimeout(() => el.classList.remove('bump'), 220);
-      }});
-    }}
-
-    // Scroll Reveal Observer
-    const observer = new IntersectionObserver((entries) => {{
-      entries.forEach(entry => {{
-        if (entry.isIntersecting) {{
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }}
-      }});
-    }}, {{ threshold: 0.1 }});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  {RECIPE_PAGE_JS}
 </body>
 </html>
 """
@@ -1645,11 +2231,12 @@ def build_homepage(recipes, config):
     categories = sorted(list(set(r.get("category", "Healthy Meals") for r in recipes)))
     featured = recipes[0]
 
-    # Recipe Cards HTML
+    # Recipe Cards HTML with data attributes for instant search & filtering
     cards_html = ""
     for r in recipes:
+        tags_str = ",".join(r.get("tags", []))
         cards_html += f"""
-        <a href="/recipes/{r['id']}.html" class="recipe-card reveal reveal-stagger" data-category="{r.get('category', '')}">
+        <a href="/recipes/{r['id']}.html" class="recipe-card reveal reveal-stagger" data-category="{r.get('category', '')}" data-time="{r.get('total_time', 20)}" data-protein="{r.get('protein', 30)}" data-tags="{tags_str}">
           <div class="card-media">
             <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Healthy Meals')}</span>
@@ -1685,11 +2272,6 @@ def build_homepage(recipes, config):
           </a>
         </div>
         """
-
-    # Category Filter Pills
-    filter_html = '<button class="filter-btn active" onclick="filterCategory(\'all\', this)">All Recipes (10)</button>'
-    for c in categories:
-        filter_html += f'<button class="filter-btn" onclick="filterCategory(\'{c}\', this)">{c}</button>'
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1761,10 +2343,24 @@ def build_homepage(recipes, config):
     </div>
   </section>
 
-  <!-- Category Filter Bar -->
-  <section class="container filter-section reveal">
-    <div class="filter-bar">
-      {filter_html}
+  <!-- Minimalist Baker Inspired Instant Search & Filter Hub -->
+  <section class="container filter-section reveal" id="search-hub">
+    <div class="search-filter-box">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="recipeSearchInput" placeholder="Search 10 fast healthy recipes by ingredient, dish name, or keyword (e.g. salmon, air fryer, chicken)..." autocomplete="off">
+      </div>
+      <div class="filter-chips-row">
+        <div class="filter-chips">
+          <button class="filter-chip active" data-tag="all" onclick="filterByChip('all', this)">All Recipes (10)</button>
+          <button class="filter-chip" data-tag="under-20" onclick="filterByChip('under-20', this)">⏱️ Under 20 Mins</button>
+          <button class="filter-chip" data-tag="high-protein" onclick="filterByChip('high-protein', this)">💪 40g+ Protein</button>
+          <button class="filter-chip" data-tag="air-fryer" onclick="filterByChip('air-fryer', this)">⚡ Air Fryer</button>
+          <button class="filter-chip" data-tag="low-carb" onclick="filterByChip('low-carb', this)">🥑 Low Carb / Bowls</button>
+          <button class="filter-chip" data-tag="skillet" onclick="filterByChip('skillet', this)">🍳 One-Pan Skillet</button>
+        </div>
+        <div class="filter-count-badge" id="visibleCount">Showing 10 healthy recipes</div>
+      </div>
     </div>
   </section>
 
@@ -1775,6 +2371,14 @@ def build_homepage(recipes, config):
         <h2 class="section-title">Fresh Everyday Healthy Dinners</h2>
         <div class="section-sub">Tested for busy weeknights: ready fast, balanced macros, and delicious flavor.</div>
       </div>
+    </div>
+
+    <!-- Empty State Message -->
+    <div id="noResultsMsg" style="display:none; text-align:center; padding:60px 20px; background:#FFF; border-radius:16px; border:1px dashed var(--border);">
+      <div style="font-size:2.5rem; margin-bottom:12px;">🥗</div>
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; margin-bottom:8px;">No matching recipes found</h3>
+      <p style="color:var(--ink-secondary); margin-bottom:20px;">Try searching for a different ingredient like "salmon", "chicken", or "oats".</p>
+      <button onclick="resetSearch()" class="btn-primary" style="margin:0 auto;">Reset Search</button>
     </div>
 
     <div class="recipe-grid">
@@ -1829,41 +2433,7 @@ def build_homepage(recipes, config):
     </div>
   </footer>
 
-  <script>
-    // Smooth Category Filter with Opacity Transition
-    function filterCategory(cat, btn) {{
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const grid = document.querySelector('.recipe-grid');
-      grid.style.opacity = '0.35';
-      grid.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
-      
-      setTimeout(() => {{
-        const cards = document.querySelectorAll('.recipe-card');
-        cards.forEach(c => {{
-          if (cat === 'all' || c.getAttribute('data-category') === cat) {{
-            c.style.display = 'flex';
-            c.classList.add('is-revealed');
-          }} else {{
-            c.style.display = 'none';
-          }}
-        }});
-        grid.style.opacity = '1';
-      }}, 140);
-    }}
-
-    // Scroll-Triggered Reveal Animations
-    const observer = new IntersectionObserver((entries) => {{
-      entries.forEach(entry => {{
-        if (entry.isIntersecting) {{
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }}
-      }});
-    }}, {{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }});
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  {HOMEPAGE_JS}
 </body>
 </html>
 """

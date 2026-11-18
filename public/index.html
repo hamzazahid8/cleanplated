@@ -1194,6 +1194,528 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
   .floating-btn { padding: 5px 8px; font-size: 0.78rem; }
   .floating-pin-btn { padding: 5px 10px; font-size: 0.78rem; }
 }
+
+/* ========================================================
+   REVERSE-ENGINEERED ELITE CULINARY BLOG FEATURES (PINCH OF YUM + MINIMALIST BAKER)
+   ======================================================== */
+
+/* Cook Mode Toggle (Wake Lock API) */
+.cook-mode-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cook-mode-wrap:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.cook-mode-badge {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #A0AEC0;
+  transition: all 0.3s ease;
+}
+.cook-mode-wrap.cook-mode-active {
+  background: #ECFDF5;
+  border-color: #10B981;
+  color: #065F46;
+}
+.cook-mode-wrap.cook-mode-active .cook-mode-badge {
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: pulseDot 1.4s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+/* Secondary Hero Actions (Print, Share, Meal Plan) */
+.btn-print, .btn-share, .btn-plan {
+  background: #FFF;
+  color: var(--ink) !important;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn-print:hover, .btn-share:hover, .btn-plan:hover {
+  background: var(--surface-alt);
+  border-color: var(--ink-muted);
+  transform: translateY(-1px);
+}
+.btn-plan {
+  background: var(--primary-light);
+  border-color: rgba(28, 63, 47, 0.2);
+  color: var(--primary) !important;
+}
+.btn-plan:hover {
+  background: var(--primary);
+  color: #FFF !important;
+}
+
+/* Recipe Card Controls Toolbar */
+.recipe-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 28px;
+}
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.toolbar-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+}
+.unit-toggle-pill {
+  display: inline-flex;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+}
+.unit-btn {
+  border: none;
+  background: transparent;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.unit-btn.active {
+  background: var(--primary);
+  color: #FFF;
+  box-shadow: 0 2px 6px rgba(28, 63, 47, 0.2);
+}
+
+/* Step Progress Tracker */
+.progress-tracker {
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.progress-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary) 0%, #10B981 100%);
+  border-radius: 4px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.instruction-step {
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  user-select: none;
+}
+.instruction-step:hover {
+  background: rgba(235, 243, 238, 0.5);
+  transform: translateX(4px);
+}
+.instruction-step.step-completed {
+  opacity: 0.55;
+}
+.instruction-step.step-completed .step-number {
+  background: #10B981;
+}
+.instruction-step.step-completed .step-content h4 {
+  text-decoration: line-through;
+  color: var(--ink-muted);
+}
+
+/* Chef's Pro Tips 3-Box Grid */
+.chef-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.chef-tip-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chef-tip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+  background: #FFF;
+}
+.tip-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.tip-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.tip-text {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+/* Nutrition Facts Label & Macro Split */
+.nutrition-facts-panel {
+  background: #FFF;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 40px;
+}
+.nf-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 8px solid var(--ink);
+  padding-bottom: 4px;
+  line-height: 1;
+}
+.nf-sub {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+.nf-calories-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 4px solid var(--ink);
+  padding: 8px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.nf-cal-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.macro-ratio-wrap {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.macro-ratio-bar {
+  display: flex;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.ratio-segment {
+  height: 100%;
+}
+.ratio-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  flex-wrap: wrap;
+}
+.legend-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.nf-table {
+  margin-top: 6px;
+}
+.nf-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.nf-row.bold {
+  font-weight: 800;
+}
+.nf-row.indent {
+  padding-left: 18px;
+  color: var(--ink-secondary);
+}
+
+/* Minimalist Baker Instant Search & Filter UI (Homepage) */
+.search-filter-box {
+  background: #FFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 36px;
+}
+.search-input-wrap {
+  position: relative;
+  margin-bottom: 18px;
+}
+.search-input-wrap input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  outline: none;
+  background: var(--bg);
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+.search-input-wrap input:focus {
+  background: #FFF;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(28, 63, 47, 0.12);
+}
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+}
+.filter-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-chip:hover {
+  background: var(--surface-alt);
+  color: var(--ink);
+  border-color: var(--ink-muted);
+}
+.filter-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #FFF;
+  box-shadow: 0 2px 8px rgba(28, 63, 47, 0.2);
+}
+.filter-count-badge {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.toast-msg {
+  background: #161F1A;
+  color: #FFF;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUpToast 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+@keyframes slideUpToast {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Print Only Section */
+.print-watermark {
+  display: none;
+}
+
+/* ========================================================
+   DEDICATED ZERO-WASTE CLEAN PRINT ENGINE (@media print)
+   ======================================================== */
+@media print {
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+  .top-bar, .site-header, .breadcrumbs, .recipe-quick-actions, 
+  .floating-recipe-bar, .pin-save-section, .recipe-tools-box, 
+  .site-footer, .nav-cta, .toast-container, .serv-btn, .unit-btn,
+  .cook-mode-wrap, .btn-print, .btn-share, .btn-plan, .amazon-btn,
+  .recipe-toolbar, .progress-tracker, .recipe-quick-actions,
+  .card-cta-row, .hero-actions, .filter-section, .search-filter-box,
+  .tools-section, .author-section {
+    display: none !important;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .recipe-hero-split {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 20px !important;
+  }
+  .recipe-hero-visual {
+    width: 200px !important;
+    min-width: 200px !important;
+    box-shadow: none !important;
+    border: 1px solid #CCC !important;
+    border-radius: 8px !important;
+  }
+  .recipe-hero-visual img {
+    aspect-ratio: auto !important;
+    height: 140px !important;
+    object-fit: cover !important;
+  }
+  .recipe-photo-caption { display: none !important; }
+  .recipe-card-box {
+    box-shadow: none !important;
+    border: 1px solid #DDD !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+  .recipe-core-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 1.3fr !important;
+    gap: 24px !important;
+  }
+  .step-number {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #EEE !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    font-size: 0.85rem !important;
+  }
+  .nutrition-dashboard {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+  .nutri-box {
+    padding: 6px !important;
+    border: 1px solid #CCC !important;
+  }
+  .nutri-val { font-size: 1rem !important; color: #000 !important; }
+  .nutri-label { font-size: 0.65rem !important; }
+  .chef-tips-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+  .chef-tip-card {
+    border: 1px solid #CCC !important;
+    padding: 10px !important;
+  }
+  .print-watermark {
+    display: block !important;
+    margin-top: 24px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #888 !important;
+    font-size: 8pt !important;
+    color: #555 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .chef-tips-grid { grid-template-columns: 1fr; }
+  .recipe-toolbar { flex-direction: column; align-items: flex-start; }
+  .search-filter-box { padding: 18px 20px; }
+  .filter-chips-row { flex-direction: column; align-items: flex-start; }
+}
+
 </style>
 </head>
 <body>
@@ -1256,10 +1778,24 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
     </div>
   </section>
 
-  <!-- Category Filter Bar -->
-  <section class="container filter-section reveal">
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterCategory('all', this)">All Recipes (10)</button><button class="filter-btn" onclick="filterCategory('Air Fryer Clean Eats', this)">Air Fryer Clean Eats</button><button class="filter-btn" onclick="filterCategory('High-Protein Meals', this)">High-Protein Meals</button><button class="filter-btn" onclick="filterCategory('Low-Carb & Keto', this)">Low-Carb & Keto</button><button class="filter-btn" onclick="filterCategory('Meal Prep & Bowls', this)">Meal Prep & Bowls</button><button class="filter-btn" onclick="filterCategory('Mediterranean Fresh', this)">Mediterranean Fresh</button><button class="filter-btn" onclick="filterCategory('Quick 20-Min Dinners', this)">Quick 20-Min Dinners</button>
+  <!-- Minimalist Baker Inspired Instant Search & Filter Hub -->
+  <section class="container filter-section reveal" id="search-hub">
+    <div class="search-filter-box">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="recipeSearchInput" placeholder="Search 10 fast healthy recipes by ingredient, dish name, or keyword (e.g. salmon, air fryer, chicken)..." autocomplete="off">
+      </div>
+      <div class="filter-chips-row">
+        <div class="filter-chips">
+          <button class="filter-chip active" data-tag="all" onclick="filterByChip('all', this)">All Recipes (10)</button>
+          <button class="filter-chip" data-tag="under-20" onclick="filterByChip('under-20', this)">⏱️ Under 20 Mins</button>
+          <button class="filter-chip" data-tag="high-protein" onclick="filterByChip('high-protein', this)">💪 40g+ Protein</button>
+          <button class="filter-chip" data-tag="air-fryer" onclick="filterByChip('air-fryer', this)">⚡ Air Fryer</button>
+          <button class="filter-chip" data-tag="low-carb" onclick="filterByChip('low-carb', this)">🥑 Low Carb / Bowls</button>
+          <button class="filter-chip" data-tag="skillet" onclick="filterByChip('skillet', this)">🍳 One-Pan Skillet</button>
+        </div>
+        <div class="filter-count-badge" id="visibleCount">Showing 10 healthy recipes</div>
+      </div>
     </div>
   </section>
 
@@ -1272,9 +1808,17 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
       </div>
     </div>
 
+    <!-- Empty State Message -->
+    <div id="noResultsMsg" style="display:none; text-align:center; padding:60px 20px; background:#FFF; border-radius:16px; border:1px dashed var(--border);">
+      <div style="font-size:2.5rem; margin-bottom:12px;">🥗</div>
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; margin-bottom:8px;">No matching recipes found</h3>
+      <p style="color:var(--ink-secondary); margin-bottom:20px;">Try searching for a different ingredient like "salmon", "chicken", or "oats".</p>
+      <button onclick="resetSearch()" class="btn-primary" style="margin:0 auto;">Reset Search</button>
+    </div>
+
     <div class="recipe-grid">
       
-        <a href="/recipes/air-fryer-lemon-herb-salmon.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners">
+        <a href="/recipes/air-fryer-lemon-herb-salmon.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners" data-time="18" data-protein="44" data-tags="salmon,air fryer,dinner,keto,gluten-free,high-protein">
           <div class="card-media">
             <img src="/assets/images/recipes/air-fryer-lemon-herb-salmon.jpg" alt="Crispy Air Fryer Lemon Herb Salmon with Garlic Asparagus" loading="lazy">
             <span class="card-badge-cat">Quick 20-Min Dinners</span>
@@ -1296,7 +1840,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/honey-garlic-chicken-meal-prep-bowls.html" class="recipe-card reveal reveal-stagger" data-category="Meal Prep & Bowls">
+        <a href="/recipes/honey-garlic-chicken-meal-prep-bowls.html" class="recipe-card reveal reveal-stagger" data-category="Meal Prep & Bowls" data-time="20" data-protein="42" data-tags="chicken,meal prep,lunch,high-protein,clean eating,quinoa">
           <div class="card-media">
             <img src="/assets/images/recipes/honey-garlic-chicken-meal-prep-bowls.jpg" alt="20-Minute Honey Garlic Chicken Meal Prep Bowls with Fluffy Quinoa" loading="lazy">
             <span class="card-badge-cat">Meal Prep & Bowls</span>
@@ -1318,7 +1862,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/creamy-tuscan-garlic-chicken-skillet.html" class="recipe-card reveal reveal-stagger" data-category="High-Protein Meals">
+        <a href="/recipes/creamy-tuscan-garlic-chicken-skillet.html" class="recipe-card reveal reveal-stagger" data-category="High-Protein Meals" data-time="25" data-protein="46" data-tags="chicken,keto,one-pan,high-protein,dinner,low-carb">
           <div class="card-media">
             <img src="/assets/images/recipes/creamy-tuscan-garlic-chicken-skillet.jpg" alt="One-Pan Creamy Tuscan Garlic Chicken Skillet" loading="lazy">
             <span class="card-badge-cat">High-Protein Meals</span>
@@ -1340,7 +1884,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/greek-salmon-power-bowl.html" class="recipe-card reveal reveal-stagger" data-category="Mediterranean Fresh">
+        <a href="/recipes/greek-salmon-power-bowl.html" class="recipe-card reveal reveal-stagger" data-category="Mediterranean Fresh" data-time="20" data-protein="42" data-tags="salmon,greek,mediterranean,healthy bowl,high-protein">
           <div class="card-media">
             <img src="/assets/images/recipes/greek-salmon-power-bowl.jpg" alt="Mediterranean Greek Salmon Power Bowl with Tzatziki & Warm Quinoa" loading="lazy">
             <span class="card-badge-cat">Mediterranean Fresh</span>
@@ -1362,7 +1906,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/high-protein-overnight-chia-oats.html" class="recipe-card reveal reveal-stagger" data-category="High-Protein Meals">
+        <a href="/recipes/high-protein-overnight-chia-oats.html" class="recipe-card reveal reveal-stagger" data-category="High-Protein Meals" data-time="5" data-protein="35" data-tags="breakfast,overnight oats,chia seeds,high-protein,meal prep">
           <div class="card-media">
             <img src="/assets/images/recipes/high-protein-overnight-chia-oats.jpg" alt="5-Minute High-Protein Blueberry Overnight Chia Oats" loading="lazy">
             <span class="card-badge-cat">High-Protein Meals</span>
@@ -1384,7 +1928,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/spicy-peanut-chicken-lettuce-wraps.html" class="recipe-card reveal reveal-stagger" data-category="Low-Carb & Keto">
+        <a href="/recipes/spicy-peanut-chicken-lettuce-wraps.html" class="recipe-card reveal reveal-stagger" data-category="Low-Carb & Keto" data-time="15" data-protein="38" data-tags="chicken,lettuce wraps,keto,quick dinner,high-protein">
           <div class="card-media">
             <img src="/assets/images/recipes/spicy-peanut-chicken-lettuce-wraps.jpg" alt="15-Minute Spicy Peanut Chicken Lettuce Wraps" loading="lazy">
             <span class="card-badge-cat">Low-Carb & Keto</span>
@@ -1406,7 +1950,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/sheet-pan-fajitas-avocado-lime.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners">
+        <a href="/recipes/sheet-pan-fajitas-avocado-lime.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners" data-time="25" data-protein="40" data-tags="fajitas,chicken,sheet pan,mexican,high-protein,dinner">
           <div class="card-media">
             <img src="/assets/images/recipes/sheet-pan-fajitas-avocado-lime.jpg" alt="Sizzling Sheet Pan Chicken Fajitas with Avocado Lime Crema" loading="lazy">
             <span class="card-badge-cat">Quick 20-Min Dinners</span>
@@ -1428,7 +1972,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/air-fryer-crispy-parmesan-chicken-cutlets.html" class="recipe-card reveal reveal-stagger" data-category="Air Fryer Clean Eats">
+        <a href="/recipes/air-fryer-crispy-parmesan-chicken-cutlets.html" class="recipe-card reveal reveal-stagger" data-category="Air Fryer Clean Eats" data-time="20" data-protein="48" data-tags="chicken,air fryer,parmesan,keto,high-protein,kid-friendly">
           <div class="card-media">
             <img src="/assets/images/recipes/air-fryer-crispy-parmesan-chicken-cutlets.jpg" alt="Extra Crispy Air Fryer Parmesan Crusted Chicken Cutlets" loading="lazy">
             <span class="card-badge-cat">Air Fryer Clean Eats</span>
@@ -1450,7 +1994,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/lemon-dill-shrimp-asparagus.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners">
+        <a href="/recipes/lemon-dill-shrimp-asparagus.html" class="recipe-card reveal reveal-stagger" data-category="Quick 20-Min Dinners" data-time="12" data-protein="39" data-tags="shrimp,seafood,quick dinner,keto,high-protein,15-minute meal">
           <div class="card-media">
             <img src="/assets/images/recipes/lemon-dill-shrimp-asparagus.jpg" alt="12-Minute Lemon Dill Garlic Butter Shrimp with Asparagus" loading="lazy">
             <span class="card-badge-cat">Quick 20-Min Dinners</span>
@@ -1472,7 +2016,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
           </div>
         </a>
         
-        <a href="/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.html" class="recipe-card reveal reveal-stagger" data-category="Air Fryer Clean Eats">
+        <a href="/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.html" class="recipe-card reveal reveal-stagger" data-category="Air Fryer Clean Eats" data-time="17" data-protein="45" data-tags="shrimp,dinner,high-protein,healthy,quick-meal">
           <div class="card-media">
             <img src="/assets/images/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.jpg" alt="Golden One-Pan Jumbo with Roasted Garlic Cauliflower Rice" loading="lazy">
             <span class="card-badge-cat">Air Fryer Clean Eats</span>
@@ -1617,39 +2161,89 @@ button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .fil
   </footer>
 
   <script>
-    // Smooth Category Filter with Opacity Transition
-    function filterCategory(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const grid = document.querySelector('.recipe-grid');
-      grid.style.opacity = '0.35';
-      grid.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
-      
-      setTimeout(() => {
-        const cards = document.querySelectorAll('.recipe-card');
-        cards.forEach(c => {
-          if (cat === 'all' || c.getAttribute('data-category') === cat) {
-            c.style.display = 'flex';
-            c.classList.add('is-revealed');
-          } else {
-            c.style.display = 'none';
-          }
-        });
-        grid.style.opacity = '1';
-      }, 140);
+  // Minimalist Baker Style Reactive Live Filter & Search
+  const searchInput = document.getElementById('recipeSearchInput');
+  const countBadge = document.getElementById('visibleCount');
+  const cards = document.querySelectorAll('.recipe-card');
+  const noResults = document.getElementById('noResultsMsg');
+  let activeTag = 'all';
+
+  function applySearchAndFilter() {
+    const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    let visible = 0;
+
+    cards.forEach(card => {
+      const title = (card.querySelector('.card-title') ? card.querySelector('.card-title').innerText : '').toLowerCase();
+      const desc = (card.querySelector('.card-desc') ? card.querySelector('.card-desc').innerText : '').toLowerCase();
+      const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+      const cat = (card.getAttribute('data-category') || '').toLowerCase();
+
+      const matchesQuery = !q || title.includes(q) || desc.includes(q) || tags.includes(q) || cat.includes(q);
+
+      let matchesTag = true;
+      if (activeTag === 'under-20') {
+        const t = parseInt(card.getAttribute('data-time') || '99');
+        matchesTag = t <= 20;
+      } else if (activeTag === 'high-protein') {
+        const p = parseInt(card.getAttribute('data-protein') || '0');
+        matchesTag = p >= 40;
+      } else if (activeTag === 'air-fryer') {
+        matchesTag = tags.includes('air fryer') || title.includes('air fryer');
+      } else if (activeTag === 'low-carb') {
+        matchesTag = tags.includes('low-carb') || tags.includes('keto') || tags.includes('bowl');
+      } else if (activeTag === 'skillet') {
+        matchesTag = tags.includes('skillet') || title.includes('skillet') || tags.includes('one-pan');
+      }
+
+      if (matchesQuery && matchesTag) {
+        card.style.display = 'flex';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (countBadge) {
+      countBadge.innerText = `Showing ${visible} healthy recipe${visible === 1 ? '' : 's'}`;
     }
+    if (noResults) {
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+  }
 
-    // Scroll-Triggered Reveal Animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  if (searchInput) {
+    searchInput.addEventListener('input', applySearchAndFilter);
+  }
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  window.filterByChip = function(tag, btn) {
+    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTag = tag;
+    applySearchAndFilter();
+  };
+
+  window.resetSearch = function() {
+    if (searchInput) searchInput.value = '';
+    const allBtn = document.querySelector('.filter-chip[data-tag="all"]');
+    if (allBtn) {
+      document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      allBtn.classList.add('active');
+    }
+    activeTag = 'all';
+    applySearchAndFilter();
+  };
+
+  // Scroll-Triggered Reveal Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

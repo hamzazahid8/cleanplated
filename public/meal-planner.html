@@ -491,6 +491,12 @@
     ];
 
     let selectedMeals = new Set(["air-fryer-lemon-herb-salmon", "honey-garlic-chicken-meal-prep-bowls"]);
+    try {
+      const saved = JSON.parse(localStorage.getItem('cleanplated_meal_plan') || '[]');
+      if (saved && saved.length > 0) {
+        selectedMeals = new Set(saved.map(item => item.id));
+      }
+    } catch (e) {}
 
     function renderMeals() {
       const container = document.getElementById('meals-container');
