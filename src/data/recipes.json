@@ -136,7 +136,12 @@
       "description": "Juicy, flaky salmon crusted in zesty lemon, garlic, and fresh herbs with garlic asparagus made together in the air fryer! 44g Protein, low carb, ready in under 20 minutes. Tap for the full easy recipe! #airfryersalmon #healthydinner #highprotein #keto #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/air-fryer-lemon-herb-salmon.jpg"
+    "image": "assets/images/recipes/air-fryer-lemon-herb-salmon.jpg",
+    "equipment": [
+      "air_fryer",
+      "meat_thermometer",
+      "chef_knife"
+    ]
   },
   {
     "id": "honey-garlic-chicken-meal-prep-bowls",
@@ -281,7 +286,12 @@
       "description": "Caramelized honey garlic chicken bites served over fluffy quinoa and steamed broccoli. Perfect 20-minute healthy lunch meal prep for the whole week! 42g Protein & 465 cals. Tap for full step-by-step recipe! #mealprep #healthyrecipes #chickendinner #highprotein #lunchideas",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/honey-garlic-chicken-meal-prep-bowls.jpg"
+    "image": "assets/images/recipes/honey-garlic-chicken-meal-prep-bowls.jpg",
+    "equipment": [
+      "meal_prep_containers",
+      "skillet",
+      "chef_knife"
+    ]
   },
   {
     "id": "creamy-tuscan-garlic-chicken-skillet",
@@ -426,7 +436,12 @@
       "description": "Juicy chicken cutlets in a rich garlic, sun-dried tomato, and spinach sauce! Restaurant flavor made healthy in 1 pan and 25 mins. 46g Protein, low carb & keto. Tap for the full recipe! #tuscanchicken #onepanmeal #chickendinner #ketorecipes #highprotein",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/creamy-tuscan-garlic-chicken-skillet.jpg"
+    "image": "assets/images/recipes/creamy-tuscan-garlic-chicken-skillet.jpg",
+    "equipment": [
+      "skillet",
+      "chef_knife",
+      "kitchen_scale"
+    ]
   },
   {
     "id": "greek-salmon-power-bowl",
@@ -563,7 +578,12 @@
       "description": "Crispy pan-seared salmon over warm quinoa with cucumber, tomatoes, olives, feta, and fresh dill tzatziki! 20-Minute Mediterranean dinner packed with 42g protein. Tap for the full recipe! #salmonbowl #mediterraneanbowl #healthydinner #highprotein #greekfood",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/greek-salmon-power-bowl.jpg"
+    "image": "assets/images/recipes/greek-salmon-power-bowl.jpg",
+    "equipment": [
+      "skillet",
+      "chef_knife",
+      "meal_prep_containers"
+    ]
   },
   {
     "id": "high-protein-overnight-chia-oats",
@@ -687,7 +707,12 @@
       "description": "5 Minutes to prep before bed! Thick, creamy overnight oats packed with organic chia seeds, wild blueberries, and 35g of protein. No cooking needed. Grab the easy recipe now! #overnightoats #highproteinbreakfast #mealprepbreakfast #healthybreakfast #healthyrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/high-protein-overnight-chia-oats.jpg"
+    "image": "assets/images/recipes/high-protein-overnight-chia-oats.jpg",
+    "equipment": [
+      "blender",
+      "kitchen_scale",
+      "meal_prep_containers"
+    ]
   },
   {
     "id": "spicy-peanut-chicken-lettuce-wraps",
@@ -825,7 +850,12 @@
       "description": "Crisp butter lettuce cups loaded with savory chicken, crunchy water chestnuts, and spicy peanut sauce! Ready in 15 minutes with 38g protein and only 9g carbs. Tap for the full easy recipe! #lettucewraps #ketorecipes #quickdinner #healthyrecipes #chickendinner",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/spicy-peanut-chicken-lettuce-wraps.jpg"
+    "image": "assets/images/recipes/spicy-peanut-chicken-lettuce-wraps.jpg",
+    "equipment": [
+      "skillet",
+      "chef_knife",
+      "veggie_chopper"
+    ]
   },
   {
     "id": "sheet-pan-fajitas-avocado-lime",
@@ -980,7 +1010,12 @@
       "description": "Sizzling sheet pan chicken fajitas with sweet bell peppers and an easy Greek yogurt avocado lime crema! Healthy 25-minute weeknight dinner with only 1 pan to wash. 40g Protein. Tap for recipe! #sheetpandinner #chickenfajitas #healthyfajitas #highprotein #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/sheet-pan-fajitas-avocado-lime.jpg"
+    "image": "assets/images/recipes/sheet-pan-fajitas-avocado-lime.jpg",
+    "equipment": [
+      "chef_knife",
+      "veggie_chopper",
+      "meat_thermometer"
+    ]
   },
   {
     "id": "air-fryer-crispy-parmesan-chicken-cutlets",
@@ -1112,7 +1147,12 @@
       "description": "Crazy crispy chicken cutlets crusted with parmesan cheese and Italian herbs in the air fryer! No breadcrumbs, no deep frying. 48g Protein, low carb & keto. Tap for the secret to the crispiest chicken! #airfryerchicken #parmesanchicken #ketorecipes #highprotein #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/air-fryer-crispy-parmesan-chicken-cutlets.jpg"
+    "image": "assets/images/recipes/air-fryer-crispy-parmesan-chicken-cutlets.jpg",
+    "equipment": [
+      "air_fryer",
+      "meat_thermometer",
+      "chef_knife"
+    ]
   },
   {
     "id": "lemon-dill-shrimp-asparagus",
@@ -1247,7 +1287,12 @@
       "description": "Juicy jumbo shrimp and tender asparagus sautéed in a rich lemon garlic butter and fresh dill sauce! Dinner ready in literally 12 minutes with 39g protein and low carb. Tap for easy recipe! #shrimprecipes #15minutedinner #healthyseafood #ketodinner #quickrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/lemon-dill-shrimp-asparagus.jpg"
+    "image": "assets/images/recipes/lemon-dill-shrimp-asparagus.jpg",
+    "equipment": [
+      "skillet",
+      "chef_knife",
+      "kitchen_scale"
+    ]
   },
   {
     "id": "golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice",
@@ -1369,6 +1414,11 @@
       "description": "Golden jumbo wild gulf shrimp and roasted garlic cauliflower rice made in only 17 minutes! Packed with 45g protein and low carb. Tap for full recipe and tools list! #healthymeals #highprotein #quickdinner #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
     },
-    "image": "assets/images/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.jpg"
+    "image": "assets/images/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.jpg",
+    "equipment": [
+      "skillet",
+      "chef_knife",
+      "meat_thermometer"
+    ]
   }
 ]

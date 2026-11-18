@@ -321,14 +321,14 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <div class="brand-icon">🌿</div>
         Pure<span>Plated</span>
       </a>
       <nav class="nav-links">
-        <a href="index.html">All Recipes</a>
-        <a href="index.html#tools">Kitchen Gear</a>
-        <a href="index.html#author">About Chefs</a>
+        <a href="/">All Recipes</a>
+        <a href="/#tools">Kitchen Gear</a>
+        <a href="/#author">About Chefs</a>
       </nav>
     </div>
   </header>
@@ -361,7 +361,7 @@
         <li style="color:var(--ink-muted); font-size:0.9rem; padding:16px 0;">Select at least one recipe on the left to generate your grocery list.</li>
       </ul>
 
-      <a href="https://www.amazon.com/s?k=glass+meal+prep+containers&tag=cleanplated-20" target="_blank" rel="sponsored nofollow noopener" class="amazon-order-btn">
+      <a href="https://www.amazon.com/s?k=Glass+Meal+Prep+Containers+Airtight&tag=cleanplated-20" target="_blank" rel="sponsored nofollow noopener" class="amazon-order-btn">
         <span>Order Meal Prep Containers & Gear on Amazon ↗</span>
       </a>
       <p style="font-size:0.75rem; color:var(--ink-muted); text-align:center; margin-top:10px;">
@@ -375,9 +375,9 @@
       <div style="font-family:var(--font-serif); font-size:1.4rem; color:#FFF; margin-bottom:8px;">Pure<span>Plated</span></div>
       <p style="color:#A3B1AA; font-size:0.82rem; margin-bottom:16px;">© 2026 PurePlated • Wholesome, High-Protein Meals in 25 Minutes or Less.</p>
       <div style="font-size:0.8rem; color:#8C9C94;">
-        <a href="index.html" style="color:#FFF;">Home</a> • 
-        <a href="feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Feed</a> • 
-        <a href="sitemap.xml" style="color:#FFF;">Sitemap</a>
+        <a href="/" style="color:#FFF;">Home</a> • 
+        <a href="/feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Feed</a> • 
+        <a href="/sitemap.xml" style="color:#FFF;">Sitemap</a>
       </div>
     </div>
   </footer>
@@ -479,7 +479,8 @@
             <div class="meal-title">${m.title}</div>
             <div class="meal-chips">
               <span class="prot">${m.protein} Protein</span> • 
-              <span>⏱️ ${m.time}</span>
+              <span>⏱️ ${m.time}</span> •
+              <a href="/recipes/${m.id}.html" target="_blank" style="color:var(--primary); font-weight:700; text-decoration:underline;" onclick="event.stopPropagation()">View Recipe ↗</a>
             </div>
           </div>
           <div class="meal-checkbox">${selectedMeals.has(m.id) ? '✓' : ''}</div>

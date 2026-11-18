@@ -1142,9 +1142,9 @@ def build_recipe_page(recipe, config, all_recipes):
     related_html = ""
     for r in related:
         related_html += f"""
-        <a href="{r['id']}.html" class="recipe-card">
+        <a href="/recipes/{r['id']}.html" class="recipe-card">
           <div class="card-media">
-            <img src="../assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
+            <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Dinner')}</span>
             <span class="card-badge-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -1200,14 +1200,14 @@ def build_recipe_page(recipe, config, all_recipes):
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="brand">
+      <a href="/" class="brand">
         <div class="brand-icon">🌿</div>
         Pure<span>Plated</span>
       </a>
       <nav class="nav-links">
-        <a href="../index.html">All Recipes</a>
-        <a href="../index.html#tools">Kitchen Gear</a>
-        <a href="../meal-planner.html" class="nav-cta">⚡ Weekly Meal Planner</a>
+        <a href="/#recipes">All Recipes</a>
+        <a href="/#tools">Kitchen Gear</a>
+        <a href="/meal-planner.html" class="nav-cta">⚡ Weekly Meal Planner</a>
       </nav>
     </div>
   </header>
@@ -1215,7 +1215,7 @@ def build_recipe_page(recipe, config, all_recipes):
   <main class="container recipe-page">
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-      <a href="../index.html">Home</a> &gt; <span>{recipe.get('category', 'Recipes')}</span> &gt; <span>{recipe['title']}</span>
+      <a href="/">Home</a> &gt; <span>{recipe.get('category', 'Recipes')}</span> &gt; <span>{recipe['title']}</span>
     </div>
 
     <!-- Recipe Hero Split -->
@@ -1229,7 +1229,7 @@ def build_recipe_page(recipe, config, all_recipes):
         <p class="recipe-hero-sub">{recipe.get('headline', '')}</p>
 
         <div class="recipe-byline-bar">
-          <img src="../assets/images/author-avatar.jpg" alt="{config['author']['name']}" class="byline-avatar">
+          <img src="/assets/images/author-avatar.jpg" alt="{config['author']['name']}" class="byline-avatar">
           <div class="byline-info">
             <div class="byline-name">By {config['author']['name']}</div>
             <div class="byline-meta">Certified Sports Nutritionist • Updated November 2026 • ★★★★★ 4.9 (128 reviews)</div>
@@ -1243,7 +1243,7 @@ def build_recipe_page(recipe, config, all_recipes):
       </div>
 
       <div class="recipe-hero-visual">
-        <img src="../assets/images/recipes/{slug}.jpg" alt="{recipe['title']}">
+        <img src="/assets/images/recipes/{slug}.jpg" alt="{recipe['title']}">
         <div class="recipe-photo-caption">
           <span>Freshly cooked in under 25 minutes</span>
           <span style="font-weight:700; color:var(--primary);">Tested Recipe ✓</span>
@@ -1326,7 +1326,7 @@ def build_recipe_page(recipe, config, all_recipes):
       <!-- Pinterest Pin Banner Box -->
       <div class="pin-save-section">
         <div class="pin-thumbnail">
-          <img src="../assets/pins/pin-{slug}.png" alt="Pinterest pin for {recipe['title']}">
+          <img src="/assets/pins/pin-{slug}.png" alt="Pinterest pin for {recipe['title']}">
         </div>
         <div>
           <h4 style="font-family:var(--font-serif); font-size:1.25rem; color:var(--ink); margin-bottom:6px;">Love this recipe? Save it to Pinterest!</h4>
@@ -1356,8 +1356,8 @@ def build_recipe_page(recipe, config, all_recipes):
       <div class="footer-bottom">
         <div>© 2026 {config['site_name']} • All Rights Reserved. Clean, Wholesome & High-Protein Everyday Dinners.</div>
         <div>
-          <a href="../feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest RSS Feed</a> • 
-          <a href="../sitemap.xml" style="color:#FFF;">XML Sitemap</a>
+          <a href="/feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest RSS Feed</a> • 
+          <a href="/sitemap.xml" style="color:#FFF;">XML Sitemap</a>
         </div>
       </div>
     </div>
@@ -1401,9 +1401,9 @@ def build_homepage(recipes, config):
     cards_html = ""
     for r in recipes:
         cards_html += f"""
-        <a href="recipes/{r['id']}.html" class="recipe-card" data-category="{r.get('category', '')}">
+        <a href="/recipes/{r['id']}.html" class="recipe-card" data-category="{r.get('category', '')}">
           <div class="card-media">
-            <img src="assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
+            <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Healthy Meals')}</span>
             <span class="card-badge-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -1463,15 +1463,15 @@ def build_homepage(recipes, config):
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <div class="brand-icon">🌿</div>
         Pure<span>Plated</span>
       </a>
       <nav class="nav-links">
-        <a href="#recipes">Recipes</a>
-        <a href="#tools">Tested Gear</a>
-        <a href="#author">About Chefs</a>
-        <a href="meal-planner.html" class="nav-cta">⚡ Weekly Meal Planner</a>
+        <a href="/#recipes">Recipes</a>
+        <a href="/#tools">Tested Gear</a>
+        <a href="/#author">About Chefs</a>
+        <a href="/meal-planner.html" class="nav-cta">⚡ Weekly Meal Planner</a>
       </nav>
     </div>
   </header>
@@ -1487,15 +1487,15 @@ def build_homepage(recipes, config):
         <h1>Effortless Healthy Weeknight Dinners in 25 Mins or Less.</h1>
         <p>No complicated prep, no mountain of dishes, and zero boring diet food. Real chef-crafted recipes packed with high protein, vibrant vegetables, and wholesome pantry staples.</p>
         <div class="hero-actions">
-          <a href="#recipes" class="btn-primary">Explore All Recipes ↓</a>
-          <a href="meal-planner.html" class="btn-secondary">Build 7-Day Meal Plan →</a>
+          <a href="/#recipes" class="btn-primary">Explore All Recipes ↓</a>
+          <a href="/meal-planner.html" class="btn-secondary">Build 7-Day Meal Plan →</a>
         </div>
       </div>
 
       <!-- Featured Recipe Hero Card -->
-      <a href="recipes/{featured['id']}.html" class="hero-card">
+      <a href="/recipes/{featured['id']}.html" class="hero-card">
         <div class="hero-card-img-wrap">
-          <img src="assets/images/recipes/{featured['id']}.jpg" alt="{featured['title']}">
+          <img src="/assets/images/recipes/{featured['id']}.jpg" alt="{featured['title']}">
           <div class="hero-floating-badge">Featured Recipe of the Day</div>
         </div>
         <div class="hero-card-body">
@@ -1554,7 +1554,7 @@ def build_homepage(recipes, config):
     <div class="container">
       <div class="author-box">
         <div class="author-avatar-wrap">
-          <img src="assets/images/author-avatar.jpg" alt="{config['author']['name']}">
+          <img src="/assets/images/author-avatar.jpg" alt="{config['author']['name']}">
         </div>
         <div class="author-details">
           <div class="author-role">Culinary Nutritionist & Founder</div>
@@ -1573,6 +1573,13 @@ def build_homepage(recipes, config):
       </div>
       <div class="footer-bottom">
         <div>© 2026 {config['site_name']} • Clean & Wholesome Meals for Real Life.</div>
+        <div>
+          <a href="/feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Media Feed</a> • 
+          <a href="/sitemap.xml" style="color:#FFF;">XML Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
         <div>
           <a href="feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Media Feed</a> • 
           <a href="sitemap.xml" style="color:#FFF;">XML Sitemap</a>
