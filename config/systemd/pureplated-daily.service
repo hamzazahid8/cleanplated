@@ -1,0 +1,15 @@
+[Unit]
+Description=PurePlated Daily Recipe & Pinterest Automation Pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/hamzazahid8/daily-healthy-meals
+ExecStart=/usr/bin/python3 /home/hamzazahid8/daily-healthy-meals/scripts/daily_pipeline.py
+StandardOutput=append:/home/hamzazahid8/daily-healthy-meals/scripts/daily_pipeline.log
+StandardError=append:/home/hamzazahid8/daily-healthy-meals/scripts/daily_pipeline.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

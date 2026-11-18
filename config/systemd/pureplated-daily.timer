@@ -1,0 +1,9 @@
+[Unit]
+Description=Run PurePlated Daily Recipe & Pinterest Pipeline every morning at 8:00 AM EST
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,134 @@
+{
+  "site_name": "PurePlated",
+  "tagline": "Daily Healthy, Easy & High-Protein Meals in 25 Minutes or Less",
+  "description": "Discover fast, nutritious, and wholesome everyday recipes. High protein, clean ingredients, and zero kitchen stress — tested for real weeknight dinners.",
+  "domain": "https://pureplated.com",
+  "author": {
+    "name": "Chef Marcus & Elena Vance",
+    "role": "Certified Sports Nutritionist & Recipe Developer",
+    "avatar": "/assets/images/author-avatar.jpg",
+    "bio": "Dedicated to bringing effortless, macro-friendly, and delicious home-cooked meals to busy professionals and families."
+  },
+  "amazon": {
+    "affiliate_tag": "pureplated-20",
+    "disclosure": "As an Amazon Associate, PurePlated earns from qualifying purchases at no additional cost to you. We only recommend kitchen equipment and wholesome ingredients we genuinely use and love.",
+    "tools_catalog": {
+      "air_fryer": {
+        "name": "Ninja AF101 Air Fryer (4-Qt)",
+        "category": "Appliances",
+        "badge": "Top Recommended",
+        "price_approx": "$89.99",
+        "description": "Crisp up vegetables and proteins with 75% less oil in under 15 minutes.",
+        "url": "https://www.amazon.com/dp/B07FDJMC9Q?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/71+8RhEw0IL._AC_SL1500_.jpg"
+      },
+      "blender": {
+        "name": "NutriBullet Pro 900W High-Speed Blender",
+        "category": "Appliances",
+        "badge": "Staff Pick",
+        "price_approx": "$79.99",
+        "description": "Pulverizes seeds, greens, and protein shakes in 30 seconds flat.",
+        "url": "https://www.amazon.com/dp/B00SGBE1N4?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/71Yv8y6P4yL._AC_SL1500_.jpg"
+      },
+      "kitchen_scale": {
+        "name": "GreaterGoods Digital Kitchen Food Scale",
+        "category": "Gadgets",
+        "badge": "Meal Prep Must-Have",
+        "price_approx": "$14.99",
+        "description": "Accurate to 1 gram for exact macro tracking and portion control.",
+        "url": "https://www.amazon.com/dp/B018LX38N0?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/71y82982dKL._AC_SL1500_.jpg"
+      },
+      "meal_prep_containers": {
+        "name": "Prep Naturals Glass Meal Prep Containers (5-Pack)",
+        "category": "Storage",
+        "badge": "Amazon's Choice",
+        "price_approx": "$29.99",
+        "description": "Airtight snap-locking lids, oven and microwave safe, zero plastic leaching.",
+        "url": "https://www.amazon.com/dp/B0777JD5DD?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/81x1-kC5+GL._AC_SL1500_.jpg"
+      },
+      "chef_knife": {
+        "name": "Victorinox Fibrox Pro 8-Inch Chef's Knife",
+        "category": "Cutlery",
+        "badge": "Pro Choice",
+        "price_approx": "$44.95",
+        "description": "Razor-sharp Swiss high-carbon steel that effortlessly glides through vegetables and meat.",
+        "url": "https://www.amazon.com/dp/B008M5U1C2?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/61gR7m2-31L._AC_SL1500_.jpg"
+      },
+      "meat_thermometer": {
+        "name": "ThermoPro TP19H Waterproof Digital Meat Thermometer",
+        "category": "Gadgets",
+        "badge": "Precision Tool",
+        "price_approx": "$17.99",
+        "description": "Instant 2-second read guarantees chicken and salmon are never dry or overcooked.",
+        "url": "https://www.amazon.com/dp/B07RKM53T8?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/71Z1-yHqf4L._AC_SL1500_.jpg"
+      },
+      "skillet": {
+        "name": "Lodge 10.25-Inch Pre-Seasoned Cast Iron Skillet",
+        "category": "Cookware",
+        "badge": "Bestseller",
+        "price_approx": "$19.90",
+        "description": "Unmatched heat retention for restaurant-quality searing and stovetop-to-oven roasting.",
+        "url": "https://www.amazon.com/dp/B00006JSUA?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/81t56lJ04KL._AC_SL1500_.jpg"
+      },
+      "veggie_chopper": {
+        "name": "Fullstar 4-in-1 Vegetable Chopper & Spiralizer",
+        "category": "Prep Gadgets",
+        "badge": "Viral Favorite",
+        "price_approx": "$24.99",
+        "description": "Dice onions, bell peppers, and carrots into uniform cubes in one second.",
+        "url": "https://www.amazon.com/dp/B0764HS44J?tag=pureplated-20",
+        "image": "https://m.media-amazon.com/images/I/71dK4nQ5SGL._AC_SL1500_.jpg"
+      }
+    },
+    "pantry_catalog": {
+      "olive_oil": {
+        "name": "California Olive Ranch 100% California Extra Virgin Olive Oil",
+        "description": "Cold-pressed extra virgin olive oil with rich polyphenol content.",
+        "url": "https://www.amazon.com/dp/B0078DWVPA?tag=pureplated-20"
+      },
+      "avocado_oil_spray": {
+        "name": "Chosen Foods 100% Pure Avocado Oil Spray (High Smoke Point 500°F)",
+        "description": "Zero chemical propellants, ideal for air frying and searing.",
+        "url": "https://www.amazon.com/dp/B01HETZ0F6?tag=pureplated-20"
+      },
+      "chia_seeds": {
+        "name": "Viva Naturals Organic Raw Chia Seeds (2 lb)",
+        "description": "Loaded with Omega-3, fiber, and plant-based protein.",
+        "url": "https://www.amazon.com/dp/B00MR9V21S?tag=pureplated-20"
+      },
+      "chickpea_pasta": {
+        "name": "Banza Chickpea Pasta Rotini (20g Protein / 8g Fiber)",
+        "description": "Low glycemic, gluten-free, tastes just like traditional pasta.",
+        "url": "https://www.amazon.com/dp/B01B1T0Y6E?tag=pureplated-20"
+      },
+      "himalayan_salt": {
+        "name": "Redmond Real Salt Ancient Fine Sea Salt (Unrefined)",
+        "description": "Contains 60+ natural trace minerals, no artificial anti-caking agents.",
+        "url": "https://www.amazon.com/dp/B0004MVH5K?tag=pureplated-20"
+      }
+    }
+  },
+  "pinterest": {
+    "account": "PurePlated",
+    "board_name": "Quick & Healthy Easy Meals",
+    "pin_dimension": {
+      "width": 1000,
+      "height": 1500
+    },
+    "default_tags": [
+      "#healthymeals",
+      "#easyrecipes",
+      "#highprotein",
+      "#quickdinner",
+      "#mealprep",
+      "#cleaneating",
+      "#healthydinnerideas"
+    ]
+  }
+}

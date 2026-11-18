@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day High-Protein Meal Planner & Grocery Builder | PurePlated</title>
+  <meta name="description" content="Build your weekly healthy meal plan in 60 seconds. Pick your favorite 20-minute recipes and get an instant, consolidated grocery list with Amazon Fresh delivery links.">
+  <link rel="canonical" href="https://pureplated.com/meal-planner.html">
+  <style>
+:root {
+  --bg: #FBFBFA;
+  --surface: #FFFFFF;
+  --surface-alt: #F4F1EA;
+  --ink: #1A202C;
+  --ink-secondary: #4A5568;
+  --ink-muted: #718096;
+  --border: #E2DDD5;
+  --accent: #2D6A4F;
+  --accent-light: #EBF5F0;
+  --accent-hover: #1B4332;
+  --gold: #D97706;
+  --amazon-orange: #FF9900;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+  --font-serif: "DejaVu Serif", Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+.site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+.brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+.brand span { color: var(--gold); }
+.nav-links { display: flex; gap: 24px; font-weight: 500; font-size: 0.95rem; }
+
+.planner-hero { text-align: center; padding: 48px 0 32px; background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%); }
+.planner-hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px; }
+.planner-hero p { font-size: 1.1rem; color: var(--ink-secondary); max-width: 640px; margin: 0 auto; }
+
+.planner-layout { display: grid; grid-template-columns: 1fr 380px; gap: 32px; padding: 32px 0 60px; }
+@media (max-width: 860px) { .planner-layout { grid-template-columns: 1fr; } }
+
+.meal-selector-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.meal-selector-box h2 { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 16px; }
+.meal-pick-item { display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; }
+.meal-pick-item:hover, .meal-pick-item.selected { border-color: var(--accent); background: var(--accent-light); }
+.meal-pick-item input { accent-color: var(--accent); width: 18px; height: 18px; }
+
+.grocery-sidebar { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 24px; position: sticky; top: 96px; }
+.grocery-sidebar h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; }
+.grocery-list { list-style: none; margin: 20px 0; max-height: 400px; overflow-y: auto; }
+.grocery-item { padding: 8px 0; border-bottom: 1px solid #f0ede6; font-size: 0.9rem; display: flex; justify-content: space-between; }
+
+.amazon-order-box { background: #FFF9E6; border: 1px solid #FFE082; border-radius: 8px; padding: 16px; margin-top: 20px; text-align: center; }
+.amazon-order-btn { display: block; background: var(--amazon-orange); color: #111; font-weight: 700; padding: 12px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem; }
+.amazon-order-btn:hover { background: #e68a00; }
+
+.site-footer { background: var(--surface); border-top: 1px solid var(--border); padding: 40px 0 20px; margin-top: 60px; font-size: 0.85rem; color: var(--ink-secondary); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">Pure<span>Plated</span></a>
+      <nav class="nav-links">
+        <a href="/">Recipes</a>
+        <a href="/meal-planner.html" style="color:var(--accent); font-weight:700;">Weekly Meal Planner</a>
+        <a href="/#tools">Amazon Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="planner-hero">
+    <div class="container">
+      <h1>Weekly Healthy Meal Planner & Grocery Builder</h1>
+      <p>Select your favorite 20-minute dinners below. We'll automatically generate your consolidated shopping list and Amazon Fresh pantry basket.</p>
+    </div>
+  </section>
+
+  <main class="container planner-layout">
+    <section class="meal-selector-box">
+      <h2>Step 1: Pick Your Dinners for the Week</h2>
+      <div id="meals-list">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <aside class="grocery-sidebar">
+      <h3>Your Weekly Grocery List</h3>
+      <p style="font-size:0.85rem; color:var(--ink-muted);" id="selected-count">0 recipes selected</p>
+      
+      <ul class="grocery-list" id="grocery-items">
+        <li style="color:var(--ink-muted); font-size:0.9rem; padding:12px 0;">Select at least one recipe on the left to generate your grocery list.</li>
+      </ul>
+
+      <button onclick="window.print()" style="width:100%; padding:10px; background:var(--surface-alt); border:1px solid var(--border); border-radius:6px; font-weight:600; cursor:pointer; margin-bottom:12px;">🖨️ Print Grocery List</button>
+
+      <div class="amazon-order-box">
+        <b style="color:#8C5300; font-size:0.85rem;">Fastest Way to Prep:</b>
+        <p style="font-size:0.8rem; color:#555; margin-top:4px;">Order your organic olive oil, spices, and glass containers directly on Amazon.</p>
+        <a href="https://www.amazon.com/s?k=glass+meal+prep+containers&tag=pureplated-20" target="_blank" rel="sponsored nofollow noopener" class="amazon-order-btn">
+          Shop Meal Prep Gear on Amazon →
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align:center;">
+      <p>© 2026 PurePlated • Daily Clean & Healthy Meals • As an Amazon Associate we earn from qualifying purchases.</p>
+    </div>
+  </footer>
+
+  <script>
+    const RECIPES_DATA = [
+      { id: "salmon", title: "Crispy Air Fryer Lemon Herb Salmon", time: "18m", protein: "44g", ings: ["Wild Salmon fillets (2)", "Fresh Asparagus (1 bunch)", "Extra Virgin Olive Oil", "Lemons (2)", "Garlic", "Italian Herbs"] },
+      { id: "honey-chicken", title: "20-Min Honey Garlic Chicken Meal Prep Bowls", time: "20m", protein: "42g", ings: ["Chicken Breasts (1.5 lbs)", "Broccoli florets", "Quinoa", "Raw Honey", "Low-sodium Soy sauce", "Garlic", "Fresh Ginger"] },
+      { id: "tuscan-chicken", title: "One-Pan Creamy Tuscan Garlic Chicken", time: "25m", protein: "46g", ings: ["Chicken Breasts (1.5 lbs)", "Baby Spinach", "Sun-dried Tomatoes", "Heavy Cream / Half-and-Half", "Parmesan Cheese", "Chicken Bone Broth"] },
+      { id: "greek-salmon", title: "Greek Salmon Power Bowl with Tzatziki", time: "20m", protein: "42g", ings: ["Salmon fillets", "Persian Cucumbers", "Cherry Tomatoes", "Kalamata Olives", "Feta Cheese", "Greek Yogurt", "Fresh Dill"] },
+      { id: "lettuce-wraps", title: "15-Minute Spicy Peanut Chicken Lettuce Wraps", time: "15m", protein: "38g", ings: ["Ground Chicken (1 lb)", "Butter Lettuce", "Water Chestnuts", "Natural Peanut Butter", "Lime juice", "Sriracha"] },
+      { id: "fajitas", title: "Sizzling Sheet Pan Chicken Fajitas", time: "25m", protein: "40g", ings: ["Chicken Tenders (1.5 lbs)", "Bell Peppers (3)", "Red Onion", "Ripe Avocado", "Plain Greek Yogurt", "Limes"] },
+      { id: "parmesan-chicken", title: "Crispy Air Fryer Parmesan Chicken Cutlets", time: "20m", protein: "48g", ings: ["Chicken Cutlets (1.5 lbs)", "Parmesan Cheese (grated)", "Almond Flour", "Eggs (1)", "Italian herbs", "Avocado oil spray"] },
+      { id: "shrimp-asparagus", title: "12-Min Lemon Dill Garlic Butter Shrimp", time: "12m", protein: "39g", 39: ings: ["Jumbo Shrimp (1 lb)", "Fresh Asparagus", "Grass-fed Butter", "Garlic", "Fresh Lemon", "Fresh Dill"] }
+    ];
+
+    const selectedMeals = new Set(["salmon", "honey-chicken", "tuscan-chicken"]);
+
+    function renderMeals() {
+      const container = document.getElementById('meals-list');
+      container.innerHTML = RECIPES_DATA.map(m => `
+        <label class="meal-pick-item ${selectedMeals.has(m.id) ? 'selected' : ''}" onclick="toggleMeal('${m.id}')">
+          <input type="checkbox" ${selectedMeals.has(m.id) ? 'checked' : ''} onclick="event.stopPropagation(); toggleMeal('${m.id}')">
+          <div style="flex:1;">
+            <div style="font-weight:700; color:var(--ink);">${m.title}</div>
+            <div style="font-size:0.8rem; color:var(--ink-secondary);">⏱️ ${m.time} &bull; 💪 ${m.protein} protein</div>
+          </div>
+        </label>
+      `).join('');
+      updateGroceryList();
+    }
+
+    function toggleMeal(id) {
+      if (selectedMeals.has(id)) {
+        selectedMeals.delete(id);
+      } else {
+        selectedMeals.add(id);
+      }
+      renderMeals();
+    }
+
+    function updateGroceryList() {
+      document.getElementById('selected-count').innerText = `${selectedMeals.size} recipes selected`;
+      const groceryContainer = document.getElementById('grocery-items');
+      
+      if (selectedMeals.size === 0) {
+        groceryContainer.innerHTML = '<li style="color:var(--ink-muted); font-size:0.9rem; padding:12px 0;">Select at least one recipe to generate your grocery list.</li>';
+        return;
+      }
+
+      const allIngs = new Set();
+      RECIPES_DATA.forEach(m => {
+        if (selectedMeals.has(m.id)) {
+          m.ings.forEach(i => allIngs.add(i));
+        }
+      });
+
+      groceryContainer.innerHTML = Array.from(allIngs).map(item => `
+        <li class="grocery-item">
+          <span>${item}</span>
+          <span style="color:var(--accent); font-size:0.8rem;">✓</span>
+        </li>
+      `).join('');
+    }
+
+    renderMeals();
+  </script>
+</body>
+</html>

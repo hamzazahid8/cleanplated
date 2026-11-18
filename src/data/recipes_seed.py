@@ -1,0 +1,702 @@
+#!/usr/bin/env python3
+"""
+Seed dataset for PurePlated healthy recipe catalogue.
+Generates comprehensive recipe database with exact macros, step-by-step instructions,
+Amazon affiliate product mappings, and Pinterest pin specifications.
+"""
+
+import json
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+OUTPUT_JSON = os.path.join(BASE_DIR, "src", "data", "recipes.json")
+
+RECIPES = [
+    {
+        "id": "air-fryer-lemon-herb-salmon",
+        "title": "Crispy Air Fryer Lemon Herb Salmon with Garlic Asparagus",
+        "headline": "Juicy, flaky salmon crusted in zesty lemon and herbs, paired with tender roasted asparagus in under 20 minutes.",
+        "category": "Quick 20-Min Dinners",
+        "cuisine": "Mediterranean",
+        "difficulty": "Easy",
+        "prep_time": 8,
+        "cook_time": 10,
+        "total_time": 18,
+        "servings": 2,
+        "calories": 420,
+        "protein": 44,
+        "carbs": 6,
+        "fat": 24,
+        "fiber": 3,
+        "badges": ["⏱️ 18 Mins", "💪 44g Protein", "🥗 Low Carb", "🔥 420 Cals"],
+        "tags": ["salmon", "air fryer", "dinner", "keto", "gluten-free", "high-protein"],
+        "hero_image": "/assets/images/recipes/air-fryer-salmon.jpg",
+        "pin_image": "/assets/pins/pin-air-fryer-lemon-herb-salmon.png",
+        "color_accent": "#2D6A4F",
+        "description": "This Air Fryer Lemon Herb Salmon is our favorite weeknight lifesaver. The air fryer circulates 400°F convection heat to achieve a delicate golden crust on the salmon while locking in all the natural omega-3 moisture inside. Paired with crisp-tender garlic asparagus cooked simultaneously in the same basket, dinner is on the table in 18 minutes flat with virtually zero cleanup.",
+        "why_it_works": [
+            "Convection air frying crisps the outside in 10 minutes without drying the center.",
+            "High-protein (44g) and omega-3 fatty acids promote satiety and heart health.",
+            "Zero stovetop splatter and single-basket cooking."
+        ],
+        "ingredients": [
+            {"amount": 2, "unit": "6-oz fillets", "item": "Wild Alaskan Salmon (skin-on)", "notes": "patted dry with paper towels"},
+            {"amount": 1, "unit": "bunch", "item": "Fresh Asparagus", "notes": "woody ends snapped off"},
+            {"amount": 1.5, "unit": "tbsp", "item": "Extra Virgin Olive Oil", "amazon_key": "olive_oil"},
+            {"amount": 1, "unit": "lemon", "item": "Fresh Lemon", "notes": "zested and cut into thin rounds"},
+            {"amount": 3, "unit": "cloves", "item": "Garlic", "notes": "finely minced"},
+            {"amount": 1, "unit": "tsp", "item": "Italian Herb Blend (oregano, thyme, rosemary)"},
+            {"amount": 0.5, "unit": "tsp", "item": "Smoked Paprika"},
+            {"amount": 0.5, "unit": "tsp", "item": "Ancient Sea Salt", "amazon_key": "himalayan_salt"},
+            {"amount": 0.25, "unit": "tsp", "item": "Freshly Ground Black Pepper"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Prep the Salmon & Asparagus",
+                "text": "Pat the salmon fillets completely dry with paper towels. Dry salmon guarantees a crisp, caramelized surface rather than steaming. Place trimmed asparagus alongside the salmon on a large cutting board."
+            },
+            {
+                "step": 2,
+                "title": "Season and Coat",
+                "text": "In a small ramekin, whisk together extra virgin olive oil, minced garlic, lemon zest, Italian herbs, smoked paprika, sea salt, and black pepper. Brush generously over both sides of the salmon and toss with the asparagus spears."
+            },
+            {
+                "step": 3,
+                "title": "Air Fry to Perfection",
+                "text": "Preheat your air fryer to 400°F (200°C) for 3 minutes. Place salmon skin-side down in the center of the basket and arrange asparagus spears around the sides. Top salmon fillets with lemon slices."
+            },
+            {
+                "step": 4,
+                "title": "Cook and Check Internal Temp",
+                "text": "Air fry at 400°F for 9–11 minutes depending on thickness. Insert an instant-read meat thermometer into the thickest part; salmon is perfectly medium-rare and tender when it reaches 130°F to 135°F (57°C)."
+            },
+            {
+                "step": 5,
+                "title": "Rest and Garnish",
+                "text": "Remove carefully with a silicone spatula, rest for 2 minutes, squeeze remaining fresh lemon juice over the top, and serve immediately."
+            }
+        ],
+        "chef_tips": [
+            "Use an instant-read thermometer: Salmon cooks fast in an air fryer; 10 minutes at 400°F is usually the sweet spot for a 1-inch fillet.",
+            "Skin-on is best: The skin acts as a heat shield, preventing the bottom meat from overcooking while releasing healthy oils."
+        ],
+        "recommended_tools": ["air_fryer", "meat_thermometer", "chef_knife"],
+        "recommended_pantry": ["olive_oil", "himalayan_salt"],
+        "pin_copy": {
+            "title": "Crispy Air Fryer Lemon Herb Salmon (18 Mins & 44g Protein)",
+            "description": "Juicy, flaky salmon crusted in zesty lemon, garlic, and fresh herbs with garlic asparagus made together in the air fryer! 44g Protein, low carb, ready in under 20 minutes. Tap for the full easy recipe! #airfryersalmon #healthydinner #highprotein #keto #easyrecipes",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "honey-garlic-chicken-meal-prep-bowls",
+        "title": "20-Minute Honey Garlic Chicken Meal Prep Bowls with Fluffy Quinoa",
+        "headline": "Tender caramelized chicken bites glazed in a sweet-savory garlic sauce over fluffy quinoa and crisp broccoli.",
+        "category": "Meal Prep & Bowls",
+        "cuisine": "Asian-Fusion",
+        "difficulty": "Easy",
+        "prep_time": 10,
+        "cook_time": 10,
+        "total_time": 20,
+        "servings": 4,
+        "calories": 465,
+        "protein": 42,
+        "carbs": 48,
+        "fat": 11,
+        "fiber": 6,
+        "badges": ["⏱️ 20 Mins", "💪 42g Protein", "🍱 Meal Prep", "🔥 465 Cals"],
+        "tags": ["chicken", "meal prep", "lunch", "high-protein", "clean eating", "quinoa"],
+        "hero_image": "/assets/images/recipes/honey-garlic-chicken.jpg",
+        "pin_image": "/assets/pins/pin-honey-garlic-chicken-meal-prep-bowls.png",
+        "color_accent": "#D97706",
+        "description": "These Honey Garlic Chicken Meal Prep Bowls will become your go-to Sunday meal prep ritual. Diced chicken breast seared hot until golden, then tossed in a 4-ingredient honey garlic sauce that thickens into a glossy glaze in seconds. Packaged in glass meal prep containers with steamed broccoli florets and quinoa, this lunch stays fresh, juicy, and crave-worthy for up to 5 days in the fridge.",
+        "why_it_works": [
+            "Bite-sized chicken sears in just 6 minutes without drying out.",
+            "Balanced macros: 42g lean protein, complex carbs from quinoa, and fiber-rich greens.",
+            "Sauce uses raw honey, low-sodium tamari, and grated fresh ginger for clean energy."
+        ],
+        "ingredients": [
+            {"amount": 1.5, "unit": "lbs", "item": "Boneless Skinless Chicken Breasts", "notes": "cut into 1-inch bite-sized cubes"},
+            {"amount": 3, "unit": "cups", "item": "Cooked Quinoa (or Jasmine Brown Rice)"},
+            {"amount": 4, "unit": "cups", "item": "Broccoli Florets", "notes": "steamed crisp-tender"},
+            {"amount": 1, "unit": "tbsp", "item": "Avocado Oil Spray", "amazon_key": "avocado_oil_spray"},
+            {"amount": 3, "unit": "tbsp", "item": "Raw Clover Honey"},
+            {"amount": 3, "unit": "tbsp", "item": "Low-Sodium Soy Sauce or Coconut Aminos"},
+            {"amount": 4, "unit": "cloves", "item": "Garlic", "notes": "grated"},
+            {"amount": 1, "unit": "tsp", "item": "Fresh Ginger", "notes": "finely grated"},
+            {"amount": 1, "unit": "tsp", "item": "Sesame Seeds", "notes": "toasted for garnish"},
+            {"amount": 2, "unit": "stalks", "item": "Green Onions", "notes": "thinly sliced"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Whisk the Glaze",
+                "text": "In a small bowl, whisk together the honey, low-sodium soy sauce/aminos, grated garlic, and freshly grated ginger until smooth. Set aside."
+            },
+            {
+                "step": 2,
+                "title": "Sear Chicken Bites",
+                "text": "Heat a large non-stick skillet or cast iron pan over medium-high heat. Spray with avocado oil. Add diced chicken in a single layer and sear for 5–6 minutes, flipping halfway until golden brown on all sides and internal temp hits 165°F."
+            },
+            {
+                "step": 3,
+                "title": "Glaze and Thicken",
+                "text": "Pour the honey garlic sauce directly over the hot chicken. Cook for 60 to 90 seconds, stirring constantly. The sauce will bubble vigorously and reduce into a thick, glossy lacquer coating every chicken morsel."
+            },
+            {
+                "step": 4,
+                "title": "Assemble Meal Prep Containers",
+                "text": "Divide 3/4 cup cooked quinoa and 1 cup steamed broccoli evenly into 4 glass meal prep containers. Top with the glazed honey garlic chicken."
+            },
+            {
+                "step": 5,
+                "title": "Garnish and Store",
+                "text": "Sprinkle with toasted sesame seeds and sliced green onions. Let cool slightly before snapping airtight lids on. Store refrigerated for up to 5 days."
+            }
+        ],
+        "chef_tips": [
+            "Do not crowd the skillet: If chicken is crowded, it will steam instead of caramelize. Cook in two batches if your pan is smaller than 12 inches.",
+            "Reheating tip: Sprinkle a teaspoon of water over the quinoa before microwaving for 90 seconds to restore fluffy moisture."
+        ],
+        "recommended_tools": ["meal_prep_containers", "skillet", "chef_knife"],
+        "recommended_pantry": ["avocado_oil_spray", "himalayan_salt"],
+        "pin_copy": {
+            "title": "20-Min Honey Garlic Chicken Meal Prep Bowls (42g Protein)",
+            "description": "Caramelized honey garlic chicken bites served over fluffy quinoa and steamed broccoli. Perfect 20-minute healthy lunch meal prep for the whole week! 42g Protein & 465 cals. Tap for full step-by-step recipe! #mealprep #healthyrecipes #chickendinner #highprotein #lunchideas",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "creamy-tuscan-garlic-chicken-skillet",
+        "title": "One-Pan Creamy Tuscan Garlic Chicken Skillet",
+        "headline": "Golden seared chicken breasts simmered in a luscious garlic sun-dried tomato and baby spinach sauce in 25 minutes.",
+        "category": "High-Protein Meals",
+        "cuisine": "Italian-American",
+        "difficulty": "Easy",
+        "prep_time": 10,
+        "cook_time": 15,
+        "total_time": 25,
+        "servings": 4,
+        "calories": 430,
+        "protein": 46,
+        "carbs": 7,
+        "fat": 23,
+        "fiber": 2,
+        "badges": ["⏱️ 25 Mins", "💪 46g Protein", "🍳 One-Pan", "🔥 430 Cals"],
+        "tags": ["chicken", "keto", "one-pan", "high-protein", "dinner", "low-carb"],
+        "hero_image": "/assets/images/recipes/tuscan-chicken.jpg",
+        "pin_image": "/assets/pins/pin-creamy-tuscan-garlic-chicken-skillet.png",
+        "color_accent": "#A31D1D",
+        "description": "Restaurant luxury made healthy at home. This One-Pan Creamy Tuscan Chicken features juicy, golden chicken breasts drenched in a velvety garlic sauce studded with tangy sun-dried tomatoes and wilted baby spinach. By using chicken bone broth combined with light cream and freshly grated parmesan, we achieve a decadent sauce that remains low in carbs and packed with 46g of protein per serving.",
+        "why_it_works": [
+            "Sun-dried tomatoes impart intense umami without added sugars or artificial flavorings.",
+            "Cooking chicken first in the skillet leaves browned fond that enriches the pan sauce.",
+            "Only one pan to wash at the end of the night."
+        ],
+        "ingredients": [
+            {"amount": 1.5, "unit": "lbs", "item": "Chicken Breasts", "notes": "cut in half horizontally into 4 thin cutlets"},
+            {"amount": 1, "unit": "tbsp", "item": "Extra Virgin Olive Oil", "amazon_key": "olive_oil"},
+            {"amount": 4, "unit": "cloves", "item": "Garlic", "notes": "minced"},
+            {"amount": 0.5, "unit": "cup", "item": "Sun-Dried Tomatoes in Olive Oil", "notes": "drained and chopped"},
+            {"amount": 0.75, "unit": "cup", "item": "Organic Chicken Bone Broth"},
+            {"amount": 0.5, "unit": "cup", "item": "Half-and-Half or Light Cream"},
+            {"amount": 0.33, "unit": "cup", "item": "Parmesan Cheese", "notes": "freshly grated"},
+            {"amount": 3, "unit": "cups", "item": "Fresh Baby Spinach"},
+            {"amount": 1, "unit": "tsp", "item": "Italian Herb Blend"},
+            {"amount": 0.5, "unit": "tsp", "item": "Ancient Sea Salt", "amazon_key": "himalayan_salt"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Season and Sear Chicken",
+                "text": "Season chicken cutlets with Italian seasoning, sea salt, and black pepper. Heat olive oil in a 12-inch skillet over medium-high. Sear chicken for 4–5 minutes per side until golden brown and cooked through (165°F). Transfer to a warm plate."
+            },
+            {
+                "step": 2,
+                "title": "Sauté Aromatics",
+                "text": "Lower heat to medium. Add minced garlic and sun-dried tomatoes to the same pan. Sauté for 60 seconds until fragrant, scraping up flavorful browned bits from the pan bottom."
+            },
+            {
+                "step": 3,
+                "title": "Simmer the Sauce",
+                "text": "Pour in chicken bone broth and cream. Bring to a gentle simmer for 3 minutes. Stir in grated parmesan cheese until melted and silky smooth."
+            },
+            {
+                "step": 4,
+                "title": "Wilt Spinach & Return Chicken",
+                "text": "Add baby spinach by the handful, stirring gently until wilted (about 90 seconds). Return the seared chicken cutlets and any resting juices back to the skillet. Spoon sauce over the chicken."
+            },
+            {
+                "step": 5,
+                "title": "Serve Warm",
+                "text": "Garnish with fresh basil or cracked black pepper. Serve on its own, over cauliflower mash for keto, or with chickpea pasta."
+            }
+        ],
+        "chef_tips": [
+            "Cut breasts into thin cutlets: Thin cutlets cook twice as fast and stay dramatically juicier than thick, whole chicken breasts.",
+            "Fresh parmesan makes a difference: Pre-shredded cheese contains anti-caking cellulose that prevents smooth sauce melting."
+        ],
+        "recommended_tools": ["skillet", "chef_knife", "kitchen_scale"],
+        "recommended_pantry": ["olive_oil", "himalayan_salt", "chickpea_pasta"],
+        "pin_copy": {
+            "title": "One-Pan Creamy Tuscan Garlic Chicken (46g Protein & 25 Mins)",
+            "description": "Juicy chicken cutlets in a rich garlic, sun-dried tomato, and spinach sauce! Restaurant flavor made healthy in 1 pan and 25 mins. 46g Protein, low carb & keto. Tap for the full recipe! #tuscanchicken #onepanmeal #chickendinner #ketorecipes #highprotein",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "greek-salmon-power-bowl",
+        "title": "Mediterranean Greek Salmon Power Bowl with Tzatziki & Warm Quinoa",
+        "headline": "Crispy seasoned salmon fillet over warm quinoa, Greek salad with kalamata olives, and cool homemade dill tzatziki.",
+        "category": "Mediterranean Fresh",
+        "cuisine": "Greek / Mediterranean",
+        "difficulty": "Easy",
+        "prep_time": 10,
+        "cook_time": 10,
+        "total_time": 20,
+        "servings": 2,
+        "calories": 480,
+        "protein": 42,
+        "carbs": 32,
+        "fat": 21,
+        "fiber": 5,
+        "badges": ["⏱️ 20 Mins", "💪 42g Protein", "🥗 Mediterranean", "🔥 480 Cals"],
+        "tags": ["salmon", "greek", "mediterranean", "healthy bowl", "high-protein"],
+        "hero_image": "/assets/images/recipes/greek-salmon-bowl.jpg",
+        "pin_image": "/assets/pins/pin-greek-salmon-power-bowl.png",
+        "color_accent": "#1B4965",
+        "description": "Ranked the #1 healthiest dietary pattern on the planet, Mediterranean eating comes alive in this vibrant Greek Salmon Power Bowl. Featuring herb-crusted pan-seared salmon nestled beside fluffy quinoa, diced Persian cucumbers, cherry tomatoes, pickled red onion, kalamata olives, and a dollop of high-protein Greek yogurt tzatziki. Every bite is crisp, refreshing, and deeply satisfying.",
+        "why_it_works": [
+            "Combines healthy fats from wild salmon and Greek olive oil with antioxidants from colorful vegetables.",
+            "Tzatziki made with 0% Greek yogurt delivers creamy richness with an extra 8g of protein.",
+            "Versatile for weeknight dinners or grab-and-go cold lunches."
+        ],
+        "ingredients": [
+            {"amount": 2, "unit": "6-oz fillets", "item": "Fresh Salmon"},
+            {"amount": 1, "unit": "cup", "item": "Cooked Quinoa or Brown Rice"},
+            {"amount": 1, "unit": "cup", "item": "Cherry Tomatoes", "notes": "halved"},
+            {"amount": 1, "unit": "cup", "item": "Persian Cucumbers", "notes": "diced"},
+            {"amount": 0.25, "unit": "cup", "item": "Kalamata Olives", "notes": "pitted and sliced"},
+            {"amount": 2, "unit": "tbsp", "item": "Crumbled Feta Cheese"},
+            {"amount": 0.5, "unit": "cup", "item": "Plain Greek Yogurt (0% or 2%)"},
+            {"amount": 1, "unit": "tbsp", "item": "Fresh Dill", "notes": "finely chopped"},
+            {"amount": 1, "unit": "tbsp", "item": "Fresh Lemon Juice"},
+            {"amount": 1, "unit": "tbsp", "item": "Extra Virgin Olive Oil", "amazon_key": "olive_oil"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Season and Cook Salmon",
+                "text": "Season salmon with oregano, garlic powder, sea salt, and pepper. Heat 1 tbsp olive oil in a skillet over medium-high heat. Cook salmon 4 minutes on the flesh side, flip and cook 3–4 minutes skin-side down until cooked through."
+            },
+            {
+                "step": 2,
+                "title": "Make Quick Tzatziki",
+                "text": "In a small bowl, stir Greek yogurt, grated cucumber, lemon juice, chopped dill, pinch of sea salt, and 1 minced garlic clove until combined."
+            },
+            {
+                "step": 3,
+                "title": "Toss the Greek Salad",
+                "text": "In a mixing bowl, toss cherry tomatoes, cucumbers, and kalamata olives with a splash of red wine vinegar and extra virgin olive oil."
+            },
+            {
+                "step": 4,
+                "title": "Assemble the Bowls",
+                "text": "Divide warm quinoa between two wide shallow bowls. Top with the seared salmon fillet and Greek salad. Add a generous dollop of tzatziki and sprinkle crumbled feta over the top."
+            }
+        ],
+        "chef_tips": [
+            "Meal prep friendly: You can eat this bowl warm or cold straight out of the fridge on hot summer days.",
+            "Drain cucumber for tzatziki: Squeeze grated cucumber in a clean kitchen towel before adding to yogurt to keep the sauce thick and velvety."
+        ],
+        "recommended_tools": ["skillet", "chef_knife", "kitchen_scale"],
+        "recommended_pantry": ["olive_oil", "himalayan_salt"],
+        "pin_copy": {
+            "title": "Greek Salmon Power Bowl with Tzatziki (42g Protein)",
+            "description": "Crispy pan-seared salmon over warm quinoa with cucumber, tomatoes, olives, feta, and fresh dill tzatziki! 20-Minute Mediterranean dinner packed with 42g protein. Tap for the full recipe! #salmonbowl #mediterraneanbowl #healthydinner #highprotein #greekfood",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "high-protein-overnight-chia-oats",
+        "title": "5-Minute High-Protein Blueberry Overnight Chia Oats",
+        "headline": "Creamy, naturally sweet overnight oats powered by organic chia seeds and vanilla whey for 35g of morning protein.",
+        "category": "High-Protein Meals",
+        "cuisine": "American Clean",
+        "difficulty": "Easy",
+        "prep_time": 5,
+        "cook_time": 0,
+        "total_time": 5,
+        "servings": 2,
+        "calories": 380,
+        "protein": 35,
+        "carbs": 44,
+        "fat": 8,
+        "fiber": 9,
+        "badges": ["⏱️ 5 Mins", "💪 35g Protein", "🥣 No-Cook", "🔥 380 Cals"],
+        "tags": ["breakfast", "overnight oats", "chia seeds", "high-protein", "meal prep"],
+        "hero_image": "/assets/images/recipes/overnight-oats.jpg",
+        "pin_image": "/assets/pins/pin-high-protein-overnight-chia-oats.png",
+        "color_accent": "#4361EE",
+        "description": "Say goodbye to chaotic weekday mornings. These High-Protein Blueberry Overnight Chia Oats take literally 5 minutes of prep before bed. Rolled oats and organic chia seeds soak overnight in almond milk and vanilla protein powder, absorbing the liquid to create a thick, pudding-like consistency. Packed with 35g of protein, 9g of gut-friendly fiber, and omega-3s to keep you energized until lunchtime.",
+        "why_it_works": [
+            "Zero cooking required: The refrigerator does 100% of the work while you sleep.",
+            "Chia seeds expand up to 10x their weight in liquid, creating a luxurious spoonable texture.",
+            "Slow-digesting beta-glucan fiber prevents 10 AM energy crashes."
+        ],
+        "ingredients": [
+            {"amount": 1, "unit": "cup", "item": "Rolled Old Fashioned Oats", "notes": "certified gluten-free"},
+            {"amount": 2, "unit": "tbsp", "item": "Organic Raw Chia Seeds", "amazon_key": "chia_seeds"},
+            {"amount": 2, "unit": "scoops", "item": "Vanilla Whey or Plant Protein Powder (approx. 50g)"},
+            {"amount": 1.25, "unit": "cups", "item": "Unsweetened Vanilla Almond Milk or Oat Milk"},
+            {"amount": 0.5, "unit": "cup", "item": "Plain Greek Yogurt (adds extra creaminess and protein)"},
+            {"amount": 1, "unit": "cup", "item": "Fresh Wild Blueberries"},
+            {"amount": 1, "unit": "tsp", "item": "Pure Vanilla Extract"},
+            {"amount": 1, "unit": "pinch", "item": "Ancient Sea Salt", "amazon_key": "himalayan_salt"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Combine Dry Ingredients",
+                "text": "In a medium mixing bowl or two mason jars, combine rolled oats, organic chia seeds, vanilla protein powder, and a tiny pinch of sea salt. Whisk dry ingredients so the protein powder distributes evenly."
+            },
+            {
+                "step": 2,
+                "title": "Whisk in Liquids",
+                "text": "Pour in unsweetened almond milk, Greek yogurt, and vanilla extract. Whisk vigorously for 30 seconds until completely smooth with no protein powder clumps."
+            },
+            {
+                "step": 3,
+                "title": "Layer and Refrigerate",
+                "text": "Divide into two airtight glass meal prep jars. Top generously with fresh blueberries. Seal with lids and refrigerate for at least 4 hours, or ideally overnight (up to 4 days)."
+            },
+            {
+                "step": 4,
+                "title": "Grab and Go",
+                "text": "In the morning, give it a quick stir. Add a splash of cold almond milk if you prefer a thinner consistency, and enjoy cold straight from the jar!"
+            }
+        ],
+        "chef_tips": [
+            "Protein tip: Mix the protein powder with the milk before adding oats to ensure a velvety smooth texture with zero lumps.",
+            "Topping variations: Add a tablespoon of almond butter, crushed walnuts, or hemp hearts right before serving for extra healthy fats."
+        ],
+        "recommended_tools": ["meal_prep_containers", "kitchen_scale"],
+        "recommended_pantry": ["chia_seeds", "himalayan_salt"],
+        "pin_copy": {
+            "title": "5-Min High-Protein Blueberry Overnight Oats (35g Protein)",
+            "description": "5 Minutes to prep before bed! Thick, creamy overnight oats packed with organic chia seeds, wild blueberries, and 35g of protein. No cooking needed. Grab the easy recipe now! #overnightoats #highproteinbreakfast #mealprepbreakfast #healthybreakfast #healthyrecipes",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "spicy-peanut-chicken-lettuce-wraps",
+        "title": "15-Minute Spicy Peanut Chicken Lettuce Wraps",
+        "headline": "Crisp butter lettuce leaves filled with savory minced chicken, water chestnuts, and a rich spicy peanut drizzle.",
+        "category": "Low-Carb & Keto",
+        "cuisine": "Thai-Inspired",
+        "difficulty": "Easy",
+        "prep_time": 8,
+        "cook_time": 7,
+        "total_time": 15,
+        "servings": 3,
+        "calories": 360,
+        "protein": 38,
+        "carbs": 9,
+        "fat": 19,
+        "fiber": 3,
+        "badges": ["⏱️ 15 Mins", "💪 38g Protein", "🥗 9g Net Carbs", "🔥 360 Cals"],
+        "tags": ["chicken", "lettuce wraps", "keto", "quick dinner", "high-protein"],
+        "hero_image": "/assets/images/recipes/peanut-chicken-wraps.jpg",
+        "pin_image": "/assets/pins/pin-spicy-peanut-chicken-lettuce-wraps.png",
+        "color_accent": "#E76F51",
+        "description": "Better than P.F. Chang's and ready in half the time it takes for takeout delivery. These Spicy Peanut Chicken Lettuce Wraps feature lean ground chicken sautéed with crunchy water chestnuts, garlic, and fresh scallions, tucked inside crisp butter lettuce cups. Drizzled with an addictive 4-ingredient spicy peanut sauce made with natural peanut butter, tamari, lime juice, and sriracha.",
+        "why_it_works": [
+            "Ground chicken cooks thoroughly in a searing hot skillet in just 6 minutes.",
+            "Water chestnuts deliver satisfying restaurant-style crunch with virtually zero calories.",
+            "Low in carbs (9g total) while delivering a whopping 38g of satiating protein."
+        ],
+        "ingredients": [
+            {"amount": 1, "unit": "lb", "item": "Lean Ground Chicken Breast (98% lean)"},
+            {"amount": 1, "unit": "head", "item": "Butter Lettuce or Bibb Lettuce", "notes": "leaves separated and washed"},
+            {"amount": 1, "unit": "can (8 oz)", "item": "Water Chestnuts", "notes": "drained and diced fine"},
+            {"amount": 3, "unit": "cloves", "item": "Garlic", "notes": "minced"},
+            {"amount": 1, "unit": "tbsp", "item": "Fresh Ginger", "notes": "grated"},
+            {"amount": 3, "unit": "tbsp", "item": "Natural Creamy Peanut Butter (or PBfit powder)"},
+            {"amount": 2, "unit": "tbsp", "item": "Low-Sodium Soy Sauce or Coconut Aminos"},
+            {"amount": 1, "unit": "tbsp", "item": "Fresh Lime Juice"},
+            {"amount": 1, "unit": "tsp", "item": "Sriracha Hot Sauce", "notes": "adjust to taste"},
+            {"amount": 1, "unit": "tbsp", "item": "Warm Water", "notes": "to thin the peanut sauce"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Mix Peanut Sauce",
+                "text": "In a small bowl, whisk natural peanut butter, soy sauce, lime juice, sriracha, and 1 tbsp warm water until velvety smooth and pourable."
+            },
+            {
+                "step": 2,
+                "title": "Brown the Ground Chicken",
+                "text": "Heat a skillet over medium-high heat with a light spray of avocado oil. Add ground chicken, breaking it apart with a wooden spoon. Cook 4–5 minutes until browned and cooked through."
+            },
+            {
+                "step": 3,
+                "title": "Add Aromatics & Crunch",
+                "text": "Add minced garlic, grated ginger, and diced water chestnuts. Stir-fry for 2 minutes until aromatic. Remove from heat and stir in 2 tbsp of the prepared peanut sauce."
+            },
+            {
+                "step": 4,
+                "title": "Assemble & Serve",
+                "text": "Spoon warm chicken filling generously into crisp butter lettuce cups. Drizzle remaining peanut sauce over the top, garnish with crushed peanuts and chopped cilantro, and serve immediately."
+            }
+        ],
+        "chef_tips": [
+            "Keep lettuce crisp: Submerge separated lettuce leaves in ice water for 5 minutes, then spin dry in a salad spinner for extreme restaurant-level crispness.",
+            "Meal prep note: Store the chicken filling and lettuce leaves in separate containers; warm the chicken for 45 seconds and spoon into cold lettuce."
+        ],
+        "recommended_tools": ["skillet", "chef_knife", "veggie_chopper"],
+        "recommended_pantry": ["avocado_oil_spray", "himalayan_salt"],
+        "pin_copy": {
+            "title": "15-Min Spicy Peanut Chicken Lettuce Wraps (Low Carb & 38g Protein)",
+            "description": "Crisp butter lettuce cups loaded with savory chicken, crunchy water chestnuts, and spicy peanut sauce! Ready in 15 minutes with 38g protein and only 9g carbs. Tap for the full easy recipe! #lettucewraps #ketorecipes #quickdinner #healthyrecipes #chickendinner",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "sheet-pan-fajitas-avocado-lime",
+        "title": "Sizzling Sheet Pan Chicken Fajitas with Avocado Lime Crema",
+        "headline": "Juicy chicken tenders roasted with sweet bell peppers and red onion, served with a zesty Greek yogurt avocado lime crema.",
+        "category": "Quick 20-Min Dinners",
+        "cuisine": "Mexican-Inspired",
+        "difficulty": "Easy",
+        "prep_time": 10,
+        "cook_time": 15,
+        "total_time": 25,
+        "servings": 4,
+        "calories": 395,
+        "protein": 40,
+        "carbs": 14,
+        "fat": 19,
+        "fiber": 4,
+        "badges": ["⏱️ 25 Mins", "💪 40g Protein", "🥘 Sheet Pan", "🔥 395 Cals"],
+        "tags": ["fajitas", "chicken", "sheet pan", "mexican", "high-protein", "dinner"],
+        "hero_image": "/assets/images/recipes/sheet-pan-fajitas.jpg",
+        "pin_image": "/assets/pins/pin-sheet-pan-fajitas-avocado-lime.png",
+        "color_accent": "#F4A261",
+        "description": "Crispy charred edges, tender chicken strips, and rainbow bell peppers roasted on a single baking sheet. This Sheet Pan Fajita recipe eliminates the stovetop smoke while maximizing bold Tex-Mex flavor with chili powder, cumin, and Mexican oregano. Paired with our 60-second Greek Yogurt Avocado Lime Crema, it delivers complete restaurant satisfaction with minimal cleanup.",
+        "why_it_works": [
+            "Roasting at 425°F caramelizes peppers and chicken simultaneously in 15 minutes.",
+            "Avocado lime crema replaces sour cream with Greek yogurt for added protein and gut probiotics.",
+            "Feeds the whole family or provides 4 meal prep lunch boxes."
+        ],
+        "ingredients": [
+            {"amount": 1.5, "unit": "lbs", "item": "Chicken Breast or Tenders", "notes": "sliced into 1/2-inch strips"},
+            {"amount": 3, "unit": "large", "item": "Bell Peppers (red, yellow, orange)", "notes": "sliced into strips"},
+            {"amount": 1, "unit": "large", "item": "Red Onion", "notes": "sliced into wedges"},
+            {"amount": 2, "unit": "tbsp", "item": "Extra Virgin Olive Oil", "amazon_key": "olive_oil"},
+            {"amount": 1, "unit": "tbsp", "item": "Chili Powder"},
+            {"amount": 1, "unit": "tsp", "item": "Ground Cumin"},
+            {"amount": 1, "unit": "tsp", "item": "Smoked Paprika"},
+            {"amount": 1, "unit": "tsp", "item": "Garlic Powder"},
+            {"amount": 0.5, "unit": "tsp", "item": "Ancient Sea Salt", "amazon_key": "himalayan_salt"},
+            {"amount": 1, "unit": "ripe", "item": "Avocado", "notes": "for the crema"},
+            {"amount": 0.5, "unit": "cup", "item": "Plain Greek Yogurt"},
+            {"amount": 1, "unit": "whole", "item": "Lime", "notes": "juiced"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Preheat Oven & Prep Sheet Pan",
+                "text": "Preheat your oven to 425°F (220°C). Line a large rimmed baking sheet with parchment paper or a silicone baking mat for easy cleanup."
+            },
+            {
+                "step": 2,
+                "title": "Season Chicken & Veggies",
+                "text": "Place sliced chicken, bell peppers, and red onions onto the baking sheet. Drizzle with extra virgin olive oil. Sprinkle evenly with chili powder, cumin, smoked paprika, garlic powder, and sea salt. Toss thoroughly with your hands so every piece is coated, then spread into an even, single layer."
+            },
+            {
+                "step": 3,
+                "title": "Roast to Sizzling Perfection",
+                "text": "Roast in the center oven rack at 425°F for 14–16 minutes, until the chicken reaches 165°F and the peppers have blistered golden edges."
+            },
+            {
+                "step": 4,
+                "title": "Blend Avocado Lime Crema",
+                "text": "While fajitas roast, combine ripe avocado, Greek yogurt, lime juice, 1 garlic clove, and a pinch of salt in a small blender or food processor. Blend until silky smooth."
+            },
+            {
+                "step": 5,
+                "title": "Serve Family-Style",
+                "text": "Squeeze fresh lime juice over the sizzling sheet pan, top with fresh cilantro, and serve with warm low-carb tortillas or over cauliflower rice with avocado crema."
+            }
+        ],
+        "chef_tips": [
+            "Slice everything uniformly: Cutting chicken and bell peppers to the exact same 1/2-inch thickness ensures they finish cooking at the exact same minute.",
+            "High heat is crucial: 425°F is the secret to getting blistered charred edges without turning the bell peppers mushy."
+        ],
+        "recommended_tools": ["blender", "chef_knife", "kitchen_scale"],
+        "recommended_pantry": ["olive_oil", "himalayan_salt"],
+        "pin_copy": {
+            "title": "25-Min Sheet Pan Chicken Fajitas with Avocado Crema (40g Protein)",
+            "description": "Sizzling sheet pan chicken fajitas with sweet bell peppers and an easy Greek yogurt avocado lime crema! Healthy 25-minute weeknight dinner with only 1 pan to wash. 40g Protein. Tap for recipe! #sheetpandinner #chickenfajitas #healthyfajitas #highprotein #easyrecipes",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "air-fryer-crispy-parmesan-chicken-cutlets",
+        "title": "Extra Crispy Air Fryer Parmesan Crusted Chicken Cutlets",
+        "headline": "Ultra-crispy golden chicken cutlets crusted with freshly grated parmesan and Italian herbs, with zero deep frying.",
+        "category": "Air Fryer Clean Eats",
+        "cuisine": "Italian-American",
+        "difficulty": "Easy",
+        "prep_time": 10,
+        "cook_time": 10,
+        "total_time": 20,
+        "servings": 4,
+        "calories": 370,
+        "protein": 48,
+        "carbs": 4,
+        "fat": 17,
+        "fiber": 1,
+        "badges": ["⏱️ 20 Mins", "💪 48g Protein", "🥗 4g Carbs", "🔥 370 Cals"],
+        "tags": ["chicken", "air fryer", "parmesan", "keto", "high-protein", "kid-friendly"],
+        "hero_image": "/assets/images/recipes/parmesan-chicken.jpg",
+        "pin_image": "/assets/pins/pin-air-fryer-crispy-parmesan-chicken-cutlets.png",
+        "color_accent": "#2A9D8F",
+        "description": "Experience the crunch of classic fried chicken cutlets without a single drop of canola oil. By coating thin chicken cutlets in whisked egg and dipping them into a mixture of finely grated parmesan cheese, almond flour, and garlic herbs, the air fryer melts the parmesan into an impossibly crispy golden crust. Delivering an astounding 48g of protein with only 4g of carbs per serving.",
+        "why_it_works": [
+            "Parmesan cheese replaces breadcrumbs, creating an authentic golden crunch while slashing carbohydrates.",
+            "Air fryer circulates intense dry heat that crisps both sides evenly in under 10 minutes.",
+            "Loved by kids and adults alike — perfect with a fresh arugula salad or over marinara."
+        ],
+        "ingredients": [
+            {"amount": 1.5, "unit": "lbs", "item": "Chicken Breasts", "notes": "sliced into 4 thin cutlets and pounded 1/2-inch thick"},
+            {"amount": 1, "unit": "cup", "item": "Parmesan Cheese", "notes": "finely grated"},
+            {"amount": 0.33, "unit": "cup", "item": "Blanched Almond Flour"},
+            {"amount": 1, "unit": "large", "item": "Egg", "notes": "whisked with 1 tbsp water"},
+            {"amount": 1, "unit": "tsp", "item": "Garlic Powder"},
+            {"amount": 1, "unit": "tsp", "item": "Dried Oregano & Basil"},
+            {"amount": 0.5, "unit": "tsp", "item": "Smoked Paprika"},
+            {"amount": 1, "unit": "spray", "item": "Avocado Oil Spray", "amazon_key": "avocado_oil_spray"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Set Up Breading Station",
+                "text": "In a shallow bowl, whisk the egg with 1 tbsp water. In a second shallow bowl, combine grated parmesan, almond flour, garlic powder, Italian herbs, smoked paprika, and a pinch of black pepper."
+            },
+            {
+                "step": 2,
+                "title": "Dip and Crust",
+                "text": "Dip each chicken cutlet into the whisked egg, shaking off excess, then press firmly into the parmesan mixture on both sides so the cheese adheres evenly."
+            },
+            {
+                "step": 3,
+                "title": "Air Fry to Golden Perfection",
+                "text": "Preheat air fryer to 390°F (198°C). Lightly spray basket with avocado oil spray. Place chicken cutlets in a single layer (cook in two batches if needed). Lightly mist the tops with avocado oil spray."
+            },
+            {
+                "step": 4,
+                "title": "Flip & Finish",
+                "text": "Air fry for 5 minutes, flip cutlets with tongs, mist with oil, and air fry for another 4–5 minutes until deeply golden brown and crunchy (internal temp 165°F)."
+            },
+            {
+                "step": 5,
+                "title": "Serve with Lemon",
+                "text": "Rest on a wire rack for 2 minutes to preserve the crunch. Serve with fresh lemon wedges or a side of warm marinara sauce."
+            }
+        ],
+        "chef_tips": [
+            "Use finely grated cheese: Powdery grated parmesan (microplane style) creates a much denser, crispier crust than shredded ribbons.",
+            "Do not overlap cutlets: Direct air flow around every edge is what creates the unbelievable shatter-crisp texture."
+        ],
+        "recommended_tools": ["air_fryer", "meat_thermometer", "chef_knife"],
+        "recommended_pantry": ["avocado_oil_spray", "himalayan_salt"],
+        "pin_copy": {
+            "title": "Crispy Air Fryer Parmesan Chicken Cutlets (48g Protein & 4g Carbs)",
+            "description": "Crazy crispy chicken cutlets crusted with parmesan cheese and Italian herbs in the air fryer! No breadcrumbs, no deep frying. 48g Protein, low carb & keto. Tap for the secret to the crispiest chicken! #airfryerchicken #parmesanchicken #ketorecipes #highprotein #easyrecipes",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    },
+    {
+        "id": "lemon-dill-shrimp-asparagus",
+        "title": "12-Minute Lemon Dill Garlic Butter Shrimp with Asparagus",
+        "headline": "Sweet, tender wild shrimp and fresh asparagus sautéed in golden garlic butter and lemon dill in 12 quick minutes.",
+        "category": "Quick 20-Min Dinners",
+        "cuisine": "American Seafood",
+        "difficulty": "Easy",
+        "prep_time": 5,
+        "cook_time": 7,
+        "total_time": 12,
+        "servings": 2,
+        "calories": 340,
+        "protein": 39,
+        "carbs": 5,
+        "fat": 17,
+        "fiber": 2,
+        "badges": ["⏱️ 12 Mins", "💪 39g Protein", "🍤 Seafood", "🔥 340 Cals"],
+        "tags": ["shrimp", "seafood", "quick dinner", "keto", "high-protein", "15-minute meal"],
+        "hero_image": "/assets/images/recipes/lemon-garlic-shrimp.jpg",
+        "pin_image": "/assets/pins/pin-lemon-dill-shrimp-asparagus.png",
+        "color_accent": "#0077B6",
+        "description": "When you need dinner on the table in literally 12 minutes, this Lemon Dill Garlic Butter Shrimp is unmatched. Jumbo shrimp sear to a delicate pink in under 4 minutes, soaking up rich garlic grass-fed butter, fresh lemon zest, and bright dill. Paired with crisp tender asparagus spears cooked in the same pan, it delivers 39g of pure protein with only 5g of carbs.",
+        "why_it_works": [
+            "Shrimp is one of the leanest, most bioavailable protein sources in existence.",
+            "One skillet, 12 minutes total time, zero waiting for oven preheating.",
+            "Bright acidity of fresh lemon balances the rich garlic butter sauce."
+        ],
+        "ingredients": [
+            {"amount": 1, "unit": "lb", "item": "Jumbo Raw Shrimp (16/20 count)", "notes": "peeled, deveined, tails on"},
+            {"amount": 1, "unit": "bunch", "item": "Fresh Asparagus", "notes": "trimmed and cut into 2-inch pieces"},
+            {"amount": 2, "unit": "tbsp", "item": "Grass-Fed Butter or Ghee"},
+            {"amount": 1, "unit": "tbsp", "item": "Extra Virgin Olive Oil", "amazon_key": "olive_oil"},
+            {"amount": 4, "unit": "cloves", "item": "Garlic", "notes": "minced"},
+            {"amount": 1, "unit": "whole", "item": "Lemon", "notes": "zested and juiced"},
+            {"amount": 2, "unit": "tbsp", "item": "Fresh Dill", "notes": "chopped"},
+            {"amount": 0.25, "unit": "tsp", "item": "Red Pepper Flakes", "notes": "optional for mild heat"},
+            {"amount": 0.5, "unit": "tsp", "item": "Ancient Sea Salt", "amazon_key": "himalayan_salt"}
+        ],
+        "instructions": [
+            {
+                "step": 1,
+                "title": "Sauté Asparagus",
+                "text": "Heat 1 tbsp olive oil and 1 tbsp butter in a 12-inch skillet over medium-high heat. Add cut asparagus pieces and a pinch of salt. Sauté for 3–4 minutes until bright green and crisp-tender. Push asparagus to one side of the pan."
+            },
+            {
+                "step": 2,
+                "title": "Add Garlic & Sear Shrimp",
+                "text": "Melt remaining 1 tbsp butter in the empty side of the skillet. Add minced garlic and red pepper flakes, cooking 30 seconds until fragrant. Add shrimp in a flat layer."
+            },
+            {
+                "step": 3,
+                "title": "Cook Shrimp Rapidly",
+                "text": "Cook shrimp for 2 minutes undisturbed, flip, and cook for another 1–2 minutes until opaque, pink, and curled into a loose 'C' shape."
+            },
+            {
+                "step": 4,
+                "title": "Finish with Lemon & Fresh Dill",
+                "text": "Toss shrimp and asparagus together. Remove skillet from heat immediately. Squeeze fresh lemon juice over the pan and scatter fresh dill. Stir to coat in the pan juices."
+            }
+        ],
+        "chef_tips": [
+            "Watch the shrimp shape: When shrimp curl into a 'C' shape, they are perfectly cooked and juicy. When they curl into a tight 'O', they are overcooked and rubbery.",
+            "Thaw frozen shrimp quickly: Place frozen shrimp in a bowl of cold running water for 8 minutes, then pat completely dry."
+        ],
+        "recommended_tools": ["skillet", "chef_knife"],
+        "recommended_pantry": ["olive_oil", "himalayan_salt"],
+        "pin_copy": {
+            "title": "12-Min Lemon Garlic Butter Shrimp with Asparagus (39g Protein)",
+            "description": "Juicy jumbo shrimp and tender asparagus sautéed in a rich lemon garlic butter and fresh dill sauce! Dinner ready in literally 12 minutes with 39g protein and low carb. Tap for easy recipe! #shrimprecipes #15minutedinner #healthyseafood #ketodinner #quickrecipes",
+            "board": "Quick & Healthy Easy Meals"
+        }
+    }
+]
+
+def main():
+    os.makedirs(os.path.dirname(OUTPUT_JSON), exist_ok=True)
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(RECIPES, f, indent=2)
+    print(f"Successfully generated {len(RECIPES)} seed recipes at {OUTPUT_JSON}")
+
+if __name__ == "__main__":
+    main()
