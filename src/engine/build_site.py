@@ -1016,6 +1016,212 @@ img { max-width: 100%; height: auto; display: block; }
   .author-box { flex-direction: column; text-align: center; }
   .pin-save-section { flex-direction: column; text-align: center; }
 }
+
+/* ========================================================
+   FLUID MOTION & MICRO-INTERACTION SUITE (ANTI-SLOP)
+   ======================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll-Driven Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger:nth-child(1) { transition-delay: 0.03s; }
+.reveal-stagger:nth-child(2) { transition-delay: 0.07s; }
+.reveal-stagger:nth-child(3) { transition-delay: 0.11s; }
+.reveal-stagger:nth-child(4) { transition-delay: 0.15s; }
+.reveal-stagger:nth-child(5) { transition-delay: 0.19s; }
+.reveal-stagger:nth-child(6) { transition-delay: 0.23s; }
+
+/* Tactile Button Feedback (Emil Kowalski Philosophy) */
+button, .btn-primary, .btn-secondary, .nav-cta, .filter-btn, .serv-btn, .amazon-btn, .btn-jump, .btn-pin-action, .floating-btn, .floating-pin-btn {
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 160ms ease, background-color 160ms ease !important;
+  cursor: pointer;
+}
+button:active, .btn-primary:active, .btn-secondary:active, .nav-cta:active, .filter-btn:active, .serv-btn:active, .amazon-btn:active, .btn-jump:active, .btn-pin-action:active, .floating-btn:active, .floating-pin-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* Card Physical Lift & Ambient Bloom */
+.recipe-card {
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1), border-color 280ms ease !important;
+}
+.recipe-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px -8px rgba(22, 31, 26, 0.13), 0 6px 16px -2px rgba(22, 31, 26, 0.04) !important;
+  border-color: rgba(28, 63, 47, 0.22) !important;
+}
+.recipe-card .card-media img {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.recipe-card:hover .card-media img {
+  transform: scale(1.045) !important;
+}
+.card-cta-row span.arrow {
+  display: inline-block;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.recipe-card:hover .card-cta-row span.arrow {
+  transform: translateX(5px);
+  color: var(--accent-gold);
+}
+
+/* Tool Card Elevation */
+.tool-card {
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms ease !important;
+}
+.tool-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px -4px rgba(22, 31, 26, 0.1) !important;
+  border-color: rgba(28, 63, 47, 0.25) !important;
+}
+
+/* Ambient Pulse on Status Badges */
+@keyframes ambientPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+}
+.hero-badge-pill span.dot {
+  animation: ambientPulse 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Serving Scaler Number Bump */
+.ing-amt {
+  display: inline-block;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms ease;
+}
+.ing-amt.bump {
+  transform: translateY(-3px) scale(1.2);
+  color: var(--accent-gold);
+}
+.serv-btn.active {
+  animation: popScale 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes popScale {
+  0% { transform: scale(0.92); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Ingredient Checklist Strikethrough & Row Glide */
+.ing-item {
+  transition: background-color 180ms ease, opacity 220ms ease, transform 180ms ease;
+  border-radius: 6px;
+  padding: 10px 8px;
+}
+.ing-item:hover {
+  background-color: rgba(235, 243, 238, 0.6);
+  transform: translateX(3px);
+}
+.ing-label {
+  transition: color 220ms ease, opacity 220ms ease;
+}
+.ing-checked {
+  color: var(--ink-muted) !important;
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
+}
+.ing-checkbox {
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.ing-checkbox:checked {
+  transform: scale(1.18);
+}
+
+/* Floating Sticky Action Bar (Recipe Pages) */
+.floating-recipe-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 90px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease;
+  max-width: 92vw;
+}
+.floating-recipe-bar.visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.floating-bar-inner {
+  background: rgba(22, 31, 26, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.35);
+}
+.floating-recipe-title {
+  color: #FFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding-right: 14px;
+  white-space: nowrap;
+}
+.floating-recipe-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.floating-btn {
+  color: #D1D9D4;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  transition: all 160ms ease;
+}
+.floating-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFF;
+}
+.floating-pin-btn {
+  background: #E60023;
+  color: #FFF !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 160ms ease, background 160ms ease;
+}
+.floating-pin-btn:hover {
+  background: #B6001C;
+  transform: scale(1.03);
+}
+
+@media (max-width: 640px) {
+  .floating-recipe-title { display: none; }
+  .floating-recipe-bar { bottom: 14px; }
+  .floating-bar-inner { padding: 6px 10px; gap: 6px; }
+  .floating-btn { padding: 5px 8px; font-size: 0.78rem; }
+  .floating-pin-btn { padding: 5px 10px; font-size: 0.78rem; }
+}
 """
 
 def generate_recipe_schema(recipe, config):
@@ -1366,7 +1572,33 @@ def build_recipe_page(recipe, config, all_recipes):
     </div>
   </footer>
 
+  <!-- Floating Sticky Action Dock -->
+  <div class="floating-recipe-bar" id="floatingBar">
+    <div class="floating-bar-inner">
+      <div class="floating-recipe-title">
+        <span>🥗</span>
+        <span>{recipe['title'][:32]}...</span>
+      </div>
+      <div class="floating-recipe-actions">
+        <a href="#recipe" class="floating-btn">📋 Ingredients</a>
+        <a href="#instructions" class="floating-btn">🍳 Steps</a>
+        <a href="#equipment" class="floating-btn">🔪 Gear</a>
+        <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="floating-pin-btn">📌 Pin Recipe</a>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Floating Quick-Action Bar Visibility
+    const floatingBar = document.getElementById('floatingBar');
+    window.addEventListener('scroll', () => {{
+      if (window.scrollY > 380) {{
+        floatingBar.classList.add('visible');
+      }} else {{
+        floatingBar.classList.remove('visible');
+      }}
+    }}, {{ passive: true }});
+
     function toggleIng(checkbox) {{
       const label = checkbox.nextElementSibling;
       if (checkbox.checked) {{
@@ -1383,13 +1615,26 @@ def build_recipe_page(recipe, config, all_recipes):
       const factor = targetServings / baseServings;
       
       document.querySelectorAll('.ing-amt').forEach(el => {{
+        el.classList.add('bump');
         const base = parseFloat(el.getAttribute('data-base'));
         if (!isNaN(base)) {{
           const newVal = (base * factor);
           el.innerText = newVal % 1 === 0 ? newVal.toFixed(0) : newVal.toFixed(1);
         }}
+        setTimeout(() => el.classList.remove('bump'), 220);
       }});
     }}
+
+    // Scroll Reveal Observer
+    const observer = new IntersectionObserver((entries) => {{
+      entries.forEach(entry => {{
+        if (entry.isIntersecting) {{
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }}
+      }});
+    }}, {{ threshold: 0.1 }});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
@@ -1404,7 +1649,7 @@ def build_homepage(recipes, config):
     cards_html = ""
     for r in recipes:
         cards_html += f"""
-        <a href="/recipes/{r['id']}.html" class="recipe-card" data-category="{r.get('category', '')}">
+        <a href="/recipes/{r['id']}.html" class="recipe-card reveal reveal-stagger" data-category="{r.get('category', '')}">
           <div class="card-media">
             <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Healthy Meals')}</span>
@@ -1431,7 +1676,7 @@ def build_homepage(recipes, config):
     tools_html = ""
     for k, tool in config["amazon"]["tools_catalog"].items():
         tools_html += f"""
-        <div class="tool-card">
+        <div class="tool-card reveal reveal-stagger">
           <span class="tool-badge">{tool['badge']}</span>
           <div class="tool-title">{tool['name']}</div>
           <div class="tool-desc">{tool['description']}</div>
@@ -1517,7 +1762,7 @@ def build_homepage(recipes, config):
   </section>
 
   <!-- Category Filter Bar -->
-  <section class="container filter-section">
+  <section class="container filter-section reveal">
     <div class="filter-bar">
       {filter_html}
     </div>
@@ -1525,7 +1770,7 @@ def build_homepage(recipes, config):
 
   <!-- Recipe Grid Section -->
   <main class="container recipes-section" id="recipes">
-    <div class="section-title-wrap">
+    <div class="section-title-wrap reveal">
       <div>
         <h2 class="section-title">Fresh Everyday Healthy Dinners</h2>
         <div class="section-sub">Tested for busy weeknights: ready fast, balanced macros, and delicious flavor.</div>
@@ -1539,7 +1784,7 @@ def build_homepage(recipes, config):
 
   <!-- Kitchen Equipment Section -->
   <section class="tools-section" id="tools">
-    <div class="container">
+    <div class="container reveal">
       <div style="text-align:center; max-width:680px; margin:0 auto 36px;">
         <span class="hero-badge-pill">Tested & Recommended Gear</span>
         <h2 style="font-family:var(--font-serif); font-size:2.2rem; color:var(--ink); margin-bottom:8px;">Tools That Make Clean Eating Effortless</h2>
@@ -1555,7 +1800,7 @@ def build_homepage(recipes, config):
   <!-- Author & E-E-A-T Section -->
   <section class="author-section" id="author">
     <div class="container">
-      <div class="author-box">
+      <div class="author-box reveal">
         <div class="author-avatar-wrap">
           <img src="/assets/images/author-avatar.jpg" alt="{config['author']['name']}">
         </div>
@@ -1583,27 +1828,41 @@ def build_homepage(recipes, config):
       </div>
     </div>
   </footer>
-        <div>
-          <a href="feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Media Feed</a> • 
-          <a href="sitemap.xml" style="color:#FFF;">XML Sitemap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <script>
+    // Smooth Category Filter with Opacity Transition
     function filterCategory(cat, btn) {{
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cards = document.querySelectorAll('.recipe-card');
-      cards.forEach(c => {{
-        if (cat === 'all' || c.getAttribute('data-category') === cat) {{
-          c.style.display = 'flex';
-        }} else {{
-          c.style.display = 'none';
+      const grid = document.querySelector('.recipe-grid');
+      grid.style.opacity = '0.35';
+      grid.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+      
+      setTimeout(() => {{
+        const cards = document.querySelectorAll('.recipe-card');
+        cards.forEach(c => {{
+          if (cat === 'all' || c.getAttribute('data-category') === cat) {{
+            c.style.display = 'flex';
+            c.classList.add('is-revealed');
+          }} else {{
+            c.style.display = 'none';
+          }}
+        }});
+        grid.style.opacity = '1';
+      }}, 140);
+    }}
+
+    // Scroll-Triggered Reveal Animations
+    const observer = new IntersectionObserver((entries) => {{
+      entries.forEach(entry => {{
+        if (entry.isIntersecting) {{
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
         }}
       }});
-    }}
+    }}, {{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }});
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

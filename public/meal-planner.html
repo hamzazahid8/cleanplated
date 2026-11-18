@@ -311,6 +311,30 @@
       .planner-layout { grid-template-columns: 1fr; }
       .grocery-sidebar { position: static; }
     }
+
+    /* Tactile Micro-Interactions */
+    html { scroll-behavior: smooth; }
+    button, .amazon-order-btn, .nav-cta, .meal-toggle-btn {
+      transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 160ms ease, background-color 160ms ease !important;
+      cursor: pointer;
+    }
+    button:active, .amazon-order-btn:active, .nav-cta:active, .meal-toggle-btn:active {
+      transform: scale(0.96) !important;
+    }
+    .meal-card-item {
+      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease;
+    }
+    .meal-card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -6px rgba(22, 31, 26, 0.12);
+    }
+    .grocery-count {
+      transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms ease;
+    }
+    .grocery-count.bump {
+      transform: scale(1.1);
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
