@@ -1194,7 +1194,7 @@ def build_recipe_page(recipe, config, all_recipes):
 
   <!-- Top Bar -->
   <div class="top-bar">
-    <span>🥗 PurePlated Kitchen</span> Tested high-protein everyday meals in under 25 minutes with minimal cleanup.
+    <span>🥗 CleanPlated Kitchen</span> Tested high-protein everyday meals in under 25 minutes with minimal cleanup.
   </div>
 
   <!-- Site Header -->
@@ -1202,7 +1202,7 @@ def build_recipe_page(recipe, config, all_recipes):
     <div class="container header-inner">
       <a href="/" class="brand">
         <div class="brand-icon">🌿</div>
-        Pure<span>Plated</span>
+        Clean<span>Plated</span>
       </a>
       <nav class="nav-links">
         <a href="/#recipes">All Recipes</a>
@@ -1239,6 +1239,9 @@ def build_recipe_page(recipe, config, all_recipes):
         <div class="recipe-quick-actions">
           <a href="#recipe" class="btn-jump">Jump to Recipe ↓</a>
           <a href="https://pinterest.com/pin/create/button/?url={recipe_url}&media={pin_url}&description={recipe.get('pin_copy', {}).get('description', '')}" target="_blank" rel="noopener" class="btn-pin-action">📌 Pin to Pinterest</a>
+        </div>
+        <div style="font-size:0.76rem; color:var(--ink-secondary); margin-top:14px; line-height:1.4;">
+          🌱 <em>CleanPlated is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you.</em>
         </div>
       </div>
 
@@ -1457,7 +1460,7 @@ def build_homepage(recipes, config):
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
-    <span>🌿 PurePlated Clean Eating</span> High-protein, clean-ingredient dinners ready in 25 minutes or less. Minimal cleanup.
+    <span>🌿 CleanPlated Clean Eating</span> High-protein, clean-ingredient dinners ready in 25 minutes or less. Minimal cleanup.
   </div>
 
   <!-- Site Header -->
@@ -1465,7 +1468,7 @@ def build_homepage(recipes, config):
     <div class="container header-inner">
       <a href="/" class="brand">
         <div class="brand-icon">🌿</div>
-        Pure<span>Plated</span>
+        Clean<span>Plated</span>
       </a>
       <nav class="nav-links">
         <a href="/#recipes">Recipes</a>
@@ -1540,7 +1543,7 @@ def build_homepage(recipes, config):
       <div style="text-align:center; max-width:680px; margin:0 auto 36px;">
         <span class="hero-badge-pill">Tested & Recommended Gear</span>
         <h2 style="font-family:var(--font-serif); font-size:2.2rem; color:var(--ink); margin-bottom:8px;">Tools That Make Clean Eating Effortless</h2>
-        <p style="color:var(--ink-secondary);">Every recipe on PurePlated is tested with standard home kitchen tools designed to slash prep time and make cooking enjoyable.</p>
+        <p style="color:var(--ink-secondary);">Every recipe on CleanPlated is tested with standard home kitchen tools designed to slash prep time and make cooking enjoyable.</p>
       </div>
 
       <div class="tools-grid">

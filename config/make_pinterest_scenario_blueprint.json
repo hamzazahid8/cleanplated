@@ -294,7 +294,7 @@
       "mapper": {
         "link": "{{1.rssFields.link}}",
         "title": "{{1.title}}",
-        "board_id": "603130643787501175",
+        "board_id": "240520505038846957",
         "description": "{{1.description}}",
         "media_source": {
           "url": "{{1.enclosures[].url}}",
@@ -419,7 +419,7 @@
           "expect": {
             "board_id": {
               "mode": "chose",
-              "label": "Printable Budget Planners"
+              "label": "Quick 20-Min Healthy Dinners"
             },
             "media_source": {
               "nested": {

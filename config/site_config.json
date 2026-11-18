@@ -1,5 +1,5 @@
 {
-  "site_name": "PurePlated",
+  "site_name": "CleanPlated",
   "tagline": "Daily Healthy, Easy & High-Protein Meals in 25 Minutes or Less",
   "description": "Discover fast, nutritious, and wholesome everyday recipes. High protein, clean ingredients, and zero kitchen stress — tested for real weeknight dinners.",
   "domain": "https://tiny-lemonchiffon-woodpecker-50.hostingersite.com",
@@ -11,7 +11,7 @@
   },
   "amazon": {
     "affiliate_tag": "cleanplated-20",
-    "disclosure": "As an Amazon Associate, PurePlated earns from qualifying purchases at no additional cost to you. We only recommend kitchen equipment and wholesome ingredients we genuinely use and love.",
+    "disclosure": "As an Amazon Associate, CleanPlated earns from qualifying purchases at no additional cost to you. We only recommend kitchen equipment and wholesome ingredients we genuinely use and love.",
     "tools_catalog": {
       "air_fryer": {
         "name": "Ninja AF101 Air Fryer (4-Qt)",
@@ -115,8 +115,8 @@
     }
   },
   "pinterest": {
-    "account": "PurePlated",
-    "board_name": "Quick & Healthy Easy Meals",
+    "account": "CleanPlated",
+    "board_name": "Quick 20-Min Healthy Dinners",
     "pin_dimension": {
       "width": 1000,
       "height": 1500

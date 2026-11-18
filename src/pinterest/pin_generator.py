@@ -63,7 +63,7 @@ def generate_pin_for_recipe(recipe, config, output_path):
 
     # 2. Top Header Brand Bar
     header_font = get_font(SANS_BOLD, 22)
-    header_text = "PUREPLATED  •  CLEAN & HEALTHY EASY MEALS"
+    header_text = "CLEANPLATED  •  CLEAN & HEALTHY EASY MEALS"
     h_bbox = draw.textbbox((0, 0), header_text, font=header_font)
     h_w = h_bbox[2] - h_bbox[0]
     draw.text(((width - h_w) / 2, 60), header_text, fill="#7A7569", font=header_font)
@@ -221,7 +221,7 @@ def generate_pin_for_recipe(recipe, config, output_path):
 
     # 9. Clean Domain Footer Watermark
     footer_font = get_font(SANS_BOLD, 22)
-    footer_text = "PUREPLATED.COM"
+    footer_text = "CLEANPLATED.COM"
     f_bbox = draw.textbbox((0, 0), footer_text, font=footer_font)
     f_w = f_bbox[2] - f_bbox[0]
     draw.text(((width - f_w) / 2, height - 80), footer_text, fill="#2D3748", font=footer_font)
