@@ -278,15 +278,7 @@
             "label": "Request compressed content",
             "required": true
           }
-        ],
-        "setupValidation": {
-          "result": {
-            "valid": true,
-            "fields": []
-          },
-          "version": 1,
-          "configuration": "ec76133bf3063d66"
-        }
+        ]
       },
       "parameters": {
         "url": "https://tiny-lemonchiffon-woodpecker-50.hostingersite.com/feed/pinterest.xml",
@@ -310,6 +302,32 @@
         }
       },
       "module": "pinterest:createPin",
+      "onerror": [
+        {
+          "id": 3,
+          "mapper": {
+            "count": "3",
+            "retry": true,
+            "interval": "15"
+          },
+          "module": "builtin:Break",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 300,
+              "y": 150,
+              "messages": [
+                {
+                  "message": "This directive requires storing of incomplete executions to be enabled.",
+                  "category": "badsettings",
+                  "severity": "error"
+                }
+              ]
+            }
+          },
+          "parameters": {}
+        }
+      ],
       "version": 2,
       "metadata": {
         "expect": [
@@ -416,10 +434,10 @@
               }
             },
             "ad_account_id": {
-              "mode": "chose"
+              "mode": "edit"
             },
             "parent_pin_id": {
-              "mode": "chose"
+              "mode": "edit"
             },
             "board_section_id": {
               "mode": "edit"
@@ -431,7 +449,7 @@
                 "scoped": "true",
                 "connection": "pinterest2"
               },
-              "label": "Aipilotmoney connection (AIpilotmoney)"
+              "label": "pureplated"
             }
           }
         },
@@ -453,31 +471,12 @@
             "fields": []
           },
           "version": 1,
-          "configuration": "f8ad4677470fce66"
+          "configuration": "cf450f59c9b086f2"
         }
       },
       "parameters": {
-        "__IMTCONN__": 12397534
-      },
-      "onerror": [
-        {
-          "id": 3,
-          "module": "builtin:Break",
-          "version": 1,
-          "parameters": {},
-          "mapper": {
-            "retry": true,
-            "count": "3",
-            "interval": "15"
-          },
-          "metadata": {
-            "designer": {
-              "x": 300,
-              "y": 150
-            }
-          }
-        }
-      ]
+        "__IMTCONN__": 12419208
+      }
     }
   ],
   "name": "PurePlated - Daily Healthy Meals Pinterest Automation",
