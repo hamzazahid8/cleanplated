@@ -3,143 +3,489 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7-Day High-Protein Meal Planner & Grocery Builder | PurePlated</title>
-  <meta name="description" content="Build your weekly healthy meal plan in 60 seconds. Pick your favorite 20-minute recipes and get an instant, consolidated grocery list with Amazon Fresh delivery links.">
-  <link rel="canonical" href="https://pureplated.com/meal-planner.html">
+  <title>Weekly Healthy Meal Planner & Grocery Builder | PurePlated</title>
+  <meta name="description" content="Build your custom 7-day healthy weeknight meal plan in seconds. Auto-generate your consolidated grocery list and pantry order.">
+  <link rel="canonical" href="https://meals.aipilotmoney.com/meal-planner.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
-:root {
-  --bg: #FBFBFA;
-  --surface: #FFFFFF;
-  --surface-alt: #F4F1EA;
-  --ink: #1A202C;
-  --ink-secondary: #4A5568;
-  --ink-muted: #718096;
-  --border: #E2DDD5;
-  --accent: #2D6A4F;
-  --accent-light: #EBF5F0;
-  --accent-hover: #1B4332;
-  --gold: #D97706;
-  --amazon-orange: #FF9900;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
-  --font-serif: "DejaVu Serif", Georgia, "Times New Roman", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); line-height: 1.6; }
-a { color: inherit; text-decoration: none; }
-.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-alt: #F3EFEA;
+      --ink: #161F1A;
+      --ink-secondary: #4A564F;
+      --ink-muted: #79867E;
+      --border: #E8E3DC;
+      --border-light: rgba(22, 31, 26, 0.07);
+      
+      --primary: #1C3F2F;
+      --primary-hover: #122B20;
+      --primary-light: #EBF3EE;
+      
+      --accent-gold: #D2812A;
+      --amazon-orange: #FF9900;
+      --amazon-hover: #E68A00;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      
+      --shadow-card: 0 4px 16px -2px rgba(22, 31, 26, 0.06);
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
 
-.site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-.header-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; }
-.brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
-.brand span { color: var(--gold); }
-.nav-links { display: flex; gap: 24px; font-weight: 500; font-size: 0.95rem; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.planner-hero { text-align: center; padding: 48px 0 32px; background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%); }
-.planner-hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px; }
-.planner-hero p { font-size: 1.1rem; color: var(--ink-secondary); max-width: 640px; margin: 0 auto; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.planner-layout { display: grid; grid-template-columns: 1fr 380px; gap: 32px; padding: 32px 0 60px; }
-@media (max-width: 860px) { .planner-layout { grid-template-columns: 1fr; } }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-.meal-selector-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
-.meal-selector-box h2 { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 16px; }
-.meal-pick-item { display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; }
-.meal-pick-item:hover, .meal-pick-item.selected { border-color: var(--accent); background: var(--accent-light); }
-.meal-pick-item input { accent-color: var(--accent); width: 18px; height: 18px; }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-.grocery-sidebar { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 24px; position: sticky; top: 96px; }
-.grocery-sidebar h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; }
-.grocery-list { list-style: none; margin: 20px 0; max-height: 400px; overflow-y: auto; }
-.grocery-item { padding: 8px 0; border-bottom: 1px solid #f0ede6; font-size: 0.9rem; display: flex; justify-content: space-between; }
+    .top-bar {
+      background: var(--primary);
+      color: #EBF3EE;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      text-align: center;
+    }
+    .top-bar span { color: #F7D070; margin-right: 6px; }
 
-.amazon-order-box { background: #FFF9E6; border: 1px solid #FFE082; border-radius: 8px; padding: 16px; margin-top: 20px; text-align: center; }
-.amazon-order-btn { display: block; background: var(--amazon-orange); color: #111; font-weight: 700; padding: 12px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem; }
-.amazon-order-btn:hover { background: #e68a00; }
+    .site-header {
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .brand span { color: var(--accent-gold); }
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: #FFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
 
-.site-footer { background: var(--surface); border-top: 1px solid var(--border); padding: 40px 0 20px; margin-top: 60px; font-size: 0.85rem; color: var(--ink-secondary); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Planner Hero */
+    .planner-hero {
+      padding: 48px 0 32px;
+      text-align: center;
+      background: linear-gradient(180deg, #FFF 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .planner-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+    .planner-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .planner-hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Planner Layout Grid */
+    .planner-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 40px;
+      padding: 48px 0 80px;
+      align-items: start;
+    }
+
+    /* Meal Selection Cards */
+    .meal-selection-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+    .meal-selection-sub {
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+
+    .meal-card-selectable {
+      background: #FFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-card);
+    }
+    .meal-card-selectable:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .meal-card-selectable.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(28, 63, 47, 0.12);
+    }
+    .meal-thumb {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .meal-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .meal-meta {
+      flex-grow: 1;
+    }
+    .meal-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .meal-chips {
+      display: flex;
+      gap: 8px;
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      font-weight: 600;
+    }
+    .meal-chips span.prot {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .meal-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #FFF;
+      transition: all 0.15s ease;
+    }
+    .meal-card-selectable.selected .meal-checkbox {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Sticky Grocery List Sidebar */
+    .grocery-sidebar {
+      background: #FFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      position: sticky;
+      top: 96px;
+      box-shadow: var(--shadow-card);
+    }
+    .grocery-sidebar h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+    .grocery-count {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .grocery-items-list {
+      list-style: none;
+      max-height: 380px;
+      overflow-y: auto;
+      margin-bottom: 24px;
+      padding-right: 8px;
+    }
+    .grocery-item {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .amazon-order-btn {
+      background: var(--amazon-orange);
+      color: #111;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+    .amazon-order-btn:hover {
+      background: var(--amazon-hover);
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      background: var(--ink);
+      color: #D1D9D4;
+      padding: 48px 0 24px;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 860px) {
+      .planner-layout { grid-template-columns: 1fr; }
+      .grocery-sidebar { position: static; }
+    }
   </style>
 </head>
 <body>
 
+  <div class="top-bar">
+    <span>🥗 PurePlated Planner</span> Select dinner recipes below to generate your weekly shopping list.
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">Pure<span>Plated</span></a>
+      <a href="index.html" class="brand">
+        <div class="brand-icon">🌿</div>
+        Pure<span>Plated</span>
+      </a>
       <nav class="nav-links">
-        <a href="index.html">Recipes</a>
-        <a href="meal-planner.html" style="color:var(--accent); font-weight:700;">Weekly Meal Planner</a>
-        <a href="index.html#tools">Amazon Tools</a>
+        <a href="index.html">All Recipes</a>
+        <a href="index.html#tools">Kitchen Gear</a>
+        <a href="index.html#author">About Chefs</a>
       </nav>
     </div>
   </header>
 
   <section class="planner-hero">
     <div class="container">
-      <h1>Weekly Healthy Meal Planner & Grocery Builder</h1>
-      <p>Select your favorite 20-minute dinners below. We'll automatically generate your consolidated shopping list and Amazon Fresh pantry basket.</p>
+      <span class="planner-badge">Interactive Meal Prep Tool</span>
+      <h1>Weekly Healthy Dinner Planner & Grocery Basket</h1>
+      <p>Select your favorite 20-minute dinners below. We'll automatically aggregate all your fresh produce, proteins, and pantry staples into a consolidated checklist.</p>
     </div>
   </section>
 
   <main class="container planner-layout">
-    <section class="meal-selector-box">
-      <h2>Step 1: Pick Your Dinners for the Week</h2>
-      <div id="meals-list">
-        <!-- Injected via JS -->
+    <!-- Meal Selector -->
+    <section>
+      <h2 class="meal-selection-title">Select Recipes for Your Week</h2>
+      <div class="meal-selection-sub">Click recipes to add or remove them from your weekly plan:</div>
+
+      <div id="meals-container">
+        <!-- Rendered dynamically -->
       </div>
     </section>
 
+    <!-- Grocery Checklist Sidebar -->
     <aside class="grocery-sidebar">
-      <h3>Your Weekly Grocery List</h3>
-      <p style="font-size:0.85rem; color:var(--ink-muted);" id="selected-count">0 recipes selected</p>
-      
-      <ul class="grocery-list" id="grocery-items">
-        <li style="color:var(--ink-muted); font-size:0.9rem; padding:12px 0;">Select at least one recipe on the left to generate your grocery list.</li>
+      <h3>Your Consolidated Grocery Basket</h3>
+      <div class="grocery-count" id="selected-count">0 recipes selected</div>
+
+      <ul class="grocery-items-list" id="grocery-items">
+        <li style="color:var(--ink-muted); font-size:0.9rem; padding:16px 0;">Select at least one recipe on the left to generate your grocery list.</li>
       </ul>
 
-      <button onclick="window.print()" style="width:100%; padding:10px; background:var(--surface-alt); border:1px solid var(--border); border-radius:6px; font-weight:600; cursor:pointer; margin-bottom:12px;">🖨️ Print Grocery List</button>
-
-      <div class="amazon-order-box">
-        <b style="color:#8C5300; font-size:0.85rem;">Fastest Way to Prep:</b>
-        <p style="font-size:0.8rem; color:#555; margin-top:4px;">Order your organic olive oil, spices, and glass containers directly on Amazon.</p>
-        <a href="https://www.amazon.com/s?k=glass+meal+prep+containers&tag=cleanplated-20" target="_blank" rel="sponsored nofollow noopener" class="amazon-order-btn">
-          Shop Meal Prep Gear on Amazon →
-        </a>
-      </div>
+      <a href="https://www.amazon.com/s?k=glass+meal+prep+containers&tag=cleanplated-20" target="_blank" rel="sponsored nofollow noopener" class="amazon-order-btn">
+        <span>Order Meal Prep Containers & Gear on Amazon ↗</span>
+      </a>
+      <p style="font-size:0.75rem; color:var(--ink-muted); text-align:center; margin-top:10px;">
+        As an Amazon Associate, PurePlated earns from qualifying purchases.
+      </p>
     </aside>
   </main>
 
   <footer class="site-footer">
     <div class="container" style="text-align:center;">
-      <p>© 2026 PurePlated • Daily Clean & Healthy Meals • As an Amazon Associate we earn from qualifying purchases.</p>
+      <div style="font-family:var(--font-serif); font-size:1.4rem; color:#FFF; margin-bottom:8px;">Pure<span>Plated</span></div>
+      <p style="color:#A3B1AA; font-size:0.82rem; margin-bottom:16px;">© 2026 PurePlated • Wholesome, High-Protein Meals in 25 Minutes or Less.</p>
+      <div style="font-size:0.8rem; color:#8C9C94;">
+        <a href="index.html" style="color:#FFF;">Home</a> • 
+        <a href="feed/pinterest.xml" style="color:var(--accent-gold);">Pinterest Feed</a> • 
+        <a href="sitemap.xml" style="color:#FFF;">Sitemap</a>
+      </div>
     </div>
   </footer>
 
   <script>
     const RECIPES_DATA = [
-      { id: "salmon", title: "Crispy Air Fryer Lemon Herb Salmon", time: "18m", protein: "44g", ings: ["Wild Salmon fillets (2)", "Fresh Asparagus (1 bunch)", "Extra Virgin Olive Oil", "Lemons (2)", "Garlic", "Italian Herbs"] },
-      { id: "honey-chicken", title: "20-Min Honey Garlic Chicken Meal Prep Bowls", time: "20m", protein: "42g", ings: ["Chicken Breasts (1.5 lbs)", "Broccoli florets", "Quinoa", "Raw Honey", "Low-sodium Soy sauce", "Garlic", "Fresh Ginger"] },
-      { id: "tuscan-chicken", title: "One-Pan Creamy Tuscan Garlic Chicken", time: "25m", protein: "46g", ings: ["Chicken Breasts (1.5 lbs)", "Baby Spinach", "Sun-dried Tomatoes", "Heavy Cream / Half-and-Half", "Parmesan Cheese", "Chicken Bone Broth"] },
-      { id: "greek-salmon", title: "Greek Salmon Power Bowl with Tzatziki", time: "20m", protein: "42g", ings: ["Salmon fillets", "Persian Cucumbers", "Cherry Tomatoes", "Kalamata Olives", "Feta Cheese", "Greek Yogurt", "Fresh Dill"] },
-      { id: "lettuce-wraps", title: "15-Minute Spicy Peanut Chicken Lettuce Wraps", time: "15m", protein: "38g", ings: ["Ground Chicken (1 lb)", "Butter Lettuce", "Water Chestnuts", "Natural Peanut Butter", "Lime juice", "Sriracha"] },
-      { id: "fajitas", title: "Sizzling Sheet Pan Chicken Fajitas", time: "25m", protein: "40g", ings: ["Chicken Tenders (1.5 lbs)", "Bell Peppers (3)", "Red Onion", "Ripe Avocado", "Plain Greek Yogurt", "Limes"] },
-      { id: "parmesan-chicken", title: "Crispy Air Fryer Parmesan Chicken Cutlets", time: "20m", protein: "48g", ings: ["Chicken Cutlets (1.5 lbs)", "Parmesan Cheese (grated)", "Almond Flour", "Eggs (1)", "Italian herbs", "Avocado oil spray"] },
-      { id: "shrimp-asparagus", title: "12-Min Lemon Dill Garlic Butter Shrimp", time: "12m", protein: "39g", 39: ings: ["Jumbo Shrimp (1 lb)", "Fresh Asparagus", "Grass-fed Butter", "Garlic", "Fresh Lemon", "Fresh Dill"] }
+      {
+        id: "air-fryer-lemon-herb-salmon",
+        title: "Crispy Air Fryer Lemon Herb Salmon",
+        time: "18 Mins",
+        protein: "44g",
+        img: "assets/images/recipes/air-fryer-lemon-herb-salmon.jpg",
+        ings: ["Salmon Fillets (6 oz)", "Fresh Asparagus spears", "Extra Virgin Olive Oil", "Garlic cloves (minced)", "Fresh Lemon", "Ancient Sea Salt", "Cracked Black Pepper", "Fresh dill"]
+      },
+      {
+        id: "honey-garlic-chicken-meal-prep-bowls",
+        title: "Honey Garlic Chicken Meal Prep Bowls",
+        time: "20 Mins",
+        protein: "42g",
+        img: "assets/images/recipes/honey-garlic-chicken-meal-prep-bowls.jpg",
+        ings: ["Chicken breast (cubed)", "Broccoli florets", "Cooked Quinoa", "Pure raw honey", "Low-sodium soy sauce", "Fresh ginger", "Avocado oil spray", "Sesame seeds"]
+      },
+      {
+        id: "creamy-tuscan-garlic-chicken-skillet",
+        title: "Creamy Tuscan Garlic Chicken Skillet",
+        time: "22 Mins",
+        protein: "46g",
+        img: "assets/images/recipes/creamy-tuscan-garlic-chicken-skillet.jpg",
+        ings: ["Chicken cutlets", "Baby spinach", "Sun-dried tomatoes", "Heavy cream / coconut cream", "Chicken bone broth", "Garlic cloves", "Grated Parmesan", "Italian seasoning"]
+      },
+      {
+        id: "greek-salmon-power-bowl",
+        title: "Mediterranean Greek Salmon Power Bowl",
+        time: "20 Mins",
+        protein: "40g",
+        img: "assets/images/recipes/greek-salmon-power-bowl.jpg",
+        ings: ["Salmon fillet", "Warm quinoa", "English cucumber", "Cherry tomatoes", "Kalamata olives", "Feta cheese", "Tzatziki sauce", "Fresh dill"]
+      },
+      {
+        id: "high-protein-overnight-chia-oats",
+        title: "High-Protein Blueberry Overnight Chia Oats",
+        time: "5 Mins",
+        protein: "38g",
+        img: "assets/images/recipes/high-protein-overnight-chia-oats.jpg",
+        ings: ["Rolled oats", "Vanilla whey / plant protein", "Organic Chia seeds", "Unsweetened almond milk", "Greek yogurt (plain)", "Fresh blueberries", "Almond butter"]
+      },
+      {
+        id: "spicy-peanut-chicken-lettuce-wraps",
+        title: "15-Minute Spicy Peanut Chicken Lettuce Wraps",
+        time: "15 Mins",
+        protein: "36g",
+        img: "assets/images/recipes/spicy-peanut-chicken-lettuce-wraps.jpg",
+        ings: ["Ground chicken breast", "Butter lettuce heads", "Natural creamy peanut butter", "Coconut aminos", "Sriracha", "Water chestnuts", "Green onions", "Crushed roasted peanuts"]
+      },
+      {
+        id: "sheet-pan-fajitas-avocado-lime",
+        title: "Sheet Pan Chicken Fajitas with Avocado Lime",
+        time: "25 Mins",
+        protein: "42g",
+        img: "assets/images/recipes/sheet-pan-fajitas-avocado-lime.jpg",
+        ings: ["Chicken breast strips", "Bell peppers (red, yellow, green)", "Red onion", "Fajita seasoning", "Avocado oil", "Ripe avocados", "Fresh lime juice", "Cilantro"]
+      },
+      {
+        id: "air-fryer-crispy-parmesan-chicken-cutlets",
+        title: "Crispy Air Fryer Parmesan Chicken Cutlets",
+        time: "16 Mins",
+        protein: "48g",
+        img: "assets/images/recipes/air-fryer-crispy-parmesan-chicken-cutlets.jpg",
+        ings: ["Chicken cutlets", "Almond flour / panko", "Grated parmesan cheese", "Egg (beaten)", "Garlic powder", "Avocado oil spray", "Fresh parsley"]
+      },
+      {
+        id: "lemon-dill-shrimp-asparagus",
+        title: "12-Minute Lemon Dill Garlic Butter Shrimp",
+        time: "12 Mins",
+        protein: "34g",
+        img: "assets/images/recipes/lemon-dill-shrimp-asparagus.jpg",
+        ings: ["Jumbo wild shrimp (peeled & deveined)", "Asparagus spears", "Grass-fed butter", "Garlic cloves", "Fresh lemon juice & zest", "Fresh dill", "Red pepper flakes"]
+      },
+      {
+        id: "golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice",
+        title: "Golden Skillet Chicken with Roasted Garlic Cauliflower Rice",
+        time: "22 Mins",
+        protein: "45g",
+        img: "assets/images/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.jpg",
+        ings: ["Chicken breasts", "Riced cauliflower", "Garlic cloves", "Extra virgin olive oil", "Smoked paprika", "Bone broth", "Fresh rosemary"]
+      }
     ];
 
-    const selectedMeals = new Set(["salmon", "honey-chicken", "tuscan-chicken"]);
+    let selectedMeals = new Set(["air-fryer-lemon-herb-salmon", "honey-garlic-chicken-meal-prep-bowls"]);
 
     function renderMeals() {
-      const container = document.getElementById('meals-list');
+      const container = document.getElementById('meals-container');
       container.innerHTML = RECIPES_DATA.map(m => `
-        <label class="meal-pick-item ${selectedMeals.has(m.id) ? 'selected' : ''}" onclick="toggleMeal('${m.id}')">
-          <input type="checkbox" ${selectedMeals.has(m.id) ? 'checked' : ''} onclick="event.stopPropagation(); toggleMeal('${m.id}')">
-          <div style="flex:1;">
-            <div style="font-weight:700; color:var(--ink);">${m.title}</div>
-            <div style="font-size:0.8rem; color:var(--ink-secondary);">⏱️ ${m.time} &bull; 💪 ${m.protein} protein</div>
+        <div class="meal-card-selectable ${selectedMeals.has(m.id) ? 'selected' : ''}" onclick="toggleMeal('${m.id}')">
+          <div class="meal-thumb">
+            <img src="${m.img}" alt="${m.title}">
           </div>
-        </label>
+          <div class="meal-meta">
+            <div class="meal-title">${m.title}</div>
+            <div class="meal-chips">
+              <span class="prot">${m.protein} Protein</span> • 
+              <span>⏱️ ${m.time}</span>
+            </div>
+          </div>
+          <div class="meal-checkbox">${selectedMeals.has(m.id) ? '✓' : ''}</div>
+        </div>
       `).join('');
+
       updateGroceryList();
     }
 
@@ -153,11 +499,11 @@ a { color: inherit; text-decoration: none; }
     }
 
     function updateGroceryList() {
-      document.getElementById('selected-count').innerText = `${selectedMeals.size} recipes selected`;
+      document.getElementById('selected-count').innerText = `${selectedMeals.size} recipes selected for your week`;
       const groceryContainer = document.getElementById('grocery-items');
       
       if (selectedMeals.size === 0) {
-        groceryContainer.innerHTML = '<li style="color:var(--ink-muted); font-size:0.9rem; padding:12px 0;">Select at least one recipe to generate your grocery list.</li>';
+        groceryContainer.innerHTML = '<li style="color:var(--ink-muted); font-size:0.9rem; padding:16px 0;">Select at least one recipe to generate your grocery list.</li>';
         return;
       }
 
@@ -171,7 +517,7 @@ a { color: inherit; text-decoration: none; }
       groceryContainer.innerHTML = Array.from(allIngs).map(item => `
         <li class="grocery-item">
           <span>${item}</span>
-          <span style="color:var(--accent); font-size:0.8rem;">✓</span>
+          <span style="color:var(--primary); font-weight:700;">✓</span>
         </li>
       `).join('');
     }

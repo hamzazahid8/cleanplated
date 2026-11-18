@@ -1,69 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/</loc>
+    <loc>https://meals.aipilotmoney.com/</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/air-fryer-lemon-herb-salmon.html</loc>
+    <loc>https://meals.aipilotmoney.com/meal-planner.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/honey-garlic-chicken-meal-prep-bowls.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/air-fryer-lemon-herb-salmon.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/creamy-tuscan-garlic-chicken-skillet.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/honey-garlic-chicken-meal-prep-bowls.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/greek-salmon-power-bowl.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/creamy-tuscan-garlic-chicken-skillet.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/high-protein-overnight-chia-oats.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/greek-salmon-power-bowl.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/spicy-peanut-chicken-lettuce-wraps.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/high-protein-overnight-chia-oats.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/sheet-pan-fajitas-avocado-lime.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/spicy-peanut-chicken-lettuce-wraps.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/air-fryer-crispy-parmesan-chicken-cutlets.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/sheet-pan-fajitas-avocado-lime.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/lemon-dill-shrimp-asparagus.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/air-fryer-crispy-parmesan-chicken-cutlets.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hamzazahid8.github.io/cleanplated/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.html</loc>
+    <loc>https://meals.aipilotmoney.com/recipes/lemon-dill-shrimp-asparagus.html</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://meals.aipilotmoney.com/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

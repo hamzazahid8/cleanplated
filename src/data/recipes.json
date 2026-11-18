@@ -16,10 +16,10 @@
     "fat": 24,
     "fiber": 3,
     "badges": [
-      "\u23f1\ufe0f 18 Mins",
-      "\ud83d\udcaa 44g Protein",
-      "\ud83e\udd57 Low Carb",
-      "\ud83d\udd25 420 Cals"
+      "⏱️ 18 Mins",
+      "💪 44g Protein",
+      "🥗 Low Carb",
+      "🔥 420 Cals"
     ],
     "tags": [
       "salmon",
@@ -32,7 +32,7 @@
     "hero_image": "/assets/images/recipes/air-fryer-salmon.jpg",
     "pin_image": "/assets/pins/pin-air-fryer-lemon-herb-salmon.png",
     "color_accent": "#2D6A4F",
-    "description": "This Air Fryer Lemon Herb Salmon is our favorite weeknight lifesaver. The air fryer circulates 400\u00b0F convection heat to achieve a delicate golden crust on the salmon while locking in all the natural omega-3 moisture inside. Paired with crisp-tender garlic asparagus cooked simultaneously in the same basket, dinner is on the table in 18 minutes flat with virtually zero cleanup.",
+    "description": "This Air Fryer Lemon Herb Salmon is our favorite weeknight lifesaver. The air fryer circulates 400°F convection heat to achieve a delicate golden crust on the salmon while locking in all the natural omega-3 moisture inside. Paired with crisp-tender garlic asparagus cooked simultaneously in the same basket, dinner is on the table in 18 minutes flat with virtually zero cleanup.",
     "why_it_works": [
       "Convection air frying crisps the outside in 10 minutes without drying the center.",
       "High-protein (44g) and omega-3 fatty acids promote satiety and heart health.",
@@ -105,12 +105,12 @@
       {
         "step": 3,
         "title": "Air Fry to Perfection",
-        "text": "Preheat your air fryer to 400\u00b0F (200\u00b0C) for 3 minutes. Place salmon skin-side down in the center of the basket and arrange asparagus spears around the sides. Top salmon fillets with lemon slices."
+        "text": "Preheat your air fryer to 400°F (200°C) for 3 minutes. Place salmon skin-side down in the center of the basket and arrange asparagus spears around the sides. Top salmon fillets with lemon slices."
       },
       {
         "step": 4,
         "title": "Cook and Check Internal Temp",
-        "text": "Air fry at 400\u00b0F for 9\u201311 minutes depending on thickness. Insert an instant-read meat thermometer into the thickest part; salmon is perfectly medium-rare and tender when it reaches 130\u00b0F to 135\u00b0F (57\u00b0C)."
+        "text": "Air fry at 400°F for 9–11 minutes depending on thickness. Insert an instant-read meat thermometer into the thickest part; salmon is perfectly medium-rare and tender when it reaches 130°F to 135°F (57°C)."
       },
       {
         "step": 5,
@@ -119,7 +119,7 @@
       }
     ],
     "chef_tips": [
-      "Use an instant-read thermometer: Salmon cooks fast in an air fryer; 10 minutes at 400\u00b0F is usually the sweet spot for a 1-inch fillet.",
+      "Use an instant-read thermometer: Salmon cooks fast in an air fryer; 10 minutes at 400°F is usually the sweet spot for a 1-inch fillet.",
       "Skin-on is best: The skin acts as a heat shield, preventing the bottom meat from overcooking while releasing healthy oils."
     ],
     "recommended_tools": [
@@ -135,7 +135,8 @@
       "title": "Crispy Air Fryer Lemon Herb Salmon (18 Mins & 44g Protein)",
       "description": "Juicy, flaky salmon crusted in zesty lemon, garlic, and fresh herbs with garlic asparagus made together in the air fryer! 44g Protein, low carb, ready in under 20 minutes. Tap for the full easy recipe! #airfryersalmon #healthydinner #highprotein #keto #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/air-fryer-lemon-herb-salmon.jpg"
   },
   {
     "id": "honey-garlic-chicken-meal-prep-bowls",
@@ -154,10 +155,10 @@
     "fat": 11,
     "fiber": 6,
     "badges": [
-      "\u23f1\ufe0f 20 Mins",
-      "\ud83d\udcaa 42g Protein",
-      "\ud83c\udf71 Meal Prep",
-      "\ud83d\udd25 465 Cals"
+      "⏱️ 20 Mins",
+      "💪 42g Protein",
+      "🍱 Meal Prep",
+      "🔥 465 Cals"
     ],
     "tags": [
       "chicken",
@@ -244,7 +245,7 @@
       {
         "step": 2,
         "title": "Sear Chicken Bites",
-        "text": "Heat a large non-stick skillet or cast iron pan over medium-high heat. Spray with avocado oil. Add diced chicken in a single layer and sear for 5\u20136 minutes, flipping halfway until golden brown on all sides and internal temp hits 165\u00b0F."
+        "text": "Heat a large non-stick skillet or cast iron pan over medium-high heat. Spray with avocado oil. Add diced chicken in a single layer and sear for 5–6 minutes, flipping halfway until golden brown on all sides and internal temp hits 165°F."
       },
       {
         "step": 3,
@@ -279,7 +280,8 @@
       "title": "20-Min Honey Garlic Chicken Meal Prep Bowls (42g Protein)",
       "description": "Caramelized honey garlic chicken bites served over fluffy quinoa and steamed broccoli. Perfect 20-minute healthy lunch meal prep for the whole week! 42g Protein & 465 cals. Tap for full step-by-step recipe! #mealprep #healthyrecipes #chickendinner #highprotein #lunchideas",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/honey-garlic-chicken-meal-prep-bowls.jpg"
   },
   {
     "id": "creamy-tuscan-garlic-chicken-skillet",
@@ -298,10 +300,10 @@
     "fat": 23,
     "fiber": 2,
     "badges": [
-      "\u23f1\ufe0f 25 Mins",
-      "\ud83d\udcaa 46g Protein",
-      "\ud83c\udf73 One-Pan",
-      "\ud83d\udd25 430 Cals"
+      "⏱️ 25 Mins",
+      "💪 46g Protein",
+      "🍳 One-Pan",
+      "🔥 430 Cals"
     ],
     "tags": [
       "chicken",
@@ -382,12 +384,12 @@
       {
         "step": 1,
         "title": "Season and Sear Chicken",
-        "text": "Season chicken cutlets with Italian seasoning, sea salt, and black pepper. Heat olive oil in a 12-inch skillet over medium-high. Sear chicken for 4\u20135 minutes per side until golden brown and cooked through (165\u00b0F). Transfer to a warm plate."
+        "text": "Season chicken cutlets with Italian seasoning, sea salt, and black pepper. Heat olive oil in a 12-inch skillet over medium-high. Sear chicken for 4–5 minutes per side until golden brown and cooked through (165°F). Transfer to a warm plate."
       },
       {
         "step": 2,
-        "title": "Saut\u00e9 Aromatics",
-        "text": "Lower heat to medium. Add minced garlic and sun-dried tomatoes to the same pan. Saut\u00e9 for 60 seconds until fragrant, scraping up flavorful browned bits from the pan bottom."
+        "title": "Sauté Aromatics",
+        "text": "Lower heat to medium. Add minced garlic and sun-dried tomatoes to the same pan. Sauté for 60 seconds until fragrant, scraping up flavorful browned bits from the pan bottom."
       },
       {
         "step": 3,
@@ -423,7 +425,8 @@
       "title": "One-Pan Creamy Tuscan Garlic Chicken (46g Protein & 25 Mins)",
       "description": "Juicy chicken cutlets in a rich garlic, sun-dried tomato, and spinach sauce! Restaurant flavor made healthy in 1 pan and 25 mins. 46g Protein, low carb & keto. Tap for the full recipe! #tuscanchicken #onepanmeal #chickendinner #ketorecipes #highprotein",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/creamy-tuscan-garlic-chicken-skillet.jpg"
   },
   {
     "id": "greek-salmon-power-bowl",
@@ -442,10 +445,10 @@
     "fat": 21,
     "fiber": 5,
     "badges": [
-      "\u23f1\ufe0f 20 Mins",
-      "\ud83d\udcaa 42g Protein",
-      "\ud83e\udd57 Mediterranean",
-      "\ud83d\udd25 480 Cals"
+      "⏱️ 20 Mins",
+      "💪 42g Protein",
+      "🥗 Mediterranean",
+      "🔥 480 Cals"
     ],
     "tags": [
       "salmon",
@@ -524,7 +527,7 @@
       {
         "step": 1,
         "title": "Season and Cook Salmon",
-        "text": "Season salmon with oregano, garlic powder, sea salt, and pepper. Heat 1 tbsp olive oil in a skillet over medium-high heat. Cook salmon 4 minutes on the flesh side, flip and cook 3\u20134 minutes skin-side down until cooked through."
+        "text": "Season salmon with oregano, garlic powder, sea salt, and pepper. Heat 1 tbsp olive oil in a skillet over medium-high heat. Cook salmon 4 minutes on the flesh side, flip and cook 3–4 minutes skin-side down until cooked through."
       },
       {
         "step": 2,
@@ -559,7 +562,8 @@
       "title": "Greek Salmon Power Bowl with Tzatziki (42g Protein)",
       "description": "Crispy pan-seared salmon over warm quinoa with cucumber, tomatoes, olives, feta, and fresh dill tzatziki! 20-Minute Mediterranean dinner packed with 42g protein. Tap for the full recipe! #salmonbowl #mediterraneanbowl #healthydinner #highprotein #greekfood",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/greek-salmon-power-bowl.jpg"
   },
   {
     "id": "high-protein-overnight-chia-oats",
@@ -578,10 +582,10 @@
     "fat": 8,
     "fiber": 9,
     "badges": [
-      "\u23f1\ufe0f 5 Mins",
-      "\ud83d\udcaa 35g Protein",
-      "\ud83e\udd63 No-Cook",
-      "\ud83d\udd25 380 Cals"
+      "⏱️ 5 Mins",
+      "💪 35g Protein",
+      "🥣 No-Cook",
+      "🔥 380 Cals"
     ],
     "tags": [
       "breakfast",
@@ -682,7 +686,8 @@
       "title": "5-Min High-Protein Blueberry Overnight Oats (35g Protein)",
       "description": "5 Minutes to prep before bed! Thick, creamy overnight oats packed with organic chia seeds, wild blueberries, and 35g of protein. No cooking needed. Grab the easy recipe now! #overnightoats #highproteinbreakfast #mealprepbreakfast #healthybreakfast #healthyrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/high-protein-overnight-chia-oats.jpg"
   },
   {
     "id": "spicy-peanut-chicken-lettuce-wraps",
@@ -701,10 +706,10 @@
     "fat": 19,
     "fiber": 3,
     "badges": [
-      "\u23f1\ufe0f 15 Mins",
-      "\ud83d\udcaa 38g Protein",
-      "\ud83e\udd57 9g Net Carbs",
-      "\ud83d\udd25 360 Cals"
+      "⏱️ 15 Mins",
+      "💪 38g Protein",
+      "🥗 9g Net Carbs",
+      "🔥 360 Cals"
     ],
     "tags": [
       "chicken",
@@ -716,7 +721,7 @@
     "hero_image": "/assets/images/recipes/peanut-chicken-wraps.jpg",
     "pin_image": "/assets/pins/pin-spicy-peanut-chicken-lettuce-wraps.png",
     "color_accent": "#E76F51",
-    "description": "Better than P.F. Chang's and ready in half the time it takes for takeout delivery. These Spicy Peanut Chicken Lettuce Wraps feature lean ground chicken saut\u00e9ed with crunchy water chestnuts, garlic, and fresh scallions, tucked inside crisp butter lettuce cups. Drizzled with an addictive 4-ingredient spicy peanut sauce made with natural peanut butter, tamari, lime juice, and sriracha.",
+    "description": "Better than P.F. Chang's and ready in half the time it takes for takeout delivery. These Spicy Peanut Chicken Lettuce Wraps feature lean ground chicken sautéed with crunchy water chestnuts, garlic, and fresh scallions, tucked inside crisp butter lettuce cups. Drizzled with an addictive 4-ingredient spicy peanut sauce made with natural peanut butter, tamari, lime juice, and sriracha.",
     "why_it_works": [
       "Ground chicken cooks thoroughly in a searing hot skillet in just 6 minutes.",
       "Water chestnuts deliver satisfying restaurant-style crunch with virtually zero calories.",
@@ -789,7 +794,7 @@
       {
         "step": 2,
         "title": "Brown the Ground Chicken",
-        "text": "Heat a skillet over medium-high heat with a light spray of avocado oil. Add ground chicken, breaking it apart with a wooden spoon. Cook 4\u20135 minutes until browned and cooked through."
+        "text": "Heat a skillet over medium-high heat with a light spray of avocado oil. Add ground chicken, breaking it apart with a wooden spoon. Cook 4–5 minutes until browned and cooked through."
       },
       {
         "step": 3,
@@ -819,7 +824,8 @@
       "title": "15-Min Spicy Peanut Chicken Lettuce Wraps (Low Carb & 38g Protein)",
       "description": "Crisp butter lettuce cups loaded with savory chicken, crunchy water chestnuts, and spicy peanut sauce! Ready in 15 minutes with 38g protein and only 9g carbs. Tap for the full easy recipe! #lettucewraps #ketorecipes #quickdinner #healthyrecipes #chickendinner",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/spicy-peanut-chicken-lettuce-wraps.jpg"
   },
   {
     "id": "sheet-pan-fajitas-avocado-lime",
@@ -838,10 +844,10 @@
     "fat": 19,
     "fiber": 4,
     "badges": [
-      "\u23f1\ufe0f 25 Mins",
-      "\ud83d\udcaa 40g Protein",
-      "\ud83e\udd58 Sheet Pan",
-      "\ud83d\udd25 395 Cals"
+      "⏱️ 25 Mins",
+      "💪 40g Protein",
+      "🥘 Sheet Pan",
+      "🔥 395 Cals"
     ],
     "tags": [
       "fajitas",
@@ -856,7 +862,7 @@
     "color_accent": "#F4A261",
     "description": "Crispy charred edges, tender chicken strips, and rainbow bell peppers roasted on a single baking sheet. This Sheet Pan Fajita recipe eliminates the stovetop smoke while maximizing bold Tex-Mex flavor with chili powder, cumin, and Mexican oregano. Paired with our 60-second Greek Yogurt Avocado Lime Crema, it delivers complete restaurant satisfaction with minimal cleanup.",
     "why_it_works": [
-      "Roasting at 425\u00b0F caramelizes peppers and chicken simultaneously in 15 minutes.",
+      "Roasting at 425°F caramelizes peppers and chicken simultaneously in 15 minutes.",
       "Avocado lime crema replaces sour cream with Greek yogurt for added protein and gut probiotics.",
       "Feeds the whole family or provides 4 meal prep lunch boxes."
     ],
@@ -933,7 +939,7 @@
       {
         "step": 1,
         "title": "Preheat Oven & Prep Sheet Pan",
-        "text": "Preheat your oven to 425\u00b0F (220\u00b0C). Line a large rimmed baking sheet with parchment paper or a silicone baking mat for easy cleanup."
+        "text": "Preheat your oven to 425°F (220°C). Line a large rimmed baking sheet with parchment paper or a silicone baking mat for easy cleanup."
       },
       {
         "step": 2,
@@ -943,7 +949,7 @@
       {
         "step": 3,
         "title": "Roast to Sizzling Perfection",
-        "text": "Roast in the center oven rack at 425\u00b0F for 14\u201316 minutes, until the chicken reaches 165\u00b0F and the peppers have blistered golden edges."
+        "text": "Roast in the center oven rack at 425°F for 14–16 minutes, until the chicken reaches 165°F and the peppers have blistered golden edges."
       },
       {
         "step": 4,
@@ -958,7 +964,7 @@
     ],
     "chef_tips": [
       "Slice everything uniformly: Cutting chicken and bell peppers to the exact same 1/2-inch thickness ensures they finish cooking at the exact same minute.",
-      "High heat is crucial: 425\u00b0F is the secret to getting blistered charred edges without turning the bell peppers mushy."
+      "High heat is crucial: 425°F is the secret to getting blistered charred edges without turning the bell peppers mushy."
     ],
     "recommended_tools": [
       "blender",
@@ -973,7 +979,8 @@
       "title": "25-Min Sheet Pan Chicken Fajitas with Avocado Crema (40g Protein)",
       "description": "Sizzling sheet pan chicken fajitas with sweet bell peppers and an easy Greek yogurt avocado lime crema! Healthy 25-minute weeknight dinner with only 1 pan to wash. 40g Protein. Tap for recipe! #sheetpandinner #chickenfajitas #healthyfajitas #highprotein #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/sheet-pan-fajitas-avocado-lime.jpg"
   },
   {
     "id": "air-fryer-crispy-parmesan-chicken-cutlets",
@@ -992,10 +999,10 @@
     "fat": 17,
     "fiber": 1,
     "badges": [
-      "\u23f1\ufe0f 20 Mins",
-      "\ud83d\udcaa 48g Protein",
-      "\ud83e\udd57 4g Carbs",
-      "\ud83d\udd25 370 Cals"
+      "⏱️ 20 Mins",
+      "💪 48g Protein",
+      "🥗 4g Carbs",
+      "🔥 370 Cals"
     ],
     "tags": [
       "chicken",
@@ -1012,7 +1019,7 @@
     "why_it_works": [
       "Parmesan cheese replaces breadcrumbs, creating an authentic golden crunch while slashing carbohydrates.",
       "Air fryer circulates intense dry heat that crisps both sides evenly in under 10 minutes.",
-      "Loved by kids and adults alike \u2014 perfect with a fresh arugula salad or over marinara."
+      "Loved by kids and adults alike — perfect with a fresh arugula salad or over marinara."
     ],
     "ingredients": [
       {
@@ -1074,12 +1081,12 @@
       {
         "step": 3,
         "title": "Air Fry to Golden Perfection",
-        "text": "Preheat air fryer to 390\u00b0F (198\u00b0C). Lightly spray basket with avocado oil spray. Place chicken cutlets in a single layer (cook in two batches if needed). Lightly mist the tops with avocado oil spray."
+        "text": "Preheat air fryer to 390°F (198°C). Lightly spray basket with avocado oil spray. Place chicken cutlets in a single layer (cook in two batches if needed). Lightly mist the tops with avocado oil spray."
       },
       {
         "step": 4,
         "title": "Flip & Finish",
-        "text": "Air fry for 5 minutes, flip cutlets with tongs, mist with oil, and air fry for another 4\u20135 minutes until deeply golden brown and crunchy (internal temp 165\u00b0F)."
+        "text": "Air fry for 5 minutes, flip cutlets with tongs, mist with oil, and air fry for another 4–5 minutes until deeply golden brown and crunchy (internal temp 165°F)."
       },
       {
         "step": 5,
@@ -1104,12 +1111,13 @@
       "title": "Crispy Air Fryer Parmesan Chicken Cutlets (48g Protein & 4g Carbs)",
       "description": "Crazy crispy chicken cutlets crusted with parmesan cheese and Italian herbs in the air fryer! No breadcrumbs, no deep frying. 48g Protein, low carb & keto. Tap for the secret to the crispiest chicken! #airfryerchicken #parmesanchicken #ketorecipes #highprotein #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/air-fryer-crispy-parmesan-chicken-cutlets.jpg"
   },
   {
     "id": "lemon-dill-shrimp-asparagus",
     "title": "12-Minute Lemon Dill Garlic Butter Shrimp with Asparagus",
-    "headline": "Sweet, tender wild shrimp and fresh asparagus saut\u00e9ed in golden garlic butter and lemon dill in 12 quick minutes.",
+    "headline": "Sweet, tender wild shrimp and fresh asparagus sautéed in golden garlic butter and lemon dill in 12 quick minutes.",
     "category": "Quick 20-Min Dinners",
     "cuisine": "American Seafood",
     "difficulty": "Easy",
@@ -1123,10 +1131,10 @@
     "fat": 17,
     "fiber": 2,
     "badges": [
-      "\u23f1\ufe0f 12 Mins",
-      "\ud83d\udcaa 39g Protein",
-      "\ud83c\udf64 Seafood",
-      "\ud83d\udd25 340 Cals"
+      "⏱️ 12 Mins",
+      "💪 39g Protein",
+      "🍤 Seafood",
+      "🔥 340 Cals"
     ],
     "tags": [
       "shrimp",
@@ -1203,8 +1211,8 @@
     "instructions": [
       {
         "step": 1,
-        "title": "Saut\u00e9 Asparagus",
-        "text": "Heat 1 tbsp olive oil and 1 tbsp butter in a 12-inch skillet over medium-high heat. Add cut asparagus pieces and a pinch of salt. Saut\u00e9 for 3\u20134 minutes until bright green and crisp-tender. Push asparagus to one side of the pan."
+        "title": "Sauté Asparagus",
+        "text": "Heat 1 tbsp olive oil and 1 tbsp butter in a 12-inch skillet over medium-high heat. Add cut asparagus pieces and a pinch of salt. Sauté for 3–4 minutes until bright green and crisp-tender. Push asparagus to one side of the pan."
       },
       {
         "step": 2,
@@ -1214,7 +1222,7 @@
       {
         "step": 3,
         "title": "Cook Shrimp Rapidly",
-        "text": "Cook shrimp for 2 minutes undisturbed, flip, and cook for another 1\u20132 minutes until opaque, pink, and curled into a loose 'C' shape."
+        "text": "Cook shrimp for 2 minutes undisturbed, flip, and cook for another 1–2 minutes until opaque, pink, and curled into a loose 'C' shape."
       },
       {
         "step": 4,
@@ -1236,9 +1244,10 @@
     ],
     "pin_copy": {
       "title": "12-Min Lemon Garlic Butter Shrimp with Asparagus (39g Protein)",
-      "description": "Juicy jumbo shrimp and tender asparagus saut\u00e9ed in a rich lemon garlic butter and fresh dill sauce! Dinner ready in literally 12 minutes with 39g protein and low carb. Tap for easy recipe! #shrimprecipes #15minutedinner #healthyseafood #ketodinner #quickrecipes",
+      "description": "Juicy jumbo shrimp and tender asparagus sautéed in a rich lemon garlic butter and fresh dill sauce! Dinner ready in literally 12 minutes with 39g protein and low carb. Tap for easy recipe! #shrimprecipes #15minutedinner #healthyseafood #ketodinner #quickrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/lemon-dill-shrimp-asparagus.jpg"
   },
   {
     "id": "golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice",
@@ -1257,10 +1266,10 @@
     "fat": 11,
     "fiber": 5,
     "badges": [
-      "\u23f1\ufe0f 17 Mins",
-      "\ud83d\udcaa 45g Protein",
-      "\ud83e\udd57 Clean Eats",
-      "\ud83d\udd25 338 Cals"
+      "⏱️ 17 Mins",
+      "💪 45g Protein",
+      "🥗 Clean Eats",
+      "🔥 338 Cals"
     ],
     "tags": [
       "shrimp",
@@ -1335,7 +1344,7 @@
       {
         "step": 3,
         "title": "Cook Over High Heat",
-        "text": "Preheat your pan or air fryer to 400\u00b0F (200\u00b0C). Cook jumbo wild gulf shrimp for 8\u201310 minutes, flipping halfway until internal temperature reaches recommended safe temp."
+        "text": "Preheat your pan or air fryer to 400°F (200°C). Cook jumbo wild gulf shrimp for 8–10 minutes, flipping halfway until internal temperature reaches recommended safe temp."
       },
       {
         "step": 4,
@@ -1359,6 +1368,7 @@
       "title": "Golden One-Pan Jumbo with Roasted Garlic Cauliflower Rice (45g Protein & 17 Mins)",
       "description": "Golden jumbo wild gulf shrimp and roasted garlic cauliflower rice made in only 17 minutes! Packed with 45g protein and low carb. Tap for full recipe and tools list! #healthymeals #highprotein #quickdinner #easyrecipes",
       "board": "Quick & Healthy Easy Meals"
-    }
+    },
+    "image": "assets/images/recipes/golden-one-pan-jumbo-with-roasted-garlic-cauliflower-rice.jpg"
   }
 ]
