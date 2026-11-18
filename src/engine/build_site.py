@@ -1753,8 +1753,8 @@ def generate_recipe_schema(recipe, config):
     domain = config["domain"].rstrip("/")
     slug = recipe["id"]
     recipe_url = f"{domain}/recipes/{slug}.html"
-    photo_url = f"{domain}/assets/images/recipes/{slug}.jpg"
-    pin_url = f"{domain}/assets/pins/pin-{slug}.png"
+    photo_url = f"{domain}/assets/images/recipes/{slug}.jpg?v=2"
+    pin_url = f"{domain}/assets/pins/pin-{slug}.png?v=2"
 
     ingredients = []
     for ing in recipe.get("ingredients", []):
@@ -1811,8 +1811,8 @@ def build_recipe_page(recipe, config, all_recipes):
     domain = config["domain"].rstrip("/")
     slug = recipe["id"]
     recipe_url = f"{domain}/recipes/{slug}.html"
-    photo_url = f"{domain}/assets/images/recipes/{slug}.jpg"
-    pin_url = f"{domain}/assets/pins/pin-{slug}.png"
+    photo_url = f"{domain}/assets/images/recipes/{slug}.jpg?v=2"
+    pin_url = f"{domain}/assets/pins/pin-{slug}.png?v=2"
     schema_json = generate_recipe_schema(recipe, config)
 
     # Ingredients HTML with unit data attributes
@@ -1876,7 +1876,7 @@ def build_recipe_page(recipe, config, all_recipes):
         related_html += f"""
         <a href="/recipes/{r['id']}.html" class="recipe-card">
           <div class="card-media">
-            <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
+            <img src="/assets/images/recipes/{r['id']}.jpg?v=2" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Dinner')}</span>
             <span class="card-badge-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -1997,7 +1997,7 @@ def build_recipe_page(recipe, config, all_recipes):
       </div>
 
       <div class="recipe-hero-visual">
-        <img src="/assets/images/recipes/{slug}.jpg" alt="{recipe['title']}">
+        <img src="/assets/images/recipes/{slug}.jpg?v=2" alt="{recipe['title']}">
         <div class="recipe-photo-caption">
           <span>Freshly cooked in under 25 minutes</span>
           <span style="font-weight:700; color:var(--primary);">Tested Recipe ✓</span>
@@ -2164,7 +2164,7 @@ def build_recipe_page(recipe, config, all_recipes):
       <!-- Pinterest Pin Banner Box -->
       <div class="pin-save-section">
         <div class="pin-thumbnail">
-          <img src="/assets/pins/pin-{slug}.png" alt="Pinterest pin for {recipe['title']}">
+          <img src="/assets/pins/pin-{slug}.png?v=2" alt="Pinterest pin for {recipe['title']}">
         </div>
         <div>
           <h4 style="font-family:var(--font-serif); font-size:1.25rem; color:var(--ink); margin-bottom:6px;">Love this recipe? Save it to Pinterest!</h4>
@@ -2238,7 +2238,7 @@ def build_homepage(recipes, config):
         cards_html += f"""
         <a href="/recipes/{r['id']}.html" class="recipe-card reveal reveal-stagger" data-category="{r.get('category', '')}" data-time="{r.get('total_time', 20)}" data-protein="{r.get('protein', 30)}" data-tags="{tags_str}">
           <div class="card-media">
-            <img src="/assets/images/recipes/{r['id']}.jpg" alt="{r['title']}" loading="lazy">
+            <img src="/assets/images/recipes/{r['id']}.jpg?v=2" alt="{r['title']}" loading="lazy">
             <span class="card-badge-cat">{r.get('category', 'Healthy Meals')}</span>
             <span class="card-badge-time">⏱️ {r['total_time']} mins</span>
           </div>
@@ -2287,7 +2287,7 @@ def build_homepage(recipes, config):
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
-    <span>🌿 CleanPlated Clean Eating</span> High-protein, clean-ingredient dinners ready in 25 minutes or less. Minimal cleanup.
+    <span>✨ NEW & TESTED</span> Chef-Tested 20-Min Dinners • Featuring Interactive Cook Mode, Serving Scaler & Instant Recipe Search
   </div>
 
   <!-- Site Header -->
@@ -2325,7 +2325,7 @@ def build_homepage(recipes, config):
       <!-- Featured Recipe Hero Card -->
       <a href="/recipes/{featured['id']}.html" class="hero-card">
         <div class="hero-card-img-wrap">
-          <img src="/assets/images/recipes/{featured['id']}.jpg" alt="{featured['title']}">
+          <img src="/assets/images/recipes/{featured['id']}.jpg?v=2" alt="{featured['title']}">
           <div class="hero-floating-badge">Featured Recipe of the Day</div>
         </div>
         <div class="hero-card-body">
@@ -2344,7 +2344,7 @@ def build_homepage(recipes, config):
   </section>
 
   <!-- Minimalist Baker Inspired Instant Search & Filter Hub -->
-  <section class="container filter-section reveal" id="search-hub">
+  <section class="container filter-section" id="search-hub">
     <div class="search-filter-box">
       <div class="search-input-wrap">
         <span class="search-icon">🔍</span>
