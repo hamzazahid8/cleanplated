@@ -19,7 +19,7 @@
         "badge": "Top Recommended",
         "price_approx": "$89.99",
         "description": "Crisp up vegetables and proteins with 75% less oil in under 15 minutes.",
-        "url": "https://www.amazon.com/s?k=Ninja+AF101+Air+Fryer+4+Qt&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B07FDJMC9Q/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/71+8RhEw0IL._AC_SL1500_.jpg"
       },
       "blender": {
@@ -28,7 +28,7 @@
         "badge": "Staff Pick",
         "price_approx": "$79.99",
         "description": "Pulverizes seeds, greens, and protein shakes in 30 seconds flat.",
-        "url": "https://www.amazon.com/s?k=NutriBullet+Pro+900W+Blender&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B017PFL0CS/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/71Yv8y6P4yL._AC_SL1500_.jpg"
       },
       "kitchen_scale": {
@@ -37,7 +37,7 @@
         "badge": "Meal Prep Must-Have",
         "price_approx": "$14.99",
         "description": "Accurate to 1 gram for exact macro tracking and portion control.",
-        "url": "https://www.amazon.com/s?k=Digital+Kitchen+Food+Scale&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B07M9A8K3R/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/71y82982dKL._AC_SL1500_.jpg"
       },
       "meal_prep_containers": {
@@ -46,7 +46,7 @@
         "badge": "Amazon's Choice",
         "price_approx": "$29.99",
         "description": "Airtight snap-locking lids, oven and microwave safe, zero plastic leaching.",
-        "url": "https://www.amazon.com/s?k=Glass+Meal+Prep+Containers+Airtight&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B0777JD5DD/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/81x1-kC5+GL._AC_SL1500_.jpg"
       },
       "chef_knife": {
@@ -55,7 +55,7 @@
         "badge": "Pro Choice",
         "price_approx": "$44.95",
         "description": "Razor-sharp Swiss high-carbon steel that effortlessly glides through vegetables and meat.",
-        "url": "https://www.amazon.com/s?k=Victorinox+Fibrox+Pro+Chef+Knife&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B008M5U1C2/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/61gR7m2-31L._AC_SL1500_.jpg"
       },
       "meat_thermometer": {
@@ -64,7 +64,7 @@
         "badge": "Precision Tool",
         "price_approx": "$17.99",
         "description": "Instant 2-second read guarantees chicken and salmon are never dry or overcooked.",
-        "url": "https://www.amazon.com/s?k=ThermoPro+Digital+Meat+Thermometer&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B08F9Y2DC6/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/71Z1-yHqf4L._AC_SL1500_.jpg"
       },
       "skillet": {
@@ -73,7 +73,7 @@
         "badge": "Bestseller",
         "price_approx": "$19.90",
         "description": "Unmatched heat retention for restaurant-quality searing and stovetop-to-oven roasting.",
-        "url": "https://www.amazon.com/s?k=Lodge+Cast+Iron+Skillet+10.25&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B00006JSUA/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/81t56lJ04KL._AC_SL1500_.jpg"
       },
       "veggie_chopper": {
@@ -82,7 +82,7 @@
         "badge": "Viral Favorite",
         "price_approx": "$24.99",
         "description": "Dice onions, bell peppers, and carrots into uniform cubes in one second.",
-        "url": "https://www.amazon.com/s?k=Fullstar+Vegetable+Chopper&tag=cleanplated-20",
+        "url": "https://www.amazon.com/dp/B0971BN7T7/?tag=cleanplated-20",
         "image": "https://m.media-amazon.com/images/I/71dK4nQ5SGL._AC_SL1500_.jpg"
       }
     },
@@ -90,27 +90,27 @@
       "olive_oil": {
         "name": "California Olive Ranch 100% Extra Virgin Olive Oil",
         "description": "Cold-pressed extra virgin olive oil with rich polyphenol content.",
-        "url": "https://www.amazon.com/s?k=California+Olive+Ranch+Extra+Virgin+Olive+Oil&tag=cleanplated-20"
+        "url": "https://www.amazon.com/dp/B00B4U0D8M/?tag=cleanplated-20"
       },
       "avocado_oil_spray": {
         "name": "Chosen Foods 100% Pure Avocado Oil Spray (High Smoke Point 500°F)",
         "description": "Zero chemical propellants, ideal for air frying and searing.",
-        "url": "https://www.amazon.com/s?k=Chosen+Foods+Avocado+Oil+Spray&tag=cleanplated-20"
+        "url": "https://www.amazon.com/dp/B00R88XWQE/?tag=cleanplated-20"
       },
       "chia_seeds": {
         "name": "Viva Naturals Organic Raw Chia Seeds (2 lb)",
         "description": "Loaded with Omega-3, fiber, and plant-based protein.",
-        "url": "https://www.amazon.com/s?k=Organic+Raw+Chia+Seeds&tag=cleanplated-20"
+        "url": "https://www.amazon.com/dp/B00P8DXFBC/?tag=cleanplated-20"
       },
       "chickpea_pasta": {
         "name": "Banza Chickpea Pasta Rotini (20g Protein / 8g Fiber)",
         "description": "Low glycemic, gluten-free, tastes just like traditional pasta.",
-        "url": "https://www.amazon.com/s?k=Banza+Chickpea+Pasta+Rotini&tag=cleanplated-20"
+        "url": "https://www.amazon.com/dp/B07613QFFV/?tag=cleanplated-20"
       },
       "himalayan_salt": {
         "name": "Redmond Real Salt Ancient Fine Sea Salt (Unrefined)",
         "description": "Contains 60+ natural trace minerals, no artificial anti-caking agents.",
-        "url": "https://www.amazon.com/s?k=Redmond+Real+Salt+Ancient+Fine+Sea+Salt&tag=cleanplated-20"
+        "url": "https://www.amazon.com/dp/B008ZJ6NVM/?tag=cleanplated-20"
       }
     }
   },
