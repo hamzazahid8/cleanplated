@@ -73,7 +73,7 @@ Ingredients within the recipe checklist include contextual affiliate text links:
 ### C. Legal Compliance & FTC Disclosures
 * Standard Amazon Associates disclosure prominently displayed in the footer and directly above all recipe product showcases:
   > *"As an Amazon Associate, PurePlated earns from qualifying purchases at no additional cost to you. We only recommend kitchen equipment and wholesome ingredients we genuinely use and love."*
-* Dynamic Amazon tag configuration in `config/site_config.json` (`affiliate_tag: "pureplated-20"`).
+* Dynamic Amazon tag configuration in `config/site_config.json` (`affiliate_tag: "cleanplated-20"`).
 
 ---
 

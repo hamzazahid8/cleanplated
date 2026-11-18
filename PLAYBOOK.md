@@ -13,7 +13,7 @@ Open `config/site_config.json`:
   "affiliate_tag": "yourtag-20"
 }
 ```
-Replace `pureplated-20` with your active Amazon Associates Tracking ID. All product buttons, kitchen tool showcases, and inline pantry links will immediately inherit your tag on the next build!
+Replace `cleanplated-20` with your active Amazon Associates Tracking ID. All product buttons, kitchen tool showcases, and inline pantry links will immediately inherit your tag on the next build!
 
 ### Step 2: Deploy to Web Hosting
 The `public/` directory contains 100% static HTML, CSS, JS, and image assets with zero database overhead. You can host it virtually anywhere for free or near-zero cost:
