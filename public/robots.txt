@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://tiny-lemonchiffon-woodpecker-50.hostingersite.com/sitemap.xml
+Sitemap: https://meals.aipilotmoney.com/sitemap.xml
